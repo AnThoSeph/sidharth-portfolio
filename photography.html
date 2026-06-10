@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="dark light">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("sid-theme");
+        document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photos | SIDHARTH KV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700;900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter:wght@400;500;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-dim": "#050505", "on-surface": "#ffffff", "outline": "#666666", "outline-variant": "#333333", "primary": "#ffffff" }, fontFamily: { headline: ["Space Grotesk"], body: ["Newsreader"], label: ["Inter"] } } } };
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-label selection:bg-white selection:text-black bg-black" data-page="photography">
+  <div id="custom-cursor" aria-hidden="true"></div>
+  <div class="fixed inset-0 noise-texture z-0"></div>
+  <div class="fixed inset-0 glossy-patterns z-0"></div>
+  <div class="fixed inset-0 dot-grid z-0"></div>
+  <div class="fixed inset-0 interactive-mask z-0"></div>
+  <div class="fixed right-4 top-0 h-full w-[1px] bg-white/10 z-40 hidden md:block"><div class="w-full h-full bg-white/60 progress-line"></div></div>
+
+  <nav class="site-nav fixed top-0 w-full z-50 py-8 px-12">
+    <div class="max-w-[1920px] mx-auto flex justify-between items-start font-headline text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-white">
+      <a href="index.html" class="text-lg font-black tracking-tighter hover:opacity-70 transition-opacity">SIDHARTH KV</a>
+      <div class="hidden lg:block"><div class="opacity-40 mb-1">Location</div><div>Kannur, Kerala, India <span id="live-clock">--:-- --</span></div></div>
+      <div class="hidden lg:block"><div class="opacity-40 mb-1">Inquiry</div><a class="hover:opacity-60 transition-opacity" href="mailto:sidhu500sidhu@gmail.com">sidhu500sidhu@gmail.com</a></div>
+      <div class="flex items-center gap-3">
+        <button type="button" id="theme-toggle" class="theme-toggle magnetic-button" aria-label="Switch to light mode" aria-pressed="true">
+          <span class="material-symbols-outlined theme-toggle-icon" aria-hidden="true">dark_mode</span>
+        </button>
+        <button type="button" id="menu-open-btn" class="group flex items-center gap-2 hover:opacity-60 transition-opacity magnetic-button" aria-expanded="false" aria-controls="menu-overlay"><span>MENU</span><span class="material-symbols-outlined text-sm">menu</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="menu-overlay" class="fixed inset-0 z-[100] bg-surface-dim text-on-surface font-body" aria-hidden="true"></div>
+
+  <main class="relative z-10 pt-28">
+    <section class="min-h-[50vh] flex items-end px-12 pb-16 motion-section is-visible border-b border-white/5">
+      <div class="max-w-[1400px] w-full mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+        <div>
+          <span class="font-label text-white/50 text-sm uppercase tracking-[0.3em] mb-4 block">04 / Photos</span>
+          <h1 class="page-title font-headline text-6xl md:text-[9vw] font-black uppercase leading-none" id="page-title">Photos</h1>
+        </div>
+        <p class="font-body italic text-xl text-white/40 max-w-sm md:text-right">"Framing reality with the same compositional rigor as 3D — light, geometry, and narrative in every frame."</p>
+      </div>
+    </section>
+
+    <section class="py-20 px-12 motion-section">
+      <div class="max-w-[1400px] mx-auto">
+        <div class="flex flex-wrap gap-3 mb-12" id="photo-filters">
+          <button type="button" class="filter-btn px-4 py-2 border border-white/20 text-xs uppercase tracking-widest cursor-pointer hover:border-white/40 transition-colors" data-photo-filter="all">All</button>
+          <button type="button" class="filter-btn px-4 py-2 border border-white/10 text-white/40 text-xs uppercase tracking-widest hover:border-white/30 transition-colors cursor-pointer" data-photo-filter="portrait">Portrait</button>
+          <button type="button" class="filter-btn px-4 py-2 border border-white/10 text-white/40 text-xs uppercase tracking-widest hover:border-white/30 transition-colors cursor-pointer" data-photo-filter="culture">Culture</button>
+          <button type="button" class="filter-btn px-4 py-2 border border-white/10 text-white/40 text-xs uppercase tracking-widest hover:border-white/30 transition-colors cursor-pointer" data-photo-filter="travel">Travel</button>
+        </div>
+        <p class="font-label text-xs uppercase tracking-[0.2em] text-white/40 mb-8">Click any image for full screen</p>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8" id="photography-grid"></div>
+      </div>
+    </section>
+
+    <section class="py-24 px-12 bg-[#050505] border-y border-white/5 motion-section">
+      <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div>
+          <h2 class="font-label text-xs uppercase tracking-[0.3em] text-white/40 mb-3">Approach</h2>
+          <p class="font-body text-lg text-white/70 leading-relaxed">Natural and studio light — composition first, then exposure. Same discipline as product viz and character work.</p>
+        </div>
+        <div>
+          <h2 class="font-label text-xs uppercase tracking-[0.3em] text-white/40 mb-3">Gear</h2>
+          <p class="font-body text-lg text-white/70 leading-relaxed">Mirrorless body · prime lenses · RAW workflow · grade in Lightroom / Photoshop for final delivery.</p>
+        </div>
+        <div>
+          <h2 class="font-label text-xs uppercase tracking-[0.3em] text-white/40 mb-3">Services</h2>
+          <p class="font-body text-lg text-white/70 leading-relaxed">Portrait, product, editorial, and travel frames — available for commissions alongside 3D projects.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Photos gallery">
+    <div class="lightbox-backdrop" aria-hidden="true"></div>
+    <button type="button" class="lightbox-close" aria-label="Close gallery">×</button>
+    <button type="button" class="lightbox-prev" aria-label="Previous image">‹</button>
+    <button type="button" class="lightbox-next" aria-label="Next image">›</button>
+    <div class="lightbox-inner">
+      <img class="lightbox-img" src="" alt="">
+      <p class="lightbox-caption"></p>
+      <span class="lightbox-counter"></span>
+    </div>
+  </div>
+
+  <footer class="bg-black w-full py-16 border-t border-white/10 relative z-10">
+    <div class="flex flex-col items-center gap-6 px-12">
+      <a href="contact.html" class="font-headline text-sm uppercase tracking-[0.3em] border border-white/20 px-6 py-3 hover:bg-white/5 transition-colors">Book a shoot</a>
+      <p class="font-label text-[10px] uppercase tracking-[0.2em] text-white/40">© 2026 SIDHARTH KV</p>
+    </div>
+  </footer>
+
+  <script src="js/photography-data.js" defer></script>
+  <script src="js/lightbox.js" defer></script>
+  <script src="js/photography-page.js" defer></script>
+  <script src="js/menu-data.js" defer></script>
+  <script src="js/menu.js" defer></script>
+  <script src="js/theme.js" defer></script>
+  <script src="site.js" defer></script>
+</body>
+</html>

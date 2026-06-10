@@ -1,0 +1,33 @@
+# Static portfolio — no build step
+[build]
+  publish = "."
+
+# SPA-style fallbacks for clean URLs (optional)
+[[redirects]]
+  from = "/project"
+  to = "/project.html"
+  status = 200
+
+[[redirects]]
+  from = "/studio"
+  to = "/about.html"
+  status = 301
+
+# GLB models — correct MIME for 3D viewer
+[[headers]]
+  for = "/*.glb"
+  [headers.values]
+    Content-Type = "model/gltf-binary"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/assets/**/*.glb"
+  [headers.values]
+    Content-Type = "model/gltf-binary"
+    Access-Control-Allow-Origin = "*"
+
+# Long cache for static assets (filenames are content-addressed by folder)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

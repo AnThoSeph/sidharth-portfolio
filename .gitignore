@@ -1,0 +1,19 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/
+.idea/
+
+# Env / secrets
+.env
+.env.*
+
+# Local tooling
+node_modules/
+.netlify/
+
+# Backups (optional local originals)
+assets/**/*.orig
+assets/**/_originals/

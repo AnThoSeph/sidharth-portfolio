@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROJECT NAME | SIDHARTH KV — Template Reference</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700;900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter:wght@400;500;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-dim": "#050505", "on-surface": "#ffffff", "outline": "#666666", "outline-variant": "#333333", "primary": "#ffffff" }, fontFamily: { headline: ["Space Grotesk"], body: ["Newsreader"], label: ["Inter"] } } } };
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <!--
+    REFERENCE ONLY — live case studies use project.html?slug=your-slug
+    driven by js/projects-data.js + js/case-study.js
+
+    To add a project:
+    1. Create folder assets/projects/your-slug/
+    2. Add images (see assets/projects/README.md)
+    3. Copy an entry in js/projects-data.js and edit copy + paths
+    4. Open project.html?slug=your-slug
+  -->
+</head>
+<body class="font-label selection:bg-white selection:text-black bg-black">
+  <main class="relative z-10 pt-32 px-12 pb-24 max-w-[1400px] mx-auto space-y-8 font-body text-white/70">
+    <h1 class="font-headline text-4xl text-white">Case study template (static reference)</h1>
+    <p>Production pages are generated at <code class="text-white">project.html?slug=hibiki</code>. Edit metadata in <code class="text-white">js/projects-data.js</code>.</p>
+    <ol class="list-decimal list-inside space-y-2">
+      <li>Hero + metadata chips (category, year, role, polycount, tools)</li>
+      <li>Before / after drag slider on hero (blockout vs final)</li>
+      <li>Full-screen lightbox on gallery &amp; process images</li>
+      <li>Problem · Approach · Outcome</li>
+      <li>4-step process breakdown with images</li>
+      <li>Gallery grid</li>
+      <li>Optional &lt;model-viewer&gt; when model.glb exists</li>
+      <li>Prev / next project navigation</li>
+    </ol>
+    <a href="projects.html" class="inline-block font-label uppercase tracking-widest border border-white/20 px-6 py-3 hover:bg-white/5">← Back to projects</a>
+  </main>
+</body>
+</html>

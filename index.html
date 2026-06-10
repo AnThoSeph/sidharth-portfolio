@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" style="--mouse-x: 69.609375%; --mouse-y: 21.473636773321317%;">
+<head>
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="dark light">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("sid-theme");
+        document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta name="description" content="Sidharth KV — 3D artist and photographer based in Kannur, Kerala. Product visualization, character design, environment art, and photography.">
+  <title>Index | SIDHARTH KV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700;900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter:wght@400;500;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container": "#0a0a0a",
+            "surface": "#000000",
+            "surface-dim": "#050505",
+            "surface-container-high": "#0f0f0f",
+            "on-background": "#ffffff",
+            "on-surface": "#ffffff",
+            "outline": "#666666",
+            "outline-variant": "#333333",
+            "primary": "#ffffff",
+            "background": "#000000",
+            "surface-variant": "#121212"
+          },
+          fontFamily: {
+            "headline": ["Space Grotesk"],
+            "body": ["Newsreader"],
+            "label": ["Inter"]
+          },
+          borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+          animation: {
+            "marquee": "marquee 30s linear infinite",
+            "wave-pulse": "wave-pulse 4s ease-in-out forwards"
+          },
+          keyframes: {
+            marquee: {
+              "0%": { transform: "translateX(0%)" },
+              "100%": { transform: "translateX(-50%)" }
+            },
+            "wave-pulse": {
+              "0%": { opacity: "0.1", filter: "grayscale(100%) brightness(0.8)" },
+              "25%": { opacity: "0.5", filter: "grayscale(100%) brightness(1.5)" },
+              "50%": { opacity: "0.2", filter: "grayscale(100%) brightness(1.0)" },
+              "75%": { opacity: "0.5", filter: "grayscale(100%) brightness(1.4)" },
+              "100%": { opacity: "0.2", filter: "grayscale(100%) brightness(1.0)" }
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="index" class="font-label selection:bg-white selection:text-black bg-black">
+  <div id="custom-cursor" aria-hidden="true"></div>
+  <div class="fixed inset-0 noise-texture z-0"></div>
+  <div class="fixed inset-0 glossy-patterns z-0"></div>
+  <div class="fixed inset-0 dot-grid z-0"></div>
+  <div class="fixed inset-0 interactive-mask z-0"></div>
+  <div class="fixed right-4 top-0 h-full w-[1px] bg-white/10 z-40 hidden md:block">
+    <div class="w-full h-full bg-white/60 progress-line"></div>
+  </div>
+
+  <nav class="site-nav fixed top-0 w-full z-50 py-8 px-12">
+    <div class="max-w-[1920px] mx-auto flex justify-between items-start font-headline text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-white">
+      <div class="flex gap-4 items-center">
+        <a href="index.html" class="text-lg font-black tracking-tighter hover:opacity-70 transition-opacity">SIDHARTH KV</a>
+      </div>
+      <div class="hidden lg:block">
+        <div class="opacity-40 mb-1">Location</div>
+        <div>Kannur, Kerala, India <span id="live-clock">--:-- --</span></div>
+      </div>
+      <div class="hidden lg:block">
+        <div class="opacity-40 mb-1">Inquiry</div>
+        <a class="hover:opacity-60 transition-opacity" href="mailto:sidhu500sidhu@gmail.com">sidhu500sidhu@gmail.com</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button type="button" id="theme-toggle" class="theme-toggle magnetic-button" aria-label="Switch to light mode" aria-pressed="true">
+          <span class="material-symbols-outlined theme-toggle-icon" aria-hidden="true">dark_mode</span>
+        </button>
+        <button type="button" id="menu-open-btn" class="group flex items-center gap-2 hover:opacity-60 transition-opacity magnetic-button" aria-expanded="false" aria-controls="menu-overlay">
+          <span>MENU</span>
+          <span class="material-symbols-outlined text-sm">menu</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="menu-overlay" class="fixed inset-0 z-[100] bg-surface-dim text-on-surface font-body" aria-hidden="true"></div>
+
+  <main class="relative z-10 pt-24">
+    <section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black motion-section is-visible" id="hero-section">
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div class="relative w-full h-full max-w-4xl aspect-square group hero-float">
+          <img alt="Artist Portrait" class="w-full h-full object-cover grayscale transition-all duration-700 ease-in-out group-hover:opacity-40 group-hover:brightness-[1.2] group-hover:scale-105 animate-wave-pulse portrait-mask opacity-60" src="assets/Sid.jpeg">
+        </div>
+      </div>
+      <div class="absolute top-1/4 -left-20 w-96 h-96 bg-white/5 rounded-full blur-[120px] hero-float"></div>
+      <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-white/5 rounded-full blur-[120px] hero-float"></div>
+      <div class="relative z-10 text-center px-6">
+        <h1 class="hero-title hero-title-shadow font-headline font-black leading-none text-white mb-8 whitespace-nowrap text-5xl md:text-[8vw] tracking-normal" id="hero-title">SIDHARTH KV</h1>
+        <div class="flex flex-wrap justify-center items-center gap-6 md:gap-12 text-sm md:text-base uppercase tracking-[0.3em] font-label text-white/60 font-bold">
+          <span>Product Designing</span><span class="w-1.5 h-1.5 bg-white/30 rounded-full"></span>
+          <span>Character Design</span><span class="w-1.5 h-1.5 bg-white/30 rounded-full"></span>
+          <span>Asset Design</span><span class="w-1.5 h-1.5 bg-white/30 rounded-full"></span>
+          <a href="photography.html" class="hover:text-white transition-colors">Photography</a>
+        </div>
+      </div>
+      <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-40">
+        <span class="text-[10px] uppercase tracking-[0.4em] text-white">Scroll to Explore</span>
+        <div class="w-[1px] h-12 bg-gradient-to-b from-white to-transparent"></div>
+      </div>
+    </section>
+
+    <section class="relative w-full bg-[#030303] py-12 border-y border-white/5 overflow-hidden motion-section">
+      <div class="relative flex items-center marquee-wrap">
+        <div class="flex whitespace-nowrap animate-marquee">
+          <div class="flex items-center gap-20 px-10">
+            <div class="flex items-center gap-4 group"><span class="material-symbols-outlined text-white/40 group-hover:text-white transition-colors duration-300">deployed_code</span><span class="font-headline font-bold text-white/40 group-hover:text-white tracking-widest text-sm uppercase transition-colors duration-300">Unreal Engine</span></div>
+            <div class="flex items-center gap-4 group"><span class="material-symbols-outlined text-white/40 group-hover:text-white transition-colors duration-300">draw</span><span class="font-headline font-bold text-white/40 group-hover:text-white tracking-widest text-sm uppercase transition-colors duration-300">ZBrush</span></div>
+            <div class="flex items-center gap-4 group"><span class="material-symbols-outlined text-white/40 group-hover:text-white transition-colors duration-300">architecture</span><span class="font-headline font-bold text-white/40 group-hover:text-white tracking-widest text-sm uppercase transition-colors duration-300">Blender</span></div>
+            <div class="flex items-center gap-4 group"><span class="material-symbols-outlined text-white/40 group-hover:text-white transition-colors duration-300">format_paint</span><span class="font-headline font-bold text-white/40 group-hover:text-white tracking-widest text-sm uppercase transition-colors duration-300">Substance Painter</span></div>
+            <div class="flex items-center gap-4 group"><span class="material-symbols-outlined text-white/40 group-hover:text-white transition-colors duration-300">apparel</span><span class="font-headline font-bold text-white/40 group-hover:text-white tracking-widest text-sm uppercase transition-colors duration-300">Marvelous Designer</span></div>
+            <div class="flex items-center gap-4 group"><span class="material-symbols-outlined text-white/40 group-hover:text-white transition-colors duration-300">photo_filter</span><span class="font-headline font-bold text-white/40 group-hover:text-white tracking-widest text-sm uppercase transition-colors duration-300">Photoshop</span></div>
+          </div>
+          <div class="flex items-center gap-20 px-10">
+            <div class="flex items-center gap-4 group"><span class="material-symbols-outlined text-white/40 group-hover:text-white transition-colors duration-300">deployed_code</span><span class="font-headline font-bold text-white/40 group-hover:text-white tracking-widest text-sm uppercase transition-colors duration-300">Unreal Engine</span></div>
+            <div class="flex items-center gap-4 group"><span class="material-symbols-outlined text-white/40 group-hover:text-white transition-colors duration-300">draw</span><span class="font-headline font-bold text-white/40 group-hover:text-white tracking-widest text-sm uppercase transition-colors duration-300">ZBrush</span></div>
+            <div class="flex items-center gap-4 group"><span class="material-symbols-outlined text-white/40 group-hover:text-white transition-colors duration-300">architecture</span><span class="font-headline font-bold text-white/40 group-hover:text-white tracking-widest text-sm uppercase transition-colors duration-300">Blender</span></div>
+            <div class="flex items-center gap-4 group"><span class="material-symbols-outlined text-white/40 group-hover:text-white transition-colors duration-300">format_paint</span><span class="font-headline font-bold text-white/40 group-hover:text-white tracking-widest text-sm uppercase transition-colors duration-300">Substance Painter</span></div>
+            <div class="flex items-center gap-4 group"><span class="material-symbols-outlined text-white/40 group-hover:text-white transition-colors duration-300">apparel</span><span class="font-headline font-bold text-white/40 group-hover:text-white tracking-widest text-sm uppercase transition-colors duration-300">Marvelous Designer</span></div>
+            <div class="flex items-center gap-4 group"><span class="material-symbols-outlined text-white/40 group-hover:text-white transition-colors duration-300">photo_filter</span><span class="font-headline font-bold text-white/40 group-hover:text-white tracking-widest text-sm uppercase transition-colors duration-300">Photoshop</span></div>
+          </div>
+        </div>
+        <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#030303] to-transparent z-10"></div>
+        <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#030303] to-transparent z-10"></div>
+      </div>
+    </section>
+
+    <section id="featured-works" class="bg-[#050505] py-32 px-12 border-b border-white/5 motion-section">
+      <div class="max-w-[1400px] mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-20">
+          <div class="max-w-2xl">
+            <span class="font-label text-white/50 text-sm uppercase tracking-[0.3em] mb-4 block">Selected Works</span>
+            <h2 class="font-headline text-5xl font-bold tracking-tight text-white">Digital Artifacts &amp; Visual Narratives</h2>
+          </div>
+          <div class="hidden md:block"><p class="font-body italic text-2xl text-white/40 max-w-sm text-right">"Treating pixels as physical matter, light as a narrative tool."</p></div>
+        </div>
+        <div class="flex justify-end mb-8">
+          <a href="projects.html" class="font-label text-xs uppercase tracking-[0.3em] text-white/50 hover:text-white border-b border-white/20 pb-1 transition-colors">View all 7 projects →</a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+          <a href="project.html?slug=hibiki" class="md:col-span-8 group cursor-pointer project-card block">
+            <div class="relative aspect-video rounded-xl overflow-hidden bg-[#111] mb-6 border border-white/5"><img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="assets/projects/hibiki/beauty.png" alt="HIBIKI — Japanese blended whisky" onerror="this.onerror=null;this.src='assets/projects/_shared/placeholder.svg'"></div>
+            <h3 class="font-headline text-2xl font-bold text-white mb-1">HIBIKI</h3><p class="font-label text-sm text-white/40 uppercase tracking-widest">Japanese Blended Whisky / 2025</p>
+          </a>
+          <a href="project.html?slug=liquid-dreams" class="md:col-span-4 group cursor-pointer pt-12 project-card block">
+            <div class="relative aspect-[3/4] rounded-xl overflow-hidden bg-[#111] mb-6 border border-white/5"><img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="assets/projects/liquid-dreams/thumb.png" alt="Liquid Dreams" onerror="this.onerror=null;this.src='assets/projects/_shared/placeholder.svg'"></div>
+            <h3 class="font-headline text-2xl font-bold text-white mb-1">LIQUID DREAMS</h3><p class="font-label text-sm text-white/40 uppercase tracking-widest">Visual Arts</p>
+          </a>
+          <a href="project.html?slug=protocol-09" class="md:col-span-4 group cursor-pointer project-card block">
+            <div class="relative aspect-square rounded-xl overflow-hidden bg-[#111] mb-6 border border-white/5"><img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="assets/projects/protocol-09/thumb.png" alt="Protocol-09" onerror="this.onerror=null;this.src='assets/projects/_shared/placeholder.svg'"></div>
+            <h3 class="font-headline text-2xl font-bold text-white mb-1">PROTOCOL-09</h3><p class="font-label text-sm text-white/40 uppercase tracking-widest">Character Design</p>
+          </a>
+          <a href="project.html?slug=the-sanctuary" class="md:col-span-8 group cursor-pointer -mt-24 project-card block">
+            <div class="relative aspect-[16/9] rounded-xl overflow-hidden bg-[#111] mb-6 border border-white/5"><img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="assets/projects/the-sanctuary/thumb.png" alt="The Sanctuary" onerror="this.onerror=null;this.src='assets/projects/_shared/placeholder.svg'"></div>
+            <h3 class="font-headline text-2xl font-bold text-white mb-1">THE SANCTUARY</h3><p class="font-label text-sm text-white/40 uppercase tracking-widest">Environment Design</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-black py-32 px-12 overflow-hidden relative motion-section">
+      <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+        <div class="relative">
+          <div class="absolute -top-12 -left-12 text-[12rem] font-headline font-black text-white/[0.03] leading-none pointer-events-none">BIO</div>
+          <div class="relative z-10 space-y-8">
+            <h2 class="font-headline text-5xl font-bold text-white leading-tight">Light, geometry, and narrative — in 3D and through the lens.</h2>
+            <p class="font-body text-2xl text-white/60 leading-relaxed">I'm Sidharth KV, a 3D artist and photographer based in Kannur, Kerala. I create product visualizations, characters, and environments — from blockout to final beauty pass — and I bring the same eye for composition to real-world frames: culture, landscape, and portrait work. Software is the tool; the goal is always how the image feels when someone first sees it.</p>
+            <div class="grid grid-cols-2 gap-8 pt-8 border-t border-white/10">
+              <div><span class="font-label text-[10px] text-white/40 uppercase tracking-[0.2em]">3D</span><p class="font-headline text-lg font-bold text-white mt-1">Blender · Unreal · Substance</p></div>
+              <div><span class="font-label text-[10px] text-white/40 uppercase tracking-[0.2em]">Also</span><p class="font-headline text-lg font-bold text-white mt-1">Photography · ZBrush</p></div>
+            </div>
+            <a href="about.html" class="inline-block font-label text-xs uppercase tracking-[0.3em] text-white/50 hover:text-white border-b border-white/20 pb-1 transition-colors">Full bio &amp; CV →</a>
+          </div>
+        </div>
+        <div class="relative group">
+          <div class="absolute -inset-4 bg-white/5 rounded-xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+          <div class="relative aspect-square rounded-xl overflow-hidden ambient-lift">
+            <img class="w-full h-full object-cover grayscale opacity-80 scale-110 group-hover:scale-100 transition-transform duration-1000" src="assets/Sid.jpeg" alt="Sidharth KV">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact-section" class="bg-black/80 py-32 relative motion-section">
+      <div class="absolute inset-0 glossy-patterns opacity-50"></div>
+      <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+        <div class="inline-flex items-center gap-2 mb-8 bg-white/5 px-4 py-1.5 rounded-full border border-white/10">
+          <span class="material-symbols-outlined text-sm text-white">alternate_email</span>
+          <span class="font-label text-[10px] uppercase tracking-widest text-white/60">Stay in the Loop</span>
+        </div>
+        <h2 class="font-headline text-5xl font-bold text-white mb-12">New artifacts every full moon.</h2>
+        <form name="newsletter" method="POST" action="/index.html?subscribed=1" data-netlify="true" netlify-honeypot="newsletter-bot" class="relative max-w-md mx-auto group">
+          <input type="hidden" name="form-name" value="newsletter">
+          <p class="hidden" aria-hidden="true"><label>Don’t fill this out: <input name="newsletter-bot"></label></p>
+          <input name="email" required class="w-full bg-white/5 border border-white/10 py-6 px-8 rounded-lg font-label text-sm tracking-[0.2em] focus:ring-2 focus:ring-white/40 placeholder:text-white/20 text-white outline-none transition-all duration-300" placeholder="YOUR@EMAIL.COM" type="email">
+          <button class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center bg-white text-black rounded-lg hover:bg-white/90 transition-colors duration-300 magnetic-button" type="submit" aria-label="Subscribe">
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-black w-full py-16 border-t border-white/10 relative z-10">
+    <div class="flex flex-col items-center gap-8 w-full px-12">
+      <div class="text-white font-bold font-headline text-xl tracking-widest uppercase">STUDIO</div>
+      <div class="flex gap-10">
+        <a class="text-white/40 hover:text-white transition-all duration-500 font-['Inter'] text-[10px] uppercase tracking-[0.2em] font-medium opacity-80 hover:opacity-100" href="https://www.instagram.com/_sid_oo_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="text-white/40 hover:text-white transition-all duration-500 font-['Inter'] text-[10px] uppercase tracking-[0.2em] font-medium opacity-80 hover:opacity-100" href="https://www.linkedin.com/in/sidharth-kv-954696318/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+      <div class="font-['Inter'] text-[10px] uppercase tracking-[0.2em] font-medium text-white/40 mt-8">
+        © 2026 SIDHARTH KV. ALL RIGHTS RESERVED.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/menu-data.js" defer></script>
+  <script src="js/menu.js" defer></script>
+  <script src="js/theme.js" defer></script>
+  <script src="site.js" defer></script>
+</body>
+</html>

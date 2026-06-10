@@ -1,0 +1,100 @@
+/**
+ * Menu column-2 preview content — keyed by data-page on <body>.
+ */
+const MENU_PREVIEWS = {
+  index: {
+    label: "02 / Featured Work",
+    type: "featured",
+    badge: "Latest Render",
+    image: "assets/projects/hibiki/process-03.png",
+    alt: "HIBIKI product visualization",
+    title: "HIBIKI",
+    subtitle: "Japanese Blended Whisky / 2025",
+    href: "project.html?slug=hibiki",
+    cta: "View Case Study",
+    closeOnClick: true,
+  },
+  about: {
+    label: "02 / About",
+    type: "featured",
+    badge: "Profile",
+    image: "assets/Sid.jpeg",
+    alt: "Sidharth KV",
+    title: "Sidharth KV",
+    subtitle: "3D artist & photographer — Kannur, Kerala",
+    href: "about.html",
+    cta: "Read Bio",
+    secondaryHref: "assets/resume.pdf",
+    secondaryCta: "Download CV",
+    secondaryDownload: true,
+  },
+  projects: {
+    label: "02 / Projects",
+    type: "grid",
+    href: "projects.html",
+    cta: "View All Projects",
+    closeOnClick: true,
+    items: [
+      {
+        title: "HIBIKI",
+        image: "assets/projects/hibiki/process-03.png",
+        href: "project.html?slug=hibiki",
+      },
+      {
+        title: "Liquid Dreams",
+        image: "assets/projects/_shared/placeholder.svg",
+        href: "project.html?slug=liquid-dreams",
+      },
+      {
+        title: "Protocol 09",
+        image: "assets/projects/_shared/placeholder.svg",
+        href: "project.html?slug=protocol-09",
+      },
+    ],
+  },
+  photography: {
+    label: "02 / Photos",
+    type: "grid",
+    href: "photography.html",
+    cta: "View Gallery",
+    closeOnClick: true,
+    items: [
+      {
+        title: "Theyyam Ritual",
+        image: "assets/photography/theyyam-cultural.jpg",
+        href: "photography.html",
+      },
+      {
+        title: "Portrait Study",
+        image: "assets/photography/portrait.jpg",
+        href: "photography.html",
+      },
+      {
+        title: "Above the Clouds",
+        image: "assets/photography/mountain-over-clouds.jpeg",
+        href: "photography.html",
+      },
+    ],
+  },
+  lab: {
+    label: "02 / Lab",
+    type: "featured",
+    badge: "Experiment",
+    image: "assets/Sid.jpeg",
+    alt: "Lab experiment",
+    title: "Visual R&D",
+    subtitle: "Shaders, lighting studies, and pipeline tests",
+    href: "lab.html",
+    cta: "Explore Lab",
+    closeOnClick: true,
+  },
+  contact: {
+    label: "02 / Contact",
+    type: "contact",
+    text: "Open for freelance 3D, product visualization, and photography commissions — remote worldwide from Kannur, Kerala.",
+    email: "sidhu500sidhu@gmail.com",
+    href: "contact.html",
+    cta: "Send Inquiry",
+    closeOnClick: true,
+  },
+};

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="dark light">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("sid-theme");
+        document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | SIDHARTH KV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700;900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter:wght@400;500;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-dim": "#050505", "on-surface": "#ffffff", "outline": "#666666", "outline-variant": "#333333", "primary": "#ffffff" }, fontFamily: { headline: ["Space Grotesk"], body: ["Newsreader"], label: ["Inter"] } } } };
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-label selection:bg-white selection:text-black bg-black" data-page="about">
+  <div id="custom-cursor" aria-hidden="true"></div>
+  <div class="fixed inset-0 noise-texture z-0"></div>
+  <div class="fixed inset-0 glossy-patterns z-0"></div>
+  <div class="fixed inset-0 dot-grid z-0"></div>
+  <div class="fixed inset-0 interactive-mask z-0"></div>
+  <div class="fixed right-4 top-0 h-full w-[1px] bg-white/10 z-40 hidden md:block"><div class="w-full h-full bg-white/60 progress-line"></div></div>
+
+  <nav class="site-nav fixed top-0 w-full z-50 py-8 px-12">
+    <div class="max-w-[1920px] mx-auto flex justify-between items-start font-headline text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-white">
+      <a href="index.html" class="text-lg font-black tracking-tighter hover:opacity-70 transition-opacity">SIDHARTH KV</a>
+      <div class="hidden lg:block"><div class="opacity-40 mb-1">Location</div><div>Kannur, Kerala, India <span id="live-clock">--:-- --</span></div></div>
+      <div class="hidden lg:block"><div class="opacity-40 mb-1">Inquiry</div><a class="hover:opacity-60 transition-opacity" href="mailto:sidhu500sidhu@gmail.com">sidhu500sidhu@gmail.com</a></div>
+      <div class="flex items-center gap-3">
+        <button type="button" id="theme-toggle" class="theme-toggle magnetic-button" aria-label="Switch to light mode" aria-pressed="true">
+          <span class="material-symbols-outlined theme-toggle-icon" aria-hidden="true">dark_mode</span>
+        </button>
+        <button type="button" id="menu-open-btn" class="group flex items-center gap-2 hover:opacity-60 transition-opacity magnetic-button" aria-expanded="false" aria-controls="menu-overlay"><span>MENU</span><span class="material-symbols-outlined text-sm">menu</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="menu-overlay" class="fixed inset-0 z-[100] bg-surface-dim text-on-surface font-body" aria-hidden="true"></div>
+
+  <main class="relative z-10 pt-28">
+    <section class="min-h-[50vh] flex items-end px-12 pb-16 motion-section is-visible border-b border-white/5">
+      <div class="max-w-[1400px] w-full mx-auto flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+        <div>
+          <span class="font-label text-white/50 text-sm uppercase tracking-[0.3em] mb-4 block">02 / About</span>
+          <h1 class="page-title font-headline text-6xl md:text-[9vw] font-black uppercase leading-none" id="page-title">About</h1>
+          <p class="font-body text-xl text-white/50 mt-6 max-w-2xl">3D artist and photographer based in Kannur, Kerala — building digital worlds and framing real ones with the same eye for light and story.</p>
+        </div>
+        <a href="assets/resume.pdf" class="font-headline text-sm uppercase tracking-[0.3em] border border-white/20 px-6 py-3 hover:bg-white/5 transition-colors magnetic-button shrink-0" download>Download CV</a>
+      </div>
+    </section>
+
+    <section class="py-24 px-12 motion-section">
+      <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="space-y-6">
+          <h2 class="font-headline text-4xl font-bold">Hello</h2>
+          <p class="font-body text-2xl text-white/60 leading-relaxed">I'm Sidharth KV. I work across product visualization, character design, and environment art in Blender and Unreal — and I photograph culture, landscape, and portrait work across Kerala. I care about how an image feels in the first second, whether it's rendered or captured in camera.</p>
+        </div>
+        <div class="relative aspect-square rounded-xl overflow-hidden ambient-lift border border-white/10">
+          <img src="assets/Sid.jpeg" alt="Sidharth KV" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 px-12 bg-[#050505] border-y border-white/5 motion-section">
+      <div class="max-w-[1400px] mx-auto">
+        <span class="font-label text-white/50 text-sm uppercase tracking-[0.3em] mb-4 block">Background</span>
+        <h2 class="font-headline text-4xl font-bold mb-12">Education</h2>
+        <div class="space-y-8 max-w-3xl">
+          <article class="about-entry">
+            <p class="font-label text-xs uppercase tracking-[0.25em] text-white/40 mb-2">Dec 2022 — Mar 2026</p>
+            <h3 class="font-headline text-2xl font-bold mb-2">BSc Game Designing &amp; Development</h3>
+            <p class="font-body text-lg text-white/60">IIFA Lancaster Degree College · Bengaluru, India</p>
+          </article>
+          <article class="about-entry">
+            <p class="font-label text-xs uppercase tracking-[0.25em] text-white/40 mb-2">Mar 2022</p>
+            <h3 class="font-headline text-2xl font-bold mb-2">CBSE — Science</h3>
+            <p class="font-body text-lg text-white/60">Kendriya Vidyalaya · Payyanur, India.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 px-12 motion-section">
+      <div class="max-w-[1400px] mx-auto">
+        <h2 class="font-headline text-4xl font-bold mb-12">Experience</h2>
+        <div class="space-y-10 max-w-3xl">
+          <article class="about-entry">
+            <p class="font-label text-xs uppercase tracking-[0.25em] text-white/40 mb-2">Aug 2025 — Present</p>
+            <h3 class="font-headline text-2xl font-bold mb-2">3D Modeler · Founding Day</h3>
+            <p class="font-body text-lg text-white/60">Thrissur, India (remote) — Detailed models in Maya and Blender; textures and materials in Substance Painter; cross-functional collaboration and iterative feedback from project leads.</p>
+          </article>
+          <article class="about-entry">
+            <p class="font-label text-xs uppercase tracking-[0.25em] text-white/40 mb-2">Dec 2022 — Mar 2026</p>
+            <h3 class="font-headline text-2xl font-bold mb-2">3D Modeler / 3D Animator · SmartDeen Pvt Ltd</h3>
+            <p class="font-body text-lg text-white/60">Singapore (remote) — 3D models, environments, and assets with focus on texturing and lighting; animation support with clean topology; rendering workflow optimization for quality and speed.</p>
+          </article>
+          <article class="about-entry">
+            <p class="font-label text-xs uppercase tracking-[0.25em] text-white/40 mb-2">Sep 2025 — Dec 2025</p>
+            <h3 class="font-headline text-2xl font-bold mb-2">3D Modeler / 3D Animator · Superhero Learning</h3>
+            <p class="font-body text-lg text-white/60">Kollam, India (remote) — Industry-standard 3D modeling for design accuracy and aesthetic appeal across project deliverables.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 px-12 bg-[#050505] border-y border-white/5 motion-section">
+      <div class="max-w-[1400px] mx-auto">
+        <h2 class="font-headline text-4xl font-bold mb-12">Achievements &amp; highlights</h2>
+        <ul class="space-y-6 max-w-3xl">
+          <li class="about-entry font-body text-lg text-white/70 leading-relaxed">Flagship 3D work: <a href="project.html?slug=hibiki" class="text-white underline decoration-white/30 hover:decoration-white">HIBIKI — Japanese blended whisky</a> product visualization.</li>
+          <li class="about-entry font-body text-lg text-white/70 leading-relaxed">Photography series: Theyyam cultural frames, Western Ghats landscapes, and wildlife studies — see <a href="photography.html" class="text-white underline decoration-white/30 hover:decoration-white">Photos</a>.</li>
+          <li class="about-entry font-body text-lg text-white/70 leading-relaxed">BSc Game Design — 89.6% final grade at IIFA Lancaster Degree College, Bengaluru.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="py-24 px-12 motion-section">
+      <div class="max-w-[1400px] mx-auto">
+        <h2 class="font-headline text-4xl font-bold mb-6">Design philosophy</h2>
+        <p class="font-body text-2xl text-white/60 leading-relaxed max-w-3xl">I treat every frame as a composition — balancing cinematic mood with clarity. Software is the tool; the work is shaping perception with purpose, in pixels or on location.</p>
+      </div>
+    </section>
+
+    <section class="py-24 px-12 bg-[#050505] border-y border-white/5 motion-section">
+      <div class="max-w-[1400px] mx-auto">
+        <span class="font-label text-white/50 text-sm uppercase tracking-[0.3em] mb-4 block">Services</span>
+        <h2 class="font-headline text-4xl font-bold mb-12">What I create</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <article class="info-card p-8 rounded-lg"><h3 class="font-headline text-xl font-bold mb-3">Product Design</h3><p class="font-body text-white/50">Visualization and hero assets for brands and campaigns.</p></article>
+          <article class="info-card p-8 rounded-lg"><h3 class="font-headline text-xl font-bold mb-3">Character Design</h3><p class="font-body text-white/50">Silhouette, identity, and emotion for games and film.</p></article>
+          <article class="info-card p-8 rounded-lg"><h3 class="font-headline text-xl font-bold mb-3">3D Visualization</h3><p class="font-body text-white/50">Photoreal renders with narrative lighting direction.</p></article>
+          <article class="info-card p-8 rounded-lg"><h3 class="font-headline text-xl font-bold mb-3">Environment Art</h3><p class="font-body text-white/50">Modular sets, atmospheres, and cinematic stills.</p></article>
+          <a href="photography.html" class="info-card p-8 rounded-lg block hover:border-white/20 transition-colors"><h3 class="font-headline text-xl font-bold mb-3">Photos</h3><p class="font-body text-white/50">Portrait, culture, travel, and editorial frames.</p></a>
+          <article class="info-card p-8 rounded-lg"><h3 class="font-headline text-xl font-bold mb-3">Pipeline</h3><p class="font-body text-white/50">Blockout to beauty — documented process on every project.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 px-12 motion-section">
+      <div class="max-w-[1400px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/10 pt-12">
+        <div><span class="font-label text-[10px] text-white/40 uppercase tracking-[0.2em]">3D</span><p class="font-headline text-lg font-bold mt-2">Blender · Maya</p></div>
+        <div><span class="font-label text-[10px] text-white/40 uppercase tracking-[0.2em]">Lookdev</span><p class="font-headline text-lg font-bold mt-2">Substance · Octane</p></div>
+        <div><span class="font-label text-[10px] text-white/40 uppercase tracking-[0.2em]">Sculpt</span><p class="font-headline text-lg font-bold mt-2">ZBrush</p></div>
+        <div><span class="font-label text-[10px] text-white/40 uppercase tracking-[0.2em]">Status</span><p class="font-headline text-lg font-bold mt-2">Open for work</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-black w-full py-16 border-t border-white/10 relative z-10">
+    <div class="flex flex-col items-center gap-6 px-12">
+      <a href="contact.html" class="font-headline text-sm uppercase tracking-[0.3em] border border-white/20 px-6 py-3 hover:bg-white/5 transition-colors magnetic-button">Start a project</a>
+      <p class="font-label text-[10px] uppercase tracking-[0.2em] text-white/40">© 2026 SIDHARTH KV</p>
+    </div>
+  </footer>
+  <script src="js/menu-data.js" defer></script>
+  <script src="js/menu.js" defer></script>
+  <script src="js/theme.js" defer></script>
+  <script src="site.js" defer></script>
+</body>
+</html>

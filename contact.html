@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="dark light">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("sid-theme");
+        document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | SIDHARTH KV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700;900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Inter:wght@400;500;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-dim": "#050505", "on-surface": "#ffffff", "outline": "#666666", "outline-variant": "#333333", "primary": "#ffffff" }, fontFamily: { headline: ["Space Grotesk"], body: ["Newsreader"], label: ["Inter"] } } } };
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-label selection:bg-white selection:text-black bg-black" data-page="contact">
+  <div id="custom-cursor" aria-hidden="true"></div>
+  <div class="fixed inset-0 noise-texture z-0"></div>
+  <div class="fixed inset-0 glossy-patterns z-0"></div>
+  <div class="fixed inset-0 dot-grid z-0"></div>
+  <div class="fixed inset-0 interactive-mask z-0"></div>
+  <div class="fixed right-4 top-0 h-full w-[1px] bg-white/10 z-40 hidden md:block"><div class="w-full h-full bg-white/60 progress-line"></div></div>
+
+  <nav class="site-nav fixed top-0 w-full z-50 py-8 px-12">
+    <div class="max-w-[1920px] mx-auto flex justify-between items-start font-headline text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase text-white">
+      <a href="index.html" class="text-lg font-black tracking-tighter hover:opacity-70 transition-opacity">SIDHARTH KV</a>
+      <div class="hidden lg:block"><div class="opacity-40 mb-1">Location</div><div>Kannur, Kerala, India <span id="live-clock">--:-- --</span></div></div>
+      <div class="flex items-center gap-3">
+        <button type="button" id="theme-toggle" class="theme-toggle magnetic-button" aria-label="Switch to light mode" aria-pressed="true">
+          <span class="material-symbols-outlined theme-toggle-icon" aria-hidden="true">dark_mode</span>
+        </button>
+        <button type="button" id="menu-open-btn" class="group flex items-center gap-2 hover:opacity-60 transition-opacity magnetic-button" aria-expanded="false" aria-controls="menu-overlay"><span>MENU</span><span class="material-symbols-outlined text-sm">menu</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="menu-overlay" class="fixed inset-0 z-[100] bg-surface-dim text-on-surface font-body" aria-hidden="true"></div>
+
+  <main class="relative z-10 pt-28">
+    <section class="min-h-[45vh] flex items-end px-12 pb-12 motion-section is-visible border-b border-white/5">
+      <div>
+        <span class="font-label text-white/50 text-sm uppercase tracking-[0.3em] mb-4 block">06 / Contact</span>
+        <h1 class="page-title font-headline text-6xl md:text-[9vw] font-black uppercase leading-none" id="page-title">Contact</h1>
+      </div>
+    </section>
+
+    <section class="py-24 px-12 motion-section">
+      <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div>
+          <h2 class="font-headline text-5xl font-bold mb-6">Ready when you are.</h2>
+          <p class="font-body text-2xl text-white/60 mb-8">Let's build something sharp, cinematic, and unforgettable.</p>
+          <div class="flex items-center gap-2 mb-8">
+            <span class="size-2 rounded-full bg-white menu-status-dot"></span>
+            <span class="font-label text-sm uppercase tracking-widest">Accepting new commissions</span>
+          </div>
+          <a href="mailto:sidhu500sidhu@gmail.com" class="text-2xl font-headline underline decoration-white/20 underline-offset-8 hover:text-white/80 transition-colors">sidhu500sidhu@gmail.com</a>
+          <p class="font-label text-white/40 mt-8 uppercase tracking-widest text-sm">Kannur, Kerala, India · IST <span id="menu-live-clock-footer"></span></p>
+        </div>
+        <form name="contact" method="POST" action="/contact.html?success=1" data-netlify="true" netlify-honeypot="bot-field" class="info-card p-8 rounded-xl space-y-6">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hidden" aria-hidden="true">
+            <label>Don’t fill this out: <input name="bot-field"></label>
+          </p>
+          <p id="contact-success" class="hidden font-body text-lg text-white/80 border border-white/20 rounded-lg px-5 py-4" role="status">Thanks — your message was sent. I’ll get back to you soon.</p>
+          <div>
+            <label class="font-label text-xs uppercase tracking-widest text-white/40 block mb-2" for="contact-name">Name</label>
+            <input id="contact-name" name="name" type="text" required placeholder="YOUR NAME" class="w-full bg-white/5 border border-white/10 py-4 px-5 rounded-lg font-label text-sm tracking-widest text-white outline-none focus:ring-2 focus:ring-white/30 transition-all">
+          </div>
+          <div>
+            <label class="font-label text-xs uppercase tracking-widest text-white/40 block mb-2" for="contact-email">Email</label>
+            <input id="contact-email" name="email" type="email" required placeholder="YOUR@EMAIL.COM" class="w-full bg-white/5 border border-white/10 py-4 px-5 rounded-lg font-label text-sm tracking-widest text-white outline-none focus:ring-2 focus:ring-white/30 transition-all">
+          </div>
+          <div>
+            <label class="font-label text-xs uppercase tracking-widest text-white/40 block mb-2" for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="5" required placeholder="TELL ME ABOUT YOUR PROJECT" class="w-full bg-white/5 border border-white/10 py-4 px-5 rounded-lg font-label text-sm tracking-widest text-white outline-none focus:ring-2 focus:ring-white/30 transition-all resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full py-4 bg-white text-black font-headline font-bold uppercase tracking-widest hover:bg-white/90 transition-colors magnetic-button">Send inquiry</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="py-16 px-12 border-t border-white/5 motion-section">
+      <div class="max-w-[1400px] mx-auto flex flex-wrap gap-10 justify-center">
+        <a class="menu-social-link font-headline text-lg uppercase tracking-tight border-b border-white/10 pb-3 px-4" href="https://www.instagram.com/_sid_oo_/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="menu-social-link font-headline text-lg uppercase tracking-tight border-b border-white/10 pb-3 px-4" href="https://www.linkedin.com/in/sidharth-kv-954696318/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-black w-full py-16 border-t border-white/10 relative z-10 text-center">
+    <p class="font-label text-[10px] uppercase tracking-[0.2em] text-white/40">© 2026 SIDHARTH KV. All rights reserved.</p>
+  </footer>
+  <script src="js/menu-data.js" defer></script>
+  <script src="js/menu.js" defer></script>
+  <script src="js/theme.js" defer></script>
+  <script src="site.js" defer></script>
+  <script>
+    if (new URLSearchParams(location.search).get("success") === "1") {
+      var el = document.getElementById("contact-success");
+      if (el) el.classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
