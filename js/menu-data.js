@@ -21,7 +21,7 @@ const MENU_PREVIEWS = {
     image: "assets/Sid.jpeg",
     alt: "Sidharth KV",
     title: "Sidharth KV",
-    subtitle: "3D artist & photographer — Kannur, Kerala",
+    subtitle: "3D artist — Kannur, Kerala. Character, product, and asset designing.",
     href: "about.html",
     cta: "Read Bio",
     secondaryHref: "assets/resume.pdf",
@@ -91,7 +91,7 @@ const MENU_PREVIEWS = {
   contact: {
     label: "02 / Contact",
     type: "contact",
-    text: "Open for freelance 3D, product visualization, and photography commissions — remote worldwide from Kannur, Kerala.",
+    text: "Open for freelance 3D — character designing, product designing, and asset designing — remote worldwide from Kannur, Kerala.",
     email: "sidhu500sidhu@gmail.com",
     href: "contact.html",
     cta: "Send Inquiry",

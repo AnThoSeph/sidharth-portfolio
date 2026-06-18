@@ -6,8 +6,7 @@
   const CATEGORY_LABELS = {
     product: "Product",
     character: "Character",
-    environment: "Environment",
-    visual: "Visual Arts",
+    asset: "Asset",
   };
 
   window.PROJECT_PLACEHOLDER = PROJECT_PLACEHOLDER;

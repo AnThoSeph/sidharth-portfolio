@@ -7,8 +7,7 @@ const PROJECT_PLACEHOLDER = "assets/projects/_shared/placeholder.svg";
 const CATEGORY_LABELS = {
   product: "Product",
   character: "Character",
-  environment: "Environment",
-  visual: "Visual Arts",
+  asset: "Asset",
 };
 
 /** Populated async by load-projects.js before page init */

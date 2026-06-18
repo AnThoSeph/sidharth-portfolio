@@ -34,10 +34,9 @@ collections:
         name: category
         widget: select
         options:
-          - { label: Product, value: product }
           - { label: Character, value: character }
-          - { label: Environment, value: environment }
-          - { label: Visual Arts, value: visual }
+          - { label: Product, value: product }
+          - { label: Asset, value: asset }
       - label: Year
         name: year
         widget: string

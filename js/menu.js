@@ -45,7 +45,7 @@
             </nav>
           </div>
           <div class="mt-auto pt-12">
-            <p class="text-sm font-body text-outline max-w-[200px]">3D artist &amp; photographer — Kannur, Kerala. Product, character, and visual storytelling.</p>
+            <p class="text-sm font-body text-outline max-w-[200px]">3D artist — Kannur, Kerala. Character, product, and asset designing.</p>
           </div>
         </section>
         <section class="border-r border-outline-variant/10 pt-12 px-4 md:px-8 flex flex-col min-h-[320px] menu-stagger" style="--menu-delay: 160ms;">
@@ -75,24 +75,23 @@
                   <span class="size-2 rounded-full bg-white menu-status-dot"></span>
                   <span class="text-sm font-label uppercase">Accepting New Commissions</span>
                 </div>
+                <span class="text-xs font-label text-outline uppercase tracking-widest">Available Worldwide</span>
               </div>
               <div class="flex flex-col gap-3">
                 <span class="text-[10px] font-label text-outline uppercase tracking-[0.4em]">Technical Specs</span>
-                <div class="grid grid-cols-2 gap-4">
-                  <div class="flex flex-col"><span class="text-xs font-label text-outline">Engine</span><span class="text-sm font-body">Blender / Maya</span></div>
-                  <div class="flex flex-col"><span class="text-xs font-label text-outline">Workflows</span><span class="text-sm font-body">PBR / Substance</span></div>
+                <div class="flex flex-col">
+                  <span class="text-xs font-label text-outline">Softwares</span><span class="text-sm font-body">Blender / Maya / ZBrush / Substance</span>
                 </div>
               </div>
             </div>
           </div>
           <div class="mt-auto pt-8">
             <div class="p-6 rounded border border-white/5 glass-panel">
-              <span class="text-[10px] font-label text-primary uppercase tracking-[0.2em] mb-4 block opacity-70">Kannur Studio</span>
-              <p class="text-xs font-label text-outline leading-relaxed uppercase">
-                Kannur, Kerala<br />
-                India 670307<br />
-                Available Worldwide
-              </p>
+              <span class="text-[10px] font-label text-primary uppercase tracking-[0.2em] mb-3 block opacity-70">Work with me</span>
+              <p class="text-xs font-label text-outline leading-relaxed mb-5">Character, product, and asset projects — open for commissions.</p>
+              <a class="inline-flex items-center gap-2 font-label text-xs uppercase tracking-widest border border-white/20 px-4 py-3 hover:bg-white/5 transition-colors" href="contact.html" data-menu-close>
+                Start a project <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </a>
             </div>
           </div>
         </section>
