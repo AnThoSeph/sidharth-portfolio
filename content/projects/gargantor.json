@@ -1,0 +1,53 @@
+{
+  "slug": "gargantor",
+  "title": "GARGANTOR OAK",
+  "category": "character",
+  "year": "2026",
+  "role": "Character Artist",
+  "duration": "3 weeks",
+  "polycount": "20k tris",
+  "tools": [
+    "Blender",
+    "ZBrush",
+    "Substance Painter"
+  ],
+  "summary": "Human oak character design. Bark skin, rooted anatomy, and forest spirit presence built for a cinematic hero silhouette.",
+  "problem": "Merge human readability with oak tree language so the figure feels alive, ancient, and believable as a forest guardian.",
+  "approach": "Sculpted primary forms in ZBrush, refined bark planes and root structure in Blender, then layered moss, wood grain, and subsurface breakup in Substance.",
+  "outcome": "Final beauty renders and process frames ready for portfolio and character design reels.",
+  "thumb": "assets/projects/gargantor/beauty.png",
+  "hero": "assets/projects/gargantor/beauty.png",
+  "beauty": "assets/projects/gargantor/beauty.png",
+  "gallery": [
+    "assets/projects/gargantor/1.png",
+    "assets/projects/gargantor/2.png",
+    "assets/projects/gargantor/3.png",
+    "assets/projects/gargantor/4.png",
+    "assets/projects/gargantor/5.png",
+    "assets/projects/gargantor/6.png"
+  ],
+  "process": [
+    {
+      "step": "01 / Concept",
+      "caption": "Silhouette exploration and oak anatomy references for the human tree hybrid.",
+      "image": "assets/projects/gargantor/process-01.jpeg"
+    },
+    {
+      "step": "02 / Sculpt",
+      "caption": "Primary sculpt pass, bark planes, and root mass before lookdev.",
+      "image": "assets/projects/gargantor/process-02.png"
+    },
+    {
+      "step": "03 / Final",
+      "caption": "Beauty lighting and material polish for portfolio delivery.",
+      "image": "assets/projects/gargantor/beauty.png"
+    }
+  ],
+  "modelGlb": null,
+  "gridClass": "md:col-span-4",
+  "aspect": "aspect-[3/4]",
+  "compareBefore": "assets/projects/gargantor/process-02.png",
+  "compareAfter": "assets/projects/gargantor/beauty.png",
+  "compareBeforeLabel": "Sculpt",
+  "compareAfterLabel": "Final"
+}

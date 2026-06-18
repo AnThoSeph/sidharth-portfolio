@@ -5,24 +5,24 @@
     return window.PROJECTS_DATA || [];
   }
 
-  function getProject() {
+  function getSlugFromUrl() {
+    if (window.getProjectSlugFromLocation) {
+      return window.getProjectSlugFromLocation(window.location);
+    }
+    return new URLSearchParams(window.location.search).get("slug");
+  }
+
+  function projectHref(slug) {
+    if (window.projectCaseStudyUrl) {
+      return window.projectCaseStudyUrl(slug);
+    }
+    return `project.html?slug=${encodeURIComponent(slug)}`;
+  }
+
+  function getProjectFromList(slug) {
     const PROJECTS_DATA = getProjectsData();
-    if (!PROJECTS_DATA.length) return null;
-
-    const params = new URLSearchParams(window.location.search);
-    const slug = params.get("slug");
-    if (slug) {
-      return PROJECTS_DATA.find((p) => p.slug === slug) || null;
-    }
-
-    // Fallback for URLs like /project or /project.html without query params.
-    const fallback = PROJECTS_DATA.find((p) => p.slug === "hibiki") || PROJECTS_DATA[0];
-    if (fallback && window.history && window.history.replaceState) {
-      const url = new URL(window.location.href);
-      url.searchParams.set("slug", fallback.slug);
-      window.history.replaceState({}, "", url.toString());
-    }
-    return fallback || null;
+    if (!PROJECTS_DATA.length || !slug) return null;
+    return PROJECTS_DATA.find((p) => p.slug === slug) || null;
   }
 
   function img(src, alt, className) {
@@ -65,8 +65,8 @@
 
   function buildLightboxImages(project, compare) {
     const items = [
-      { src: compare.after, alt: `${project.title} — ${compare.afterLabel}`, caption: compare.afterLabel },
-      { src: compare.before, alt: `${project.title} — ${compare.beforeLabel}`, caption: compare.beforeLabel },
+      { src: compare.after, alt: `${project.title}, ${compare.afterLabel}`, caption: compare.afterLabel },
+      { src: compare.before, alt: `${project.title}, ${compare.beforeLabel}`, caption: compare.beforeLabel },
     ];
     (project.gallery || []).forEach((src, i) => {
       items.push({ src, alt: `${project.title} gallery ${i + 1}`, caption: `Gallery frame ${i + 1}` });
@@ -75,7 +75,7 @@
       items.push({
         src: step.image,
         alt: step.caption,
-        caption: `${step.step} — ${step.caption}`,
+        caption: `${step.step}, ${step.caption}`,
       });
     });
     return items;
@@ -170,8 +170,8 @@
         <div class="max-w-[1400px] mx-auto">
           <p class="font-label text-xs uppercase tracking-[0.25em] text-white/40 mb-4">Drag the handle to compare · Click expand for full screen</p>
           <div class="compare-slider" data-compare-slider>
-            <img class="compare-img compare-img--after" src="${compare.after}" alt="${project.title} — ${compare.afterLabel}">
-            <img class="compare-img compare-img--before" src="${compare.before}" alt="${project.title} — ${compare.beforeLabel}">
+            <img class="compare-img compare-img--after" src="${compare.after}" alt="${project.title}, ${compare.afterLabel}">
+            <img class="compare-img compare-img--before" src="${compare.before}" alt="${project.title}, ${compare.beforeLabel}">
             <input type="range" class="compare-range" min="0" max="100" value="50" aria-label="Drag to compare before and after renders">
             <div class="compare-handle" aria-hidden="true"></div>
             <span class="compare-label compare-label--before">${compare.beforeLabel}</span>
@@ -219,9 +219,9 @@
 
       <section class="py-16 px-12 border-t border-white/5 motion-section">
         <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between gap-8 items-center">
-          <a href="project.html?slug=${prev.slug}" class="font-headline text-lg uppercase tracking-tight hover:text-white/60 transition-colors">← ${prev.title}</a>
+          <a href="${projectHref(prev.slug)}" data-project-slug="${prev.slug}" class="font-headline text-lg uppercase tracking-tight hover:text-white/60 transition-colors">← ${prev.title}</a>
           <a href="projects.html" class="font-label text-xs uppercase tracking-[0.3em] border border-white/20 px-6 py-3 hover:bg-white/5 transition-colors">All projects</a>
-          <a href="project.html?slug=${next.slug}" class="font-headline text-lg uppercase tracking-tight hover:text-white/60 transition-colors text-right">${next.title} →</a>
+          <a href="${projectHref(next.slug)}" data-project-slug="${next.slug}" class="font-headline text-lg uppercase tracking-tight hover:text-white/60 transition-colors text-right">${next.title} →</a>
         </div>
       </section>
 
@@ -234,6 +234,16 @@
     `;
 
     document.title = `${project.title} | SIDHARTH KV`;
+
+    if (window.rememberProjectSlug) {
+      window.rememberProjectSlug(project.slug);
+    }
+    if (window.syncProjectUrl) {
+      window.syncProjectUrl(project.slug);
+    }
+    if (window.bindCaseStudyNavLinks) {
+      window.bindCaseStudyNavLinks(root);
+    }
 
     if (typeof window.initCompareSliders === "function") {
       window.initCompareSliders(root);
@@ -446,13 +456,17 @@
     });
   }
 
-  function renderNotFound() {
+  function renderNotFound(slug) {
     const root = document.getElementById("case-study-root");
     if (!root) return;
+    const detail = slug
+      ? `<p class="font-body text-white/50 mb-6">No case study for “${slug}”.</p>`
+      : `<p class="font-body text-white/50 mb-6">Open a project from the <a href="projects.html" class="text-white underline">Projects</a> page.</p>`;
     root.innerHTML = `
       <section class="min-h-[60vh] flex items-center justify-center px-12 pt-32">
         <div class="text-center">
           <h1 class="font-headline text-4xl font-bold mb-4">Project not found</h1>
+          ${detail}
           <a href="projects.html" class="font-label uppercase tracking-widest text-white/60 hover:text-white">← Back to projects</a>
         </div>
       </section>
@@ -460,17 +474,39 @@
   }
 
   function init() {
-    const run = () => {
-      const project = getProject();
+    const run = async () => {
+      let slug = getSlugFromUrl();
+
+      if (!slug) {
+        renderNotFound(null);
+        return;
+      }
+
+      let project = getProjectFromList(slug);
+      if (!project && window.loadProjectBySlug) {
+        project = await window.loadProjectBySlug(slug);
+      }
+
       if (project) {
         render(project);
       } else {
-        renderNotFound();
+        renderNotFound(slug);
       }
     };
 
     if (window.loadPortfolioData) {
-      window.loadPortfolioData().then(run).catch(() => renderNotFound());
+      window.loadPortfolioData().then(run).catch(async () => {
+        const slug = getSlugFromUrl();
+        if (!slug) {
+          renderNotFound(null);
+          return;
+        }
+        const project = window.loadProjectBySlug
+          ? await window.loadProjectBySlug(slug)
+          : null;
+        if (project) render(project);
+        else renderNotFound(slug);
+      });
     } else {
       run();
     }

@@ -12,9 +12,9 @@
     "Substance",
     "UE5"
   ],
-  "summary": "Full character concept — armored sentinel with organic corruption veins and cinematic rim lighting.",
-  "problem": "Balance readable gameplay silhouette with narrative detail for cinematic close-ups.",
-  "approach": "Split organic and hard-surface workflows; baked combined maps; tested in-engine with parallax and emissive.",
+  "summary": "Full character concept, armored sentinel with organic corruption veins and cinematic rim lighting.",
+  "problem": "Balance readable gameplay silhouette with narrative detail for cinematic close ups.",
+  "approach": "Split organic and hard surface workflows; baked combined maps; tested in engine with parallax and emissive.",
   "outcome": "Used as flagship in portfolio reel; mentored junior artist on bake pipeline.",
   "thumb": "assets/projects/void-sentinel/thumb.png",
   "hero": "assets/projects/void-sentinel/hero.png",
@@ -32,7 +32,7 @@
     },
     {
       "step": "02 / Sculpt",
-      "caption": "High-res sculpt and damage pass.",
+      "caption": "High res sculpt and damage pass.",
       "image": "assets/projects/void-sentinel/process-02.png"
     },
     {

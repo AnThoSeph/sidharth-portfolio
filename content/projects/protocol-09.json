@@ -12,10 +12,10 @@
     "Substance Painter",
     "Marmoset"
   ],
-  "summary": "Cybernetic character bust with emissive circuitry and matte hard-surface panels for a sci-fi IP pitch.",
+  "summary": "Cybernetic character bust with emissive circuitry and matte hard surface panels for a sci fi IP pitch.",
   "problem": "Design a readable hero silhouette at distance while keeping fine panel detail up close for marketing stills.",
-  "approach": "High-to-low sculpt pipeline, trim sheets for panels, and emissive mask authored in Substance.",
-  "outcome": "Approved for pitch bible; topology validated for real-time preview in engine.",
+  "approach": "High to low sculpt pipeline, trim sheets for panels, and emissive mask authored in Substance.",
+  "outcome": "Approved for pitch bible; topology validated for real time preview in engine.",
   "thumb": "assets/projects/protocol-09/thumb.png",
   "hero": "assets/projects/protocol-09/hero.png",
   "beauty": "assets/projects/protocol-09/beauty.png",
@@ -33,7 +33,7 @@
     },
     {
       "step": "02 / Retopo",
-      "caption": "Game-ready topology and UV strategy.",
+      "caption": "Game ready topology and UV strategy.",
       "image": "assets/projects/protocol-09/process-02.png"
     },
     {

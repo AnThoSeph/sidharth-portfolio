@@ -1,0 +1,52 @@
+{
+  "slug": "cheetah-skull",
+  "title": "CHEETAH SKULL",
+  "category": "asset",
+  "year": "2026",
+  "role": "3D Artist",
+  "duration": "2 weeks",
+  "polycount": "12k tris",
+  "tools": [
+    "Blender",
+    "Substance Painter",
+    "Photoshop"
+  ],
+  "summary": "Photoreal cheetah skull asset study, bone surface detail, warm studio lighting, and material breakup for portfolio lookdev.",
+  "problem": "Deliver an anatomically convincing skull asset with readable bone wear and tooth detail under controlled studio lighting.",
+  "approach": "Modeled from reference in Blender, sculpted micro surface variation, then textured bone, enamel, and cavity grime in Substance before final comp.",
+  "outcome": "Hero stills and supporting angles packaged for asset design portfolio and client pitch use.",
+  "thumb": "assets/projects/Cheetah-skull/beauty.png",
+  "hero": "assets/projects/Cheetah-skull/beauty.png",
+  "beauty": "assets/projects/Cheetah-skull/beauty.png",
+  "gallery": [
+    "assets/projects/Cheetah-skull/3.png",
+    "assets/projects/Cheetah-skull/4.png",
+    "assets/projects/Cheetah-skull/5.png",
+    "assets/projects/Cheetah-skull/6.png",
+    "assets/projects/Cheetah-skull/7.png"
+  ],
+  "process": [
+    {
+      "step": "01 / Blockout",
+      "caption": "Anatomy blockout and proportion checks against reference.",
+      "image": "assets/projects/Cheetah-skull/process-01.jpeg"
+    },
+    {
+      "step": "02 / Lookdev",
+      "caption": "Surface detail, bone shaders, and lighting tests.",
+      "image": "assets/projects/Cheetah-skull/process-02.png"
+    },
+    {
+      "step": "03 / Final",
+      "caption": "Beauty render for portfolio delivery.",
+      "image": "assets/projects/Cheetah-skull/beauty.png"
+    }
+  ],
+  "modelGlb": null,
+  "gridClass": "md:col-span-4",
+  "aspect": "aspect-square",
+  "compareBefore": "assets/projects/Cheetah-skull/process-02.png",
+  "compareAfter": "assets/projects/Cheetah-skull/beauty.png",
+  "compareBeforeLabel": "Lookdev",
+  "compareAfterLabel": "Final"
+}

@@ -20,12 +20,12 @@ collections:
     extension: json
     format: json
     identifier_field: slug
-    summary: "{{title}} — {{year}}"
+    summary: "{{title}}, {{year}}"
     fields:
       - label: Slug
         name: slug
         widget: string
-        hint: URL name only — lowercase, hyphens, no spaces (e.g. my-new-project). Must match the folder name under assets/projects/.
+        hint: URL name only, lowercase, hyphens, no spaces (e.g. my-new-project). Must match the folder name under assets/projects/.
         pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and hyphens only']
       - label: Title
         name: title
@@ -68,7 +68,7 @@ collections:
       - label: Thumbnail
         name: thumb
         widget: image
-        hint: Grid card image — upload to assets/projects/{slug}/ (rename to thumb.png if you like).
+        hint: Grid card image. Upload to assets/projects/{slug}/ (rename to thumb.png if you like).
       - label: Hero image
         name: hero
         widget: image
@@ -100,25 +100,25 @@ collections:
         name: gridClass
         widget: string
         default: md:col-span-4
-        hint: 'Homepage/projects grid width — e.g. md:col-span-8 or md:col-span-4 md:pt-12'
+        hint: 'Homepage/projects grid width, e.g. md:col-span-8 or md:col-span-4 md:pt-12'
       - label: Image aspect (Tailwind)
         name: aspect
         widget: string
         default: aspect-video
         hint: 'e.g. aspect-video, aspect-square, aspect-[3/4], aspect-[16/9]'
-      - label: Compare — before image
+      - label: Compare before image
         name: compareBefore
         widget: image
         required: false
-      - label: Compare — after image
+      - label: Compare after image
         name: compareAfter
         widget: image
         required: false
-      - label: Compare — before label
+      - label: Compare before label
         name: compareBeforeLabel
         widget: string
         required: false
-      - label: Compare — after label
+      - label: Compare after label
         name: compareAfterLabel
         widget: string
         required: false

@@ -17,6 +17,7 @@
   function normalizeProject(raw) {
     const project = { ...raw };
     if (project.modelGlb === "") project.modelGlb = null;
+    if (project.wireframe === "") project.wireframe = null;
     return project;
   }
 
@@ -26,17 +27,28 @@
     const order = await orderRes.json();
     const slugs = order.slugs || [];
 
-    const projects = await Promise.all(
+    const loaded = await Promise.all(
       slugs.map(async (slug) => {
         const res = await fetch(`/content/projects/${slug}.json`);
-        if (!res.ok) throw new Error(`Could not load project: ${slug}`);
+        if (!res.ok) return null;
         return normalizeProject(await res.json());
       })
     );
 
-    window.PROJECTS_DATA = projects;
-    return projects;
+    window.PROJECTS_DATA = loaded.filter(Boolean);
+    return window.PROJECTS_DATA;
   }
+
+  window.loadProjectBySlug = async function loadProjectBySlug(slug) {
+    if (!slug) return null;
+
+    const cached = (window.PROJECTS_DATA || []).find((p) => p.slug === slug);
+    if (cached) return cached;
+
+    const res = await fetch(`/content/projects/${slug}.json`);
+    if (!res.ok) return null;
+    return normalizeProject(await res.json());
+  };
 
   async function loadSiteSettings() {
     try {

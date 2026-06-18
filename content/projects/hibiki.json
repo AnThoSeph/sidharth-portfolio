@@ -11,19 +11,15 @@
     "Substance Painter",
     "Octane"
   ],
-  "summary": "Japanese blended whisky product visualization — amber liquid, cut-glass facets, and warm studio lighting for a premium spirits campaign.",
-  "problem": "Create a hero bottle and pour shot that feels authentic to Japanese blended whisky — rich amber, label fidelity, and glass caustics — without a physical bottle on set.",
-  "approach": "Matched label typography and bottle proportions from reference, built layered glass and liquid shaders, and lit with soft key plus rim to emphasize the 24-facet cut and golden whisky tone.",
+  "summary": "Japanese blended whisky product visualization, amber liquid, cut glass facets, and warm studio lighting for a premium spirits campaign.",
+  "problem": "Create a hero bottle and pour shot that feels authentic to Japanese blended whisky: rich amber, label fidelity, and glass caustics, without a physical bottle on set.",
+  "approach": "Matched label typography and bottle proportions from reference, built layered glass and liquid shaders, and lit with soft key plus rim to emphasize the 24 facet cut and golden whisky tone.",
   "outcome": "Final stills delivered for portfolio and pitch deck; client approved lookdev after blockout and greyshade reviews.",
   "thumb": "assets/projects/hibiki/beauty.png",
   "hero": "assets/projects/hibiki/beauty.png",
   "beauty": "assets/projects/hibiki/beauty.png",
-  "wireframe": "assets/projects/hibiki/wireframe.png",
-  "gallery": [
-    "assets/projects/hibiki/gallery-01.png",
-    "assets/projects/hibiki/gallery-02.png",
-    "assets/projects/hibiki/gallery-03.png"
-  ],
+  "wireframe": null,
+  "gallery": [],
   "process": [
     {
       "step": "01 / Concept",

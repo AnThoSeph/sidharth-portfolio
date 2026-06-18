@@ -11,9 +11,9 @@
     "Substance",
     "Photoshop"
   ],
-  "summary": "Weapon / tool concept with heat-treated metal shaders and accent color storytelling.",
+  "summary": "Weapon / tool concept with heat treated metal shaders and accent color storytelling.",
   "problem": "Communicate craft and function in one hero angle for a tabletop game licensee.",
-  "approach": "CAD-accurate bevels, tri-planar grunge, and accent lights keyed to brand palette.",
+  "approach": "CAD accurate bevels, tri planar grunge, and accent lights keyed to brand palette.",
   "outcome": "Asset approved for merchandise line; delivered GLB for web viewer.",
   "thumb": "assets/projects/chroma-forge/thumb.png",
   "hero": "assets/projects/chroma-forge/hero.png",
@@ -31,7 +31,7 @@
     },
     {
       "step": "02 / Model",
-      "caption": "Hard-surface modeling and boolean cleanup.",
+      "caption": "Hard surface modeling and boolean cleanup.",
       "image": "assets/projects/chroma-forge/process-02.png"
     },
     {

@@ -45,7 +45,7 @@
             </nav>
           </div>
           <div class="mt-auto pt-12">
-            <p class="text-sm font-body text-outline max-w-[200px]">3D artist — Kannur, Kerala. Character, product, and asset designing.</p>
+            <p class="text-sm font-body text-outline max-w-[200px]">3D artist in Kannur, Kerala. Character, product, and asset designing.</p>
           </div>
         </section>
         <section class="border-r border-outline-variant/10 pt-12 px-4 md:px-8 flex flex-col min-h-[320px] menu-stagger" style="--menu-delay: 160ms;">
@@ -88,7 +88,7 @@
           <div class="mt-auto pt-8">
             <div class="p-6 rounded border border-white/5 glass-panel">
               <span class="text-[10px] font-label text-primary uppercase tracking-[0.2em] mb-3 block opacity-70">Work with me</span>
-              <p class="text-xs font-label text-outline leading-relaxed mb-5">Character, product, and asset projects — open for commissions.</p>
+              <p class="text-xs font-label text-outline leading-relaxed mb-5">Character, product, and asset projects. Open for commissions.</p>
               <a class="inline-flex items-center gap-2 font-label text-xs uppercase tracking-widest border border-white/20 px-4 py-3 hover:bg-white/5 transition-colors" href="contact.html" data-menu-close>
                 Start a project <span class="material-symbols-outlined text-sm">arrow_forward</span>
               </a>

@@ -3,9 +3,20 @@
   publish = "."
 
 # SPA-style fallbacks for clean URLs (optional)
+# Case study pages — /project/hibiki → project.html?slug=hibiki
+[[redirects]]
+  from = "/project/*"
+  to = "/project.html?slug=:splat"
+  status = 200
+
 [[redirects]]
   from = "/project"
   to = "/project.html"
+  status = 200
+
+[[redirects]]
+  from = "/projects"
+  to = "/projects.html"
   status = 200
 
 [[redirects]]
