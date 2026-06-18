@@ -1,0 +1,52 @@
+{
+  "slug": "void-sentinel",
+  "title": "Void Sentinel",
+  "category": "character",
+  "year": "2023",
+  "role": "Character Artist",
+  "duration": "6 weeks",
+  "polycount": "22k tris",
+  "tools": [
+    "ZBrush",
+    "Blender",
+    "Substance",
+    "UE5"
+  ],
+  "summary": "Full character concept — armored sentinel with organic corruption veins and cinematic rim lighting.",
+  "problem": "Balance readable gameplay silhouette with narrative detail for cinematic close-ups.",
+  "approach": "Split organic and hard-surface workflows; baked combined maps; tested in-engine with parallax and emissive.",
+  "outcome": "Used as flagship in portfolio reel; mentored junior artist on bake pipeline.",
+  "thumb": "assets/projects/void-sentinel/thumb.png",
+  "hero": "assets/projects/void-sentinel/hero.png",
+  "beauty": "assets/projects/void-sentinel/beauty.png",
+  "wireframe": "assets/projects/void-sentinel/wireframe.png",
+  "gallery": [
+    "assets/projects/void-sentinel/gallery-01.png",
+    "assets/projects/void-sentinel/gallery-02.png"
+  ],
+  "process": [
+    {
+      "step": "01 / Concept",
+      "caption": "Thumbnails and armor language.",
+      "image": "assets/projects/void-sentinel/process-01.png"
+    },
+    {
+      "step": "02 / Sculpt",
+      "caption": "High-res sculpt and damage pass.",
+      "image": "assets/projects/void-sentinel/process-02.png"
+    },
+    {
+      "step": "03 / Game",
+      "caption": "Retopo, bake, and engine test.",
+      "image": "assets/projects/void-sentinel/process-03.png"
+    },
+    {
+      "step": "04 / Cinematic",
+      "caption": "Beauty lighting for portfolio.",
+      "image": "assets/projects/void-sentinel/process-04.png"
+    }
+  ],
+  "modelGlb": "assets/projects/void-sentinel/model.glb",
+  "gridClass": "md:col-span-4 md:pt-12",
+  "aspect": "aspect-[3/4]"
+}

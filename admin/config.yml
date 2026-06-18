@@ -1,0 +1,148 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Images upload to assets/projects/{slug}/ per project entry.
+media_folder: assets/projects/{{slug}}
+public_folder: /assets/projects/{{slug}}
+
+site_url: https://sidharth-kv.netlify.app
+display_url: https://sidharth-kv.netlify.app
+logo_url: https://sidharth-kv.netlify.app/assets/projects/_shared/placeholder.svg
+
+collections:
+  - name: projects
+    label: Projects
+    label_singular: Project
+    folder: content/projects
+    create: true
+    slug: "{{slug}}"
+    extension: json
+    format: json
+    identifier_field: slug
+    summary: "{{title}} — {{year}}"
+    fields:
+      - label: Slug
+        name: slug
+        widget: string
+        hint: URL name only — lowercase, hyphens, no spaces (e.g. my-new-project). Must match the folder name under assets/projects/.
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and hyphens only']
+      - label: Title
+        name: title
+        widget: string
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - { label: Product, value: product }
+          - { label: Character, value: character }
+          - { label: Environment, value: environment }
+          - { label: Visual Arts, value: visual }
+      - label: Year
+        name: year
+        widget: string
+      - label: Role
+        name: role
+        widget: string
+      - label: Duration
+        name: duration
+        widget: string
+      - label: Polycount
+        name: polycount
+        widget: string
+      - label: Tools
+        name: tools
+        widget: list
+        field: { label: Tool, name: tool, widget: string }
+      - label: Summary
+        name: summary
+        widget: text
+      - label: Problem
+        name: problem
+        widget: text
+      - label: Approach
+        name: approach
+        widget: text
+      - label: Outcome
+        name: outcome
+        widget: text
+      - label: Thumbnail
+        name: thumb
+        widget: image
+        hint: Grid card image — upload to assets/projects/{slug}/ (rename to thumb.png if you like).
+      - label: Hero image
+        name: hero
+        widget: image
+      - label: Beauty render
+        name: beauty
+        widget: image
+      - label: Wireframe
+        name: wireframe
+        widget: image
+        required: false
+      - label: Gallery
+        name: gallery
+        widget: list
+        required: false
+        field: { label: Image, name: image, widget: image }
+      - label: Process steps
+        name: process
+        widget: list
+        fields:
+          - { label: Step label, name: step, widget: string, hint: 'e.g. 01 / Concept' }
+          - { label: Caption, name: caption, widget: text }
+          - { label: Image, name: image, widget: image }
+      - label: 3D model (.glb)
+        name: modelGlb
+        widget: file
+        required: false
+        hint: Optional interactive model for the case study viewer.
+      - label: Grid layout (Tailwind)
+        name: gridClass
+        widget: string
+        default: md:col-span-4
+        hint: 'Homepage/projects grid width — e.g. md:col-span-8 or md:col-span-4 md:pt-12'
+      - label: Image aspect (Tailwind)
+        name: aspect
+        widget: string
+        default: aspect-video
+        hint: 'e.g. aspect-video, aspect-square, aspect-[3/4], aspect-[16/9]'
+      - label: Compare — before image
+        name: compareBefore
+        widget: image
+        required: false
+      - label: Compare — after image
+        name: compareAfter
+        widget: image
+        required: false
+      - label: Compare — before label
+        name: compareBeforeLabel
+        widget: string
+        required: false
+      - label: Compare — after label
+        name: compareAfterLabel
+        widget: string
+        required: false
+
+  - name: settings
+    label: Site settings
+    files:
+      - label: Featured projects (homepage)
+        name: site
+        file: content/site.json
+        fields:
+          - label: Featured project slugs
+            name: featuredSlugs
+            widget: list
+            hint: Up to 4 slugs shown on the homepage, in this order. Slugs must match existing project JSON files.
+            field: { label: Slug, name: slug, widget: string }
+
+      - label: Project order (all projects page)
+        name: project-order
+        file: content/project-order.json
+        fields:
+          - label: Project slugs
+            name: slugs
+            widget: list
+            hint: Order projects appear on the Projects page and in prev/next navigation on case studies.
+            field: { label: Slug, name: slug, widget: string }

@@ -1,0 +1,52 @@
+{
+  "slug": "aurora-drive",
+  "title": "Aurora Drive",
+  "category": "product",
+  "year": "2024",
+  "role": "Visualization Lead",
+  "duration": "4 weeks",
+  "polycount": "Scene",
+  "tools": [
+    "Blender",
+    "Octane",
+    "Photoshop"
+  ],
+  "summary": "Automotive exterior visualization — wet pavement, neon reflections, and brand-forward camera motion.",
+  "problem": "Match studio photography quality using only design surfaces and limited HDR references.",
+  "approach": "Multi-layer comp: CG base, reflection plates, and graded atmosphere; camera matched to brand guidelines.",
+  "outcome": "Campaign stills delivered for web and print; reel clip used in launch stream.",
+  "thumb": "assets/projects/aurora-drive/thumb.png",
+  "hero": "assets/projects/aurora-drive/hero.png",
+  "beauty": "assets/projects/aurora-drive/beauty.png",
+  "wireframe": "assets/projects/aurora-drive/wireframe.png",
+  "gallery": [
+    "assets/projects/aurora-drive/gallery-01.png",
+    "assets/projects/aurora-drive/gallery-02.png",
+    "assets/projects/aurora-drive/gallery-03.png"
+  ],
+  "process": [
+    {
+      "step": "01 / Ref",
+      "caption": "Brand camera and surface analysis.",
+      "image": "assets/projects/aurora-drive/process-01.png"
+    },
+    {
+      "step": "02 / Model",
+      "caption": "Surface refinement and panel gaps.",
+      "image": "assets/projects/aurora-drive/process-02.png"
+    },
+    {
+      "step": "03 / Light",
+      "caption": "Wet ground and neon rig tests.",
+      "image": "assets/projects/aurora-drive/process-03.png"
+    },
+    {
+      "step": "04 / Comp",
+      "caption": "Final grade and lens effects.",
+      "image": "assets/projects/aurora-drive/process-04.png"
+    }
+  ],
+  "modelGlb": null,
+  "gridClass": "md:col-span-8",
+  "aspect": "aspect-video"
+}

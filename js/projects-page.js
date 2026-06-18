@@ -2,12 +2,15 @@
   "use strict";
 
   function imgWithFallback(src, alt, className) {
-    return `<img class="${className}" src="${src}" alt="${alt}" loading="lazy" onerror="this.onerror=null;this.src='${PROJECT_PLACEHOLDER}'">`;
+    return `<img class="${className}" src="${src}" alt="${alt}" loading="lazy" onerror="this.onerror=null;this.src='${window.PROJECT_PLACEHOLDER || "assets/projects/_shared/placeholder.svg"}'">`;
   }
 
   function renderProjectsGrid() {
     const grid = document.getElementById("projects-grid");
-    if (!grid || typeof PROJECTS_DATA === "undefined") return;
+    const PROJECTS_DATA = window.PROJECTS_DATA || [];
+    if (!grid || !PROJECTS_DATA.length) return;
+
+    const CATEGORY_LABELS = window.CATEGORY_LABELS || {};
 
     grid.innerHTML = PROJECTS_DATA.map((p) => {
       const label = CATEGORY_LABELS[p.category] || p.category;
@@ -44,8 +47,16 @@
   }
 
   function init() {
-    renderProjectsGrid();
-    initFilters();
+    const run = () => {
+      renderProjectsGrid();
+      initFilters();
+    };
+
+    if (window.loadPortfolioData) {
+      window.loadPortfolioData().then(run);
+    } else {
+      run();
+    }
   }
 
   if (document.readyState === "loading") {

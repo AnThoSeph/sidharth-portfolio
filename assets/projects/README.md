@@ -34,7 +34,7 @@ assets/projects/{slug}/
   reel.mp4           → Optional turntable clip
 ```
 
-Update paths in `js/projects-data.js` if you use a different extension.
+Project metadata and image paths are edited in the **admin panel** (`/admin`) or in `content/projects/{slug}.json`. See [`HOW-TO-ADD-PROJECTS.md`](../../HOW-TO-ADD-PROJECTS.md) at the repo root.
 
 ## Your 7 project slugs
 

@@ -1,0 +1,53 @@
+{
+  "slug": "protocol-09",
+  "title": "Protocol-09",
+  "category": "character",
+  "year": "2023",
+  "role": "Character Artist",
+  "duration": "4 weeks",
+  "polycount": "18k tris",
+  "tools": [
+    "ZBrush",
+    "Blender",
+    "Substance Painter",
+    "Marmoset"
+  ],
+  "summary": "Cybernetic character bust with emissive circuitry and matte hard-surface panels for a sci-fi IP pitch.",
+  "problem": "Design a readable hero silhouette at distance while keeping fine panel detail up close for marketing stills.",
+  "approach": "High-to-low sculpt pipeline, trim sheets for panels, and emissive mask authored in Substance.",
+  "outcome": "Approved for pitch bible; topology validated for real-time preview in engine.",
+  "thumb": "assets/projects/protocol-09/thumb.png",
+  "hero": "assets/projects/protocol-09/hero.png",
+  "beauty": "assets/projects/protocol-09/beauty.png",
+  "wireframe": "assets/projects/protocol-09/wireframe.png",
+  "gallery": [
+    "assets/projects/protocol-09/gallery-01.png",
+    "assets/projects/protocol-09/gallery-02.png",
+    "assets/projects/protocol-09/gallery-03.png"
+  ],
+  "process": [
+    {
+      "step": "01 / Sculpt",
+      "caption": "Primary forms and anatomical landmarks in ZBrush.",
+      "image": "assets/projects/protocol-09/process-01.png"
+    },
+    {
+      "step": "02 / Retopo",
+      "caption": "Game-ready topology and UV strategy.",
+      "image": "assets/projects/protocol-09/process-02.png"
+    },
+    {
+      "step": "03 / Texture",
+      "caption": "Weathering, emissive masks, and material breakup.",
+      "image": "assets/projects/protocol-09/process-03.png"
+    },
+    {
+      "step": "04 / Present",
+      "caption": "Marmoset turntable and beauty lighting.",
+      "image": "assets/projects/protocol-09/process-04.png"
+    }
+  ],
+  "modelGlb": "assets/projects/protocol-09/model.glb",
+  "gridClass": "md:col-span-4",
+  "aspect": "aspect-square"
+}

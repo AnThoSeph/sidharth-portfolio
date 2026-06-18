@@ -874,9 +874,58 @@ body.lightbox-open {
   transform: scale(1.05);
 }
 
+.model-viewer-wrap {
+  position: relative;
+}
+
+.model-viewer-controls {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.model-viewer-tool-btn {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  transition: border-color 200ms ease, background 200ms ease;
+}
+
+.model-viewer-tool-btn:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.model-viewer-tool-btn.is-active {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.model-viewer-expand-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 5;
+}
+
+.model-viewer-expand-btn:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .model-viewer-host {
   width: 100%;
-  min-height: min(70vh, 520px);
+  min-height: min(85vh, 720px);
   border: 1px solid var(--theme-border);
   border-radius: 0.5rem;
   overflow: hidden;
@@ -886,12 +935,41 @@ body.lightbox-open {
 model-viewer.project-model-viewer,
 .model-viewer-host model-viewer {
   width: 100%;
-  height: min(70vh, 520px);
-  min-height: 320px;
+  height: min(85vh, 720px);
+  min-height: 480px;
   background: var(--theme-bg-card);
   border: none;
   border-radius: 0.5rem;
   --poster-color: #0a0a0a;
+}
+
+.model-viewer-wrap:fullscreen,
+.model-viewer-wrap:fullscreen .model-viewer-host,
+.model-viewer-wrap:fullscreen model-viewer {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  border-radius: 0;
+}
+
+.model-viewer-wrap:fullscreen .model-viewer-expand-btn,
+.model-viewer-wrap:fullscreen .model-viewer-controls {
+  top: 1.25rem;
+}
+
+.model-viewer-wrap:fullscreen .model-viewer-controls {
+  left: 1.25rem;
+}
+
+.model-viewer-wrap:fullscreen .model-viewer-expand-btn {
+  right: 1.25rem;
+}
+
+model-viewer.project-model-viewer:fullscreen {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  border-radius: 0;
 }
 
 .model-viewer-error.hidden {
@@ -1083,6 +1161,7 @@ model-viewer.project-model-viewer,
 
 [data-theme="light"] .compare-label,
 [data-theme="light"] .compare-expand-btn,
+[data-theme="light"] .model-viewer-tool-btn,
 [data-theme="light"] .gallery-zoom-hint {
   color: var(--theme-text);
   border-color: var(--theme-border-strong);

@@ -1,0 +1,51 @@
+{
+  "slug": "liquid-dreams",
+  "title": "Liquid Dreams",
+  "category": "visual",
+  "year": "2024",
+  "role": "3D Artist",
+  "duration": "2 weeks",
+  "polycount": "N/A — still",
+  "tools": [
+    "Blender",
+    "Photoshop",
+    "After Effects"
+  ],
+  "summary": "Abstract fluid simulation study — metallic ribbons suspended in deep space with soft volumetric glow.",
+  "problem": "Create a portfolio centerpiece that demonstrates motion, reflection control, and art-direction without narrative constraints.",
+  "approach": "Combined simulation caches with hand-sculpted correction, then graded in comp for a single cohesive palette.",
+  "outcome": "Featured in studio reel; used as key visual for digital art print series.",
+  "thumb": "assets/projects/liquid-dreams/thumb.png",
+  "hero": "assets/projects/liquid-dreams/hero.png",
+  "beauty": "assets/projects/liquid-dreams/beauty.png",
+  "wireframe": "assets/projects/liquid-dreams/wireframe.png",
+  "gallery": [
+    "assets/projects/liquid-dreams/gallery-01.png",
+    "assets/projects/liquid-dreams/gallery-02.png"
+  ],
+  "process": [
+    {
+      "step": "01 / Sim",
+      "caption": "Fluid sim base mesh and motion tests.",
+      "image": "assets/projects/liquid-dreams/process-01.png"
+    },
+    {
+      "step": "02 / Sculpt",
+      "caption": "Manual cleanup and silhouette refinement.",
+      "image": "assets/projects/liquid-dreams/process-02.png"
+    },
+    {
+      "step": "03 / Light",
+      "caption": "HDRI and rim light iteration.",
+      "image": "assets/projects/liquid-dreams/process-03.png"
+    },
+    {
+      "step": "04 / Grade",
+      "caption": "Final composite and grain pass.",
+      "image": "assets/projects/liquid-dreams/process-04.png"
+    }
+  ],
+  "modelGlb": null,
+  "gridClass": "md:col-span-4 md:pt-12",
+  "aspect": "aspect-[3/4]"
+}

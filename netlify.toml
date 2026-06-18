@@ -13,6 +13,17 @@
   to = "/about.html"
   status = 301
 
+[[redirects]]
+  from = "/admin"
+  to = "/admin/index.html"
+  status = 200
+
+# Decap CMS admin config (must be served as YAML)
+[[headers]]
+  for = "/admin/config.yml"
+  [headers.values]
+    Content-Type = "text/yaml; charset=utf-8"
+
 # GLB models — correct MIME for 3D viewer
 [[headers]]
   for = "/*.glb"

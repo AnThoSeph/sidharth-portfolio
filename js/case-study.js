@@ -1,8 +1,13 @@
 (function () {
   "use strict";
 
+  function getProjectsData() {
+    return window.PROJECTS_DATA || [];
+  }
+
   function getProject() {
-    if (typeof PROJECTS_DATA === "undefined" || !PROJECTS_DATA.length) return null;
+    const PROJECTS_DATA = getProjectsData();
+    if (!PROJECTS_DATA.length) return null;
 
     const params = new URLSearchParams(window.location.search);
     const slug = params.get("slug");
@@ -21,10 +26,11 @@
   }
 
   function img(src, alt, className) {
-    return `<img class="${className}" src="${src}" alt="${alt}" loading="lazy" onerror="this.onerror=null;this.src='${PROJECT_PLACEHOLDER}'">`;
+    return `<img class="${className}" src="${src}" alt="${alt}" loading="lazy" onerror="this.onerror=null;this.src='${window.PROJECT_PLACEHOLDER || "assets/projects/_shared/placeholder.svg"}'">`;
   }
 
   function getNeighbors(slug) {
+    const PROJECTS_DATA = getProjectsData();
     const i = PROJECTS_DATA.findIndex((p) => p.slug === slug);
     const prev = PROJECTS_DATA[(i - 1 + PROJECTS_DATA.length) % PROJECTS_DATA.length];
     const next = PROJECTS_DATA[(i + 1) % PROJECTS_DATA.length];
@@ -85,7 +91,7 @@
     const galleryOffset = 2;
     const processOffset = galleryOffset + (project.gallery || []).length;
 
-    const catLabel = CATEGORY_LABELS[project.category] || project.category;
+    const catLabel = (window.CATEGORY_LABELS && window.CATEGORY_LABELS[project.category]) || project.category;
     const chips = [
       catLabel,
       project.year,
@@ -131,8 +137,15 @@
         <div class="max-w-[1400px] mx-auto">
           <span class="font-label text-white/50 text-sm uppercase tracking-[0.3em] mb-4 block">Interactive</span>
           <h2 class="font-headline text-3xl font-bold mb-6">Explore in 3D</h2>
-          <p class="font-body text-white/50 mb-8 max-w-xl model-viewer-hint">Drag to rotate · scroll or pinch to zoom</p>
-          <div class="model-viewer-host" data-model-src="${project.modelGlb}" data-model-title="${project.title}"></div>
+          <p class="font-body text-white/50 mb-8 max-w-xl model-viewer-hint">Drag to rotate · scroll to zoom · use controls below · Expand for full screen (Esc to exit)</p>
+          <div class="model-viewer-wrap">
+            <div class="model-viewer-controls">
+              <button type="button" class="model-viewer-tool-btn model-viewer-reset-btn" aria-label="Reset camera view">Reset</button>
+              <button type="button" class="model-viewer-tool-btn model-viewer-autorotate-btn" aria-label="Toggle auto-rotate" aria-pressed="false">Auto-rotate</button>
+            </div>
+            <button type="button" class="model-viewer-tool-btn model-viewer-expand-btn" aria-label="View 3D model full screen" aria-pressed="false">Expand</button>
+            <div class="model-viewer-host" data-model-src="${project.modelGlb}" data-model-title="${project.title}"></div>
+          </div>
           <p class="model-viewer-status font-label text-xs uppercase tracking-widest text-white/40 mt-4" aria-live="polite">Loading 3D model…</p>
           <p class="model-viewer-error hidden font-label text-sm text-white/50 mt-4 max-w-xl"></p>
         </div>
@@ -234,7 +247,11 @@
   }
 
   function initModelViewerHost(root) {
+    const wrap = root.querySelector(".model-viewer-wrap");
     const host = root.querySelector(".model-viewer-host");
+    const expandBtn = root.querySelector(".model-viewer-expand-btn");
+    const resetBtn = root.querySelector(".model-viewer-reset-btn");
+    const autoRotateBtn = root.querySelector(".model-viewer-autorotate-btn");
     if (!host) return;
 
     const src = host.dataset.modelSrc;
@@ -252,6 +269,101 @@
         errorEl.classList.remove("hidden");
       }
       setStatus("");
+    }
+
+    function isFullscreenActive() {
+      const fsEl = document.fullscreenElement;
+      return fsEl === wrap || (host && fsEl === host.querySelector("model-viewer"));
+    }
+
+    function syncExpandButton() {
+      if (!expandBtn) return;
+      const active = isFullscreenActive();
+      expandBtn.textContent = active ? "Exit" : "Expand";
+      expandBtn.setAttribute("aria-pressed", active ? "true" : "false");
+      expandBtn.setAttribute("aria-label", active ? "Exit full screen" : "View 3D model full screen");
+    }
+
+    function initViewerControls(modelViewer) {
+      let defaultCamera = null;
+
+      function syncAutoRotateButton(active) {
+        if (!autoRotateBtn) return;
+        autoRotateBtn.setAttribute("aria-pressed", active ? "true" : "false");
+        autoRotateBtn.classList.toggle("is-active", active);
+        autoRotateBtn.textContent = active ? "Auto-rotate on" : "Auto-rotate";
+      }
+
+      function captureDefaultCamera() {
+        if (!modelViewer || typeof modelViewer.getCameraOrbit !== "function") return;
+        defaultCamera = {
+          orbit: modelViewer.getCameraOrbit(),
+          target: modelViewer.getCameraTarget(),
+          fov: modelViewer.getFieldOfView(),
+        };
+      }
+
+      function resetCamera() {
+        if (!modelViewer || !defaultCamera) return;
+        modelViewer.cameraOrbit = defaultCamera.orbit;
+        modelViewer.cameraTarget = defaultCamera.target;
+        modelViewer.fieldOfView = defaultCamera.fov;
+        if (typeof modelViewer.resetTurntableRotation === "function") {
+          modelViewer.resetTurntableRotation();
+        }
+        if (typeof modelViewer.jumpCameraToGoal === "function") {
+          modelViewer.jumpCameraToGoal();
+        }
+      }
+
+      if (resetBtn) {
+        resetBtn.addEventListener("click", resetCamera);
+      }
+
+      if (autoRotateBtn) {
+        autoRotateBtn.addEventListener("click", () => {
+          modelViewer.autoRotate = !modelViewer.autoRotate;
+          syncAutoRotateButton(modelViewer.autoRotate);
+        });
+        syncAutoRotateButton(false);
+      }
+
+      return { captureDefaultCamera, syncAutoRotateButton };
+    }
+
+    function initFullscreenControls(modelViewer) {
+      if (!expandBtn || !wrap) return;
+
+      async function enterFullscreen() {
+        try {
+          if (modelViewer && typeof modelViewer.enterFullscreen === "function") {
+            await modelViewer.enterFullscreen();
+            return;
+          }
+          if (wrap.requestFullscreen) {
+            await wrap.requestFullscreen();
+          }
+        } catch (err) {
+          console.warn("Fullscreen request failed:", err);
+        }
+      }
+
+      async function exitFullscreen() {
+        if (document.fullscreenElement && document.exitFullscreen) {
+          await document.exitFullscreen();
+        }
+      }
+
+      expandBtn.addEventListener("click", () => {
+        if (isFullscreenActive()) {
+          exitFullscreen();
+        } else {
+          enterFullscreen();
+        }
+      });
+
+      document.addEventListener("fullscreenchange", syncExpandButton);
+      syncExpandButton();
     }
 
     if (location.protocol === "file:") {
@@ -278,11 +390,16 @@
         "environment-image",
         "https://modelviewer.dev/shared-assets/environments/neutral.hdr"
       );
+      mv.setAttribute("auto-rotate-delay", "0");
+      mv.setAttribute("rotation-per-second", "22deg");
       mv.style.setProperty("--poster-color", "#0a0a0a");
 
+      const viewerControls = initViewerControls(mv);
+
       mv.addEventListener("load", () => {
-        setStatus("Drag to rotate the model");
+        setStatus("Drag to rotate · Reset or Auto-rotate below");
         if (errorEl) errorEl.classList.add("hidden");
+        viewerControls.captureDefaultCamera();
       });
 
       mv.addEventListener("error", () => {
@@ -292,6 +409,7 @@
       });
 
       host.appendChild(mv);
+      initFullscreenControls(mv);
     }
 
     if (window.customElements && window.customElements.get("model-viewer")) {
@@ -342,11 +460,19 @@
   }
 
   function init() {
-    const project = getProject();
-    if (project) {
-      render(project);
+    const run = () => {
+      const project = getProject();
+      if (project) {
+        render(project);
+      } else {
+        renderNotFound();
+      }
+    };
+
+    if (window.loadPortfolioData) {
+      window.loadPortfolioData().then(run).catch(() => renderNotFound());
     } else {
-      renderNotFound();
+      run();
     }
   }
 
