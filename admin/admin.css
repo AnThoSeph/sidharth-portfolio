@@ -1,0 +1,423 @@
+/**
+ * Decap CMS admin — matches SIDHARTH KV portfolio (dark cinematic UI).
+ * Loaded before decap-cms.js; some selectors may need updates after CMS upgrades.
+ */
+
+:root {
+  color-scheme: dark;
+
+  /* Portfolio tokens */
+  --sid-bg: #000000;
+  --sid-bg-elevated: #050505;
+  --sid-bg-card: #111111;
+  --sid-bg-input: rgba(255, 255, 255, 0.05);
+  --sid-text: #ffffff;
+  --sid-text-muted: rgba(255, 255, 255, 0.55);
+  --sid-text-faint: rgba(255, 255, 255, 0.38);
+  --sid-border: rgba(255, 255, 255, 0.1);
+  --sid-border-strong: rgba(255, 255, 255, 0.22);
+  --sid-accent: #ffffff;
+  --sid-accent-fg: #000000;
+  --sid-radius: 0.5rem;
+  --sid-font-headline: "Space Grotesk", system-ui, sans-serif;
+  --sid-font-body: "Newsreader", Georgia, serif;
+  --sid-font-label: "Inter", system-ui, sans-serif;
+
+  /* Decap / community accent hooks */
+  --accent: #ffffff !important;
+  --accent-light: rgba(255, 255, 255, 0.12) !important;
+  --accent-dark: #e5e5e5 !important;
+  --primary: #ffffff !important;
+  --primary-light: rgba(255, 255, 255, 0.14) !important;
+}
+
+html {
+  background: var(--sid-bg) !important;
+}
+
+body {
+  margin: 0;
+  background: var(--sid-bg) !important;
+  color: var(--sid-text) !important;
+  font-family: var(--sid-font-label) !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--sid-accent);
+  color: var(--sid-accent-fg);
+}
+
+/* —— Custom site chrome (injected bar) —— */
+.sid-admin-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.5rem;
+  background: rgba(0, 0, 0, 0.92);
+  border-bottom: 1px solid var(--sid-border);
+  backdrop-filter: blur(12px);
+  font-family: var(--sid-font-headline);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.sid-admin-bar__brand {
+  color: var(--sid-text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+}
+
+.sid-admin-bar__brand:hover {
+  opacity: 0.7;
+}
+
+.sid-admin-bar__meta {
+  color: var(--sid-text-faint);
+  font-family: var(--sid-font-label);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+}
+
+.sid-admin-bar__link {
+  color: var(--sid-text-muted);
+  text-decoration: none;
+  font-family: var(--sid-font-label);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  border: 1px solid var(--sid-border-strong);
+  padding: 0.45rem 0.85rem;
+  transition: background 200ms ease, color 200ms ease;
+}
+
+.sid-admin-bar__link:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--sid-text);
+}
+
+/* Push CMS below custom bar */
+body.sid-admin-ready #nc-root,
+body.sid-admin-ready [id*="App"],
+body.sid-admin-ready main {
+  padding-top: 3.25rem;
+}
+
+/* —— Access denied screen —— */
+.sid-access-denied {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--sid-bg);
+  color: var(--sid-text);
+  text-align: center;
+  font-family: var(--sid-font-label);
+}
+
+.sid-access-denied__inner {
+  max-width: 28rem;
+}
+
+.sid-access-denied h1 {
+  font-family: var(--sid-font-headline);
+  font-size: 1.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 1rem;
+}
+
+.sid-access-denied p {
+  color: var(--sid-text-muted);
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.sid-access-denied a {
+  color: var(--sid-text);
+  text-decoration: none;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--sid-border-strong);
+  padding-bottom: 0.2rem;
+}
+
+.sid-access-denied a:hover {
+  opacity: 0.75;
+}
+
+/* —— Netlify Identity login modal —— */
+.netlify-identity-menu {
+  font-family: var(--sid-font-label) !important;
+}
+
+.netlify-identity-widget {
+  font-family: var(--sid-font-label) !important;
+}
+
+.netlify-identity-modal {
+  background: rgba(0, 0, 0, 0.88) !important;
+}
+
+.netlify-identity-modal-content {
+  background: var(--sid-bg-elevated) !important;
+  border: 1px solid var(--sid-border) !important;
+  border-radius: var(--sid-radius) !important;
+  color: var(--sid-text) !important;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65) !important;
+}
+
+.netlify-identity-modal-content h1,
+.netlify-identity-modal-content h2,
+.netlify-identity-modal-content label {
+  color: var(--sid-text) !important;
+  font-family: var(--sid-font-headline) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+}
+
+.netlify-identity-modal-content input {
+  background: var(--sid-bg-card) !important;
+  border: 1px solid var(--sid-border) !important;
+  color: var(--sid-text) !important;
+  border-radius: var(--sid-radius) !important;
+}
+
+.netlify-identity-modal-content button,
+.netlify-identity-modal-content .btn {
+  background: var(--sid-accent) !important;
+  color: var(--sid-accent-fg) !important;
+  border: none !important;
+  border-radius: var(--sid-radius) !important;
+  font-family: var(--sid-font-headline) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  font-size: 0.7rem !important;
+}
+
+.netlify-identity-modal-content a {
+  color: var(--sid-text-muted) !important;
+}
+
+/* —— Decap CMS shell —— */
+[class*="AppHeader"],
+header[class*="Header"] {
+  background: var(--sid-bg-elevated) !important;
+  border-bottom: 1px solid var(--sid-border) !important;
+  color: var(--sid-text) !important;
+}
+
+[class*="AppMain"],
+[class*="MainContainer"],
+main[class*="Main"] {
+  background: var(--sid-bg) !important;
+}
+
+[class*="Sidebar"],
+aside[class*="Sidebar"],
+nav[class*="Sidebar"] {
+  background: var(--sid-bg-elevated) !important;
+  border-color: var(--sid-border) !important;
+}
+
+[class*="Sidebar"] a,
+[class*="Sidebar"] button,
+nav[class*="Nav"] a,
+nav[class*="Nav"] button {
+  color: var(--sid-text-muted) !important;
+  font-family: var(--sid-font-label) !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+}
+
+[class*="Sidebar"] a[class*="active"],
+[class*="Sidebar"] [aria-current="page"],
+nav[class*="Nav"] [aria-current="page"] {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: var(--sid-text) !important;
+}
+
+h1, h2, h3,
+[class*="CollectionTop"],
+[class*="EditorTopBar"] {
+  font-family: var(--sid-font-headline) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.02em !important;
+  color: var(--sid-text) !important;
+}
+
+p, label, span, li,
+[class*="FieldLabel"],
+[class*="ControlLabel"] {
+  font-family: var(--sid-font-label) !important;
+}
+
+[class*="Hint"],
+[class*="hint"],
+small {
+  color: var(--sid-text-faint) !important;
+}
+
+/* Cards / list entries */
+[class*="CollectionCard"],
+[class*="EntryCard"],
+[class*="Card"],
+li[class*="ListItem"] {
+  background: var(--sid-bg-card) !important;
+  border: 1px solid var(--sid-border) !important;
+  border-radius: var(--sid-radius) !important;
+  color: var(--sid-text) !important;
+}
+
+[class*="CollectionCard"]:hover,
+[class*="EntryCard"]:hover {
+  border-color: var(--sid-border-strong) !important;
+}
+
+/* Form controls */
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select,
+[class*="ControlInput"],
+[class*="Dropdown"],
+[class*="Select"] {
+  background: var(--sid-bg-card) !important;
+  border: 1px solid var(--sid-border) !important;
+  color: var(--sid-text) !important;
+  border-radius: var(--sid-radius) !important;
+  font-family: var(--sid-font-label) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--sid-text-faint) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--sid-border-strong) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Primary actions — white on black like site CTAs */
+button[class*="PublishedButton"],
+button[class*="Publish"],
+button[class*="Primary"],
+a[class*="PrimaryButton"],
+[class*="Toolbar"] button[class*="Publish"] {
+  background: var(--sid-accent) !important;
+  color: var(--sid-accent-fg) !important;
+  border: 1px solid var(--sid-accent) !important;
+  border-radius: var(--sid-radius) !important;
+  font-family: var(--sid-font-headline) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  font-size: 0.68rem !important;
+}
+
+button[class*="PublishedButton"]:hover,
+button[class*="Publish"]:hover,
+button[class*="Primary"]:hover {
+  background: #e8e8e8 !important;
+}
+
+/* Secondary buttons */
+button[class*="Secondary"],
+button[class*="Button"]:not([class*="Primary"]):not([class*="Publish"]) {
+  background: transparent !important;
+  color: var(--sid-text-muted) !important;
+  border: 1px solid var(--sid-border) !important;
+  border-radius: var(--sid-radius) !important;
+}
+
+/* Tabs */
+[role="tablist"] button,
+[class*="Tab"] {
+  color: var(--sid-text-muted) !important;
+  border-color: var(--sid-border) !important;
+}
+
+[role="tab"][aria-selected="true"],
+[class*="Tab"][class*="active"] {
+  color: var(--sid-text) !important;
+  border-color: var(--sid-text) !important;
+}
+
+/* Media / image widgets */
+[class*="ImageContainer"],
+[class*="MediaLibrary"],
+[class*="AssetPreview"] {
+  background: var(--sid-bg-card) !important;
+  border: 1px dashed var(--sid-border) !important;
+  border-radius: var(--sid-radius) !important;
+}
+
+/* Preview pane */
+[class*="PreviewPane"],
+[class*="Preview"] {
+  background: #030303 !important;
+  border-left: 1px solid var(--sid-border) !important;
+}
+
+/* Scrollbars */
+* {
+  scrollbar-color: #333 #0a0a0a;
+  scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+/* Status / dropdown menus */
+[class*="DropdownList"],
+[class*="Menu"],
+[role="menu"],
+[role="listbox"] {
+  background: var(--sid-bg-elevated) !important;
+  border: 1px solid var(--sid-border) !important;
+  color: var(--sid-text) !important;
+}
+
+[role="menuitem"],
+[role="option"] {
+  color: var(--sid-text-muted) !important;
+}
+
+[role="menuitem"]:hover,
+[role="option"]:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: var(--sid-text) !important;
+}
+
+/* Loading */
+[class*="Loader"],
+[class*="Loading"] {
+  color: var(--sid-text-muted) !important;
+}

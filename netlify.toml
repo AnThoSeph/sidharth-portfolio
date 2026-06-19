@@ -36,6 +36,12 @@
   [headers.values]
     Content-Type = "text/yaml; charset=utf-8"
 
+[[headers]]
+  for = "/admin/*.css"
+  [headers.values]
+    Content-Type = "text/css; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
 # GLB models — correct MIME for 3D viewer
 [[headers]]
   for = "/*.glb"
