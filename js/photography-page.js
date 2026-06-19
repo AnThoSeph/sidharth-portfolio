@@ -5,9 +5,16 @@
     return window.PHOTOGRAPHY_DATA || [];
   }
 
+  function assetSrc(path) {
+    if (!path) return path;
+    if (/^https?:\/\//i.test(path)) return path;
+    if (path.startsWith("/")) return path;
+    return "/" + path.replace(/^\/+/, "");
+  }
+
   function imgWithFallback(src, alt, className) {
     const placeholder = window.PHOTO_PLACEHOLDER || "assets/projects/_shared/placeholder.svg";
-    return `<img class="${className}" src="${src}" alt="${alt}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${placeholder}'">`;
+    return `<img class="${className}" src="${assetSrc(src)}" alt="${alt}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${placeholder}'">`;
   }
 
   function renderGrid() {
@@ -65,7 +72,7 @@
     if (!PHOTOGRAPHY_DATA.length) return;
 
     const items = PHOTOGRAPHY_DATA.map((photo) => ({
-      src: photo.src,
+      src: assetSrc(photo.src),
       alt: photo.title,
       caption: `${photo.caption || photo.title}${photo.location ? ` · ${photo.location}` : ""}`,
     }));

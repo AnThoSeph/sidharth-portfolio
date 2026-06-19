@@ -5,7 +5,7 @@
   "year": "2024",
   "location": "Kannur, Kerala",
   "caption": "Traditional Theyyam performance, colour, fire, and ritual presence in a single frame.",
-  "src": "assets/photography/theyyam-cultural/theyyam-cultural.jpg",
+  "src": "/assets/photography/theyyam-cultural.jpg",
   "gridClass": "md:col-span-8",
   "aspect": "aspect-video"
 }

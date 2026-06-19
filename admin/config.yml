@@ -133,13 +133,13 @@ collections:
     format: json
     identifier_field: slug
     summary: "{{title}}, {{year}}"
-    media_folder: assets/photography/{{slug}}
-    public_folder: /assets/photography/{{slug}}
+    media_folder: assets/photography
+    public_folder: /assets/photography
     fields:
       - label: Slug
         name: slug
         widget: string
-        hint: URL-safe name, lowercase with hyphens (e.g. sunset-portrait). Must match the folder under assets/photography/.
+        hint: URL-safe name, lowercase with hyphens (e.g. sunset-portrait). Used in the JSON filename only.
         pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and hyphens only']
       - label: Title
         name: title
@@ -167,7 +167,7 @@ collections:
       - label: Photo image
         name: src
         widget: image
-        hint: Main gallery image. Upload here — saved under assets/photography/{slug}/.
+        hint: Main gallery image. Upload here — saved under assets/photography/.
       - label: Grid layout (Tailwind)
         name: gridClass
         widget: string

@@ -1,19 +1,18 @@
 # Photography assets
 
-Photos are managed in the **admin panel** (`/admin` → **Photography**).
+Photos are managed in **/admin → Photography**.
 
-Each photo gets its own folder:
+Upload images to **`assets/photography/`** (flat folder — one file per photo).
 
 ```
-assets/photography/{slug}/
-  your-photo.jpg   → run npm run optimize-images → your-photo.webp
+assets/photography/
+  theyyam-cultural.jpg
+  portrait.jpg
+  ...
 ```
 
-Metadata and display order live in:
+Metadata lives in `content/photography/{slug}.json`. Image paths use a leading slash, e.g. `/assets/photography/portrait.jpg`.
 
-- `content/photography/{slug}.json` — title, category, caption, image path
-- `content/photo-order.json` — gallery order on the Photos page
+**Site settings → Photo order** controls gallery order on the Photos page.
 
-**Categories:** `portrait`, `culture`, `travel`, `street`, `product`
-
-After uploading in admin, run `npm run optimize-images` locally (or ask your developer to push) so large JPEGs/PNGs become fast WebP files.
+After uploading large JPEGs, run `npm run optimize-images` locally and push for faster loading.

@@ -28,3 +28,30 @@ img {
   border-radius: 0.5rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
+
+.sid-photo-preview__meta {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 0 0 1rem;
+}
+
+.sid-photo-preview__img {
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 0 1rem;
+}
+
+.sid-photo-preview__caption {
+  font-family: "Newsreader", Georgia, serif;
+  color: rgba(255, 255, 255, 0.65);
+  max-width: 40rem;
+}
+
+.sid-photo-preview__empty {
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+}
