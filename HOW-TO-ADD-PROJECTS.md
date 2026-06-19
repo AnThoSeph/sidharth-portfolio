@@ -61,6 +61,27 @@ Optional — homepage featured grid (4 projects):
 
 ---
 
+## Add or edit photography
+
+1. Log in at `/admin`.
+2. Click **Photography** → **New Photo** (or open an existing photo).
+3. Fill in:
+   - **Slug** — lowercase with hyphens (e.g. `sunset-portrait`).
+   - **Title, category, year, location, caption**
+   - **Photo image** — upload the main image (saved under `assets/photography/{slug}/`).
+   - **Grid layout / aspect** — optional; defaults work for most photos.
+4. Click **Publish**.
+
+### Show the photo on the site
+
+1. Open **Site settings** → **Photo order (photography page)**.
+2. Add your new photo **slug** to the list (order = gallery order and lightbox sequence).
+3. **Publish**.
+
+To replace an image: open the photo in **Photography**, upload a new file in **Photo image**, **Publish**.
+
+---
+
 ## Image tips (outside the admin)
 
 Recommended sizes and filenames are in [`assets/projects/README.md`](assets/projects/README.md).
@@ -78,14 +99,15 @@ Recommended sizes and filenames are in [`assets/projects/README.md`](assets/proj
 | `/admin` shows login but save fails | Confirm **Git Gateway** is enabled under Identity settings. |
 | Project page 404 / empty | Check the slug in the URL matches the **Slug** field and that the slug is listed in **Project order**. |
 | New project not on homepage | Add its slug under **Featured projects** in Site settings. |
-| Images broken after upload | Re-open the project in admin and confirm image fields show paths under `assets/projects/...`. |
+| Images broken after upload | Re-open the entry in admin and confirm image paths under `assets/projects/...` or `assets/photography/...`. |
+| New photo not on Photos page | Add its slug under **Photo order** in Site settings and Publish. |
 
 ---
 
 ## What still requires a developer (optional)
 
-- **Menu preview images** (`js/menu-data.js`) — separate from project CMS; can be added later.
-- **Photography section** — not in CMS yet (planned phase 2).
+- **Menu preview images** (`js/menu-data.js`) — separate from CMS.
+- **Image optimization** — after large uploads, run `npm run optimize-images` and push to GitHub for fastest load times.
 - **Local preview** — run `npx serve .` in the project folder if you want to test before deploy.
 
 For questions about the site itself: **sidhu500sidhu@gmail.com**.

@@ -1,20 +1,26 @@
 /**
- * Compress project stills to WebP for faster page loads.
+ * Compress project and photography stills to WebP for faster page loads.
  * Run: npm run optimize-images
- * Originals are moved to assets/projects/{slug}/_originals/ (gitignored).
+ * Originals are moved to {folder}/_originals/ (gitignored).
  */
 import fs from "fs";
 import path from "path";
 import sharp from "sharp";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
-const PROJECTS_DIR = path.join(ROOT, "assets", "projects");
+const ASSET_DIRS = [
+  path.join(ROOT, "assets", "projects"),
+  path.join(ROOT, "assets", "photography"),
+];
 
 const SKIP_DIRS = new Set(["_shared", "_originals"]);
 const SKIP_EXT = new Set([".glb", ".svg", ".webp", ".mp4", ".md"]);
 
-function maxWidthForFile(name) {
-  const base = path.basename(name, path.extname(name)).toLowerCase();
+function maxWidthForFile(filePath) {
+  const base = path.basename(filePath, path.extname(filePath)).toLowerCase();
+  const inPhotography = filePath.includes(`${path.sep}photography${path.sep}`);
+
+  if (inPhotography) return 1920;
   if (base === "thumb") return 1280;
   if (base === "beauty" || base === "hero" || base === "wireframe") return 1920;
   if (/^gallery-\d+$/i.test(base) || /^\d+$/.test(base)) return 1920;
@@ -57,6 +63,7 @@ async function optimizeFile(filePath) {
 }
 
 async function walk(dir, results = []) {
+  if (!fs.existsSync(dir)) return results;
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     if (entry.name.startsWith(".")) continue;
     const full = path.join(dir, entry.name);
@@ -78,12 +85,16 @@ function formatBytes(n) {
 }
 
 async function main() {
-  if (!fs.existsSync(PROJECTS_DIR)) {
-    console.error("No assets/projects folder found.");
-    process.exit(1);
+  let files = [];
+  for (const dir of ASSET_DIRS) {
+    files = files.concat(await walk(dir));
   }
 
-  const files = await walk(PROJECTS_DIR);
+  if (!files.length) {
+    console.log("No PNG/JPEG files found under assets/projects or assets/photography.");
+    return;
+  }
+
   let totalBefore = 0;
   let totalAfter = 0;
   const done = [];
@@ -102,7 +113,7 @@ async function main() {
   console.log("");
   console.log(`Optimized ${done.length} file(s).`);
   console.log(`Total: ${formatBytes(totalBefore)} → ${formatBytes(totalAfter)}`);
-  console.log("Update content/projects/*.json paths from .png/.jpeg to .webp if needed.");
+  console.log("Update JSON image paths to .webp if the admin still points at .png/.jpeg.");
 }
 
 main().catch((err) => {

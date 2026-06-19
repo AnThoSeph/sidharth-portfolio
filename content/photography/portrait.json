@@ -1,0 +1,11 @@
+{
+  "slug": "portrait",
+  "title": "Portrait Study",
+  "category": "portrait",
+  "year": "2025",
+  "location": "Kerala",
+  "caption": "Natural light portrait, focus on expression and soft background falloff.",
+  "src": "assets/photography/portrait/portrait.jpg",
+  "gridClass": "md:col-span-4 md:pt-12",
+  "aspect": "aspect-[3/4]"
+}

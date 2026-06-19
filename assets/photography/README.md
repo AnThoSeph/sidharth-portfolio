@@ -1,14 +1,19 @@
 # Photography assets
 
-Current files in use (see `js/photography-data.js`):
+Photos are managed in the **admin panel** (`/admin` → **Photography**).
 
-| File | Gallery title |
-|------|----------------|
-| `theyyam-cultural.jpg` | Theyyam Ritual |
-| `theyyam-cultural-2.jpg` | Theyyam — Detail |
-| `portrait.jpg` | Portrait Study |
-| `mountain-over-clouds.jpeg` | Above the Cloud Line |
-| `monkey-mom-feeding-baby.jpg` | Mother & Young |
+Each photo gets its own folder:
 
-Add new photos here, then add an entry in `js/photography-data.js`.  
-Categories: `portrait`, `culture`, `travel`, `street`, `product`.
+```
+assets/photography/{slug}/
+  your-photo.jpg   → run npm run optimize-images → your-photo.webp
+```
+
+Metadata and display order live in:
+
+- `content/photography/{slug}.json` — title, category, caption, image path
+- `content/photo-order.json` — gallery order on the Photos page
+
+**Categories:** `portrait`, `culture`, `travel`, `street`, `product`
+
+After uploading in admin, run `npm run optimize-images` locally (or ask your developer to push) so large JPEGs/PNGs become fast WebP files.

@@ -1,13 +1,26 @@
 (function () {
   "use strict";
 
+  function getPhotos() {
+    return window.PHOTOGRAPHY_DATA || [];
+  }
+
   function imgWithFallback(src, alt, className) {
-    return `<img class="${className}" src="${src}" alt="${alt}" loading="lazy" onerror="this.onerror=null;this.src='${PHOTO_PLACEHOLDER}'">`;
+    const placeholder = window.PHOTO_PLACEHOLDER || "assets/projects/_shared/placeholder.svg";
+    return `<img class="${className}" src="${src}" alt="${alt}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${placeholder}'">`;
   }
 
   function renderGrid() {
     const grid = document.getElementById("photography-grid");
-    if (!grid || typeof PHOTOGRAPHY_DATA === "undefined") return;
+    const PHOTOGRAPHY_DATA = getPhotos();
+    if (!grid) return;
+
+    if (!PHOTOGRAPHY_DATA.length) {
+      grid.innerHTML = `<p class="font-label text-white/40 col-span-full">No photos yet.</p>`;
+      return;
+    }
+
+    const PHOTO_CATEGORY_LABELS = window.PHOTO_CATEGORY_LABELS || {};
 
     grid.innerHTML = PHOTOGRAPHY_DATA.map((photo, index) => {
       const label = PHOTO_CATEGORY_LABELS[photo.category] || photo.category;
@@ -47,7 +60,9 @@
   }
 
   function initLightbox() {
-    if (!window.ProjectLightbox || typeof PHOTOGRAPHY_DATA === "undefined") return;
+    if (!window.ProjectLightbox) return;
+    const PHOTOGRAPHY_DATA = getPhotos();
+    if (!PHOTOGRAPHY_DATA.length) return;
 
     const items = PHOTOGRAPHY_DATA.map((photo) => ({
       src: photo.src,
@@ -60,9 +75,17 @@
   }
 
   function init() {
-    renderGrid();
-    initFilters();
-    initLightbox();
+    const run = () => {
+      renderGrid();
+      initFilters();
+      initLightbox();
+    };
+
+    if (window.loadPhotographyData) {
+      window.loadPhotographyData().then(run).catch(() => run());
+    } else {
+      run();
+    }
   }
 
   if (document.readyState === "loading") {

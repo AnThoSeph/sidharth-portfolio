@@ -123,6 +123,62 @@ collections:
         widget: string
         required: false
 
+  - name: photography
+    label: Photography
+    label_singular: Photo
+    folder: content/photography
+    create: true
+    slug: "{{slug}}"
+    extension: json
+    format: json
+    identifier_field: slug
+    summary: "{{title}}, {{year}}"
+    media_folder: assets/photography/{{slug}}
+    public_folder: /assets/photography/{{slug}}
+    fields:
+      - label: Slug
+        name: slug
+        widget: string
+        hint: URL-safe name, lowercase with hyphens (e.g. sunset-portrait). Must match the folder under assets/photography/.
+        pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', 'Use lowercase letters, numbers, and hyphens only']
+      - label: Title
+        name: title
+        widget: string
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - { label: Portrait, value: portrait }
+          - { label: Culture, value: culture }
+          - { label: Travel, value: travel }
+          - { label: Street, value: street }
+          - { label: Product, value: product }
+      - label: Year
+        name: year
+        widget: string
+      - label: Location
+        name: location
+        widget: string
+        required: false
+      - label: Caption
+        name: caption
+        widget: text
+        hint: Shown in the lightbox when the photo is opened full screen.
+      - label: Photo image
+        name: src
+        widget: image
+        hint: Main gallery image. Upload here — saved under assets/photography/{slug}/.
+      - label: Grid layout (Tailwind)
+        name: gridClass
+        widget: string
+        default: md:col-span-4
+        hint: 'e.g. md:col-span-8, md:col-span-4 md:pt-12, md:col-span-8 md:-mt-24'
+      - label: Image aspect (Tailwind)
+        name: aspect
+        widget: string
+        default: aspect-video
+        hint: 'e.g. aspect-video, aspect-square, aspect-[3/4], aspect-[16/9]'
+
   - name: settings
     label: Site settings
     files:
@@ -144,4 +200,14 @@ collections:
             name: slugs
             widget: list
             hint: Order projects appear on the Projects page and in prev/next navigation on case studies.
+            field: { label: Slug, name: slug, widget: string }
+
+      - label: Photo order (photography page)
+        name: photo-order
+        file: content/photo-order.json
+        fields:
+          - label: Photo slugs
+            name: slugs
+            widget: list
+            hint: Order photos appear on the Photography page and in the lightbox gallery.
             field: { label: Slug, name: slug, widget: string }

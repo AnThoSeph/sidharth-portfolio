@@ -9,9 +9,20 @@
     asset: "Asset",
   };
 
+  const PHOTO_CATEGORY_LABELS = {
+    portrait: "Portrait",
+    culture: "Culture",
+    travel: "Travel",
+    street: "Street",
+    product: "Product",
+  };
+
   window.PROJECT_PLACEHOLDER = PROJECT_PLACEHOLDER;
+  window.PHOTO_PLACEHOLDER = PROJECT_PLACEHOLDER;
   window.CATEGORY_LABELS = CATEGORY_LABELS;
+  window.PHOTO_CATEGORY_LABELS = PHOTO_CATEGORY_LABELS;
   window.PROJECTS_DATA = [];
+  window.PHOTOGRAPHY_DATA = [];
   window.SITE_SETTINGS = { featuredSlugs: [] };
 
   function normalizeProject(raw) {
@@ -19,6 +30,10 @@
     if (project.modelGlb === "") project.modelGlb = null;
     if (project.wireframe === "") project.wireframe = null;
     return project;
+  }
+
+  function normalizePhoto(raw) {
+    return { ...raw };
   }
 
   async function loadProjects() {
@@ -37,6 +52,27 @@
 
     window.PROJECTS_DATA = loaded.filter(Boolean);
     return window.PROJECTS_DATA;
+  }
+
+  async function loadPhotography() {
+    const orderRes = await fetch("/content/photo-order.json");
+    if (!orderRes.ok) {
+      window.PHOTOGRAPHY_DATA = [];
+      return window.PHOTOGRAPHY_DATA;
+    }
+    const order = await orderRes.json();
+    const slugs = order.slugs || [];
+
+    const loaded = await Promise.all(
+      slugs.map(async (slug) => {
+        const res = await fetch(`/content/photography/${slug}.json`);
+        if (!res.ok) return null;
+        return normalizePhoto(await res.json());
+      })
+    );
+
+    window.PHOTOGRAPHY_DATA = loaded.filter(Boolean);
+    return window.PHOTOGRAPHY_DATA;
   }
 
   window.loadProjectBySlug = async function loadProjectBySlug(slug) {
@@ -63,10 +99,16 @@
   }
 
   window.loadPortfolioData = async function loadPortfolioData() {
-    await Promise.all([loadProjects(), loadSiteSettings()]);
+    await Promise.all([loadProjects(), loadPhotography(), loadSiteSettings()]);
     return {
       projects: window.PROJECTS_DATA,
+      photography: window.PHOTOGRAPHY_DATA,
       site: window.SITE_SETTINGS,
     };
+  };
+
+  window.loadPhotographyData = async function loadPhotographyData() {
+    await loadPhotography();
+    return window.PHOTOGRAPHY_DATA;
   };
 })();
