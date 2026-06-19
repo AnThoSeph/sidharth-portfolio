@@ -12,11 +12,16 @@ Do this once after the admin files are deployed to GitHub/Netlify.
 
 1. Open [Netlify](https://app.netlify.com) and select your site (**sidharth-kv**).
 2. Go to **Site configuration** → **Identity** → click **Enable Identity**.
-3. Under **Identity** → **Invite users**, enter your email and send the invite. Accept the invite from your inbox.
+3. Under **Identity** → **Invite users**, invite both authorized emails:
+   - `sidhu500sidhu@gmail.com`
+   - `anshual005@gmail.com`
+   Accept each invite from your inbox (or use **Login with Google** after invite-only is enabled).
 4. Go to **Identity** → **Identity settings** → scroll to **Services** → click **Enable Git Gateway**.
-5. Under **Registration preferences**, set registration to **Invite only** (recommended — only you can log in).
+5. Under **Registration preferences**, set registration to **Invite only**.
+6. Under **External providers**, enable **Google** (optional but recommended for Google login).
+7. After deploy, confirm **Registration triggered functions** shows `identity-signup` (blocks any email not on the allowlist).
 
-After that, visit `/admin`, click **Login with Netlify Identity**, and use the email/password from your invite.
+Only **sidhu500sidhu@gmail.com** and **anshual005@gmail.com** can access `/admin`. Any other Google or email login is rejected.
 
 ---
 

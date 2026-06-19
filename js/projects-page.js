@@ -2,7 +2,7 @@
   "use strict";
 
   function imgWithFallback(src, alt, className) {
-    return `<img class="${className}" src="${src}" alt="${alt}" loading="lazy" onerror="this.onerror=null;this.src='${window.PROJECT_PLACEHOLDER || "assets/projects/_shared/placeholder.svg"}'">`;
+    return `<img class="${className}" src="${src}" alt="${alt}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${window.PROJECT_PLACEHOLDER || "assets/projects/_shared/placeholder.svg"}'">`;
   }
 
   function projectHref(slug) {

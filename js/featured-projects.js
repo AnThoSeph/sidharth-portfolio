@@ -55,7 +55,7 @@
         (p) => `
       <a href="${projectHref(p.slug)}" data-slug="${p.slug}" class="${p.gridClass || "md:col-span-4"} group cursor-pointer project-card block">
         <div class="relative ${p.aspect || "aspect-video"} rounded-xl overflow-hidden bg-[#111] mb-6 border border-white/5">
-          <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="${p.thumb}" alt="${p.title}" loading="lazy" onerror="this.onerror=null;this.src='${PLACEHOLDER}'">
+          <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" src="${p.thumb}" alt="${p.title}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${PLACEHOLDER}'">
         </div>
         <h3 class="font-headline text-2xl font-bold text-white mb-1">${p.title.toUpperCase()}</h3>
         <p class="font-label text-sm text-white/40 uppercase tracking-widest">${subtitle(p)}</p>

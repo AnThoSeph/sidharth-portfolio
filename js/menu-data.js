@@ -6,7 +6,7 @@ const MENU_PREVIEWS = {
     label: "02 / Featured Work",
     type: "featured",
     badge: "Latest Render",
-    image: "assets/projects/hibiki/process-03.png",
+    image: "assets/projects/hibiki/process-03.webp",
     alt: "HIBIKI product visualization",
     title: "HIBIKI",
     subtitle: "Japanese Blended Whisky / 2025",
@@ -37,7 +37,7 @@ const MENU_PREVIEWS = {
     items: [
       {
         title: "HIBIKI",
-        image: "assets/projects/hibiki/process-03.png",
+        image: "assets/projects/hibiki/process-03.webp",
         href: "project.html?slug=hibiki",
       },
       {

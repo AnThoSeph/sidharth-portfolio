@@ -1,6 +1,7 @@
 # Static portfolio — no build step
 [build]
   publish = "."
+  functions = "netlify/functions"
 
 # SPA-style fallbacks for clean URLs (optional)
 # Case study pages — /project/hibiki → project.html?slug=hibiki
@@ -53,3 +54,9 @@
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/assets/**/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+    Content-Type = "image/webp"

@@ -26,7 +26,7 @@
   }
 
   function img(src, alt, className) {
-    return `<img class="${className}" src="${src}" alt="${alt}" loading="lazy" onerror="this.onerror=null;this.src='${window.PROJECT_PLACEHOLDER || "assets/projects/_shared/placeholder.svg"}'">`;
+    return `<img class="${className}" src="${src}" alt="${alt}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${window.PROJECT_PLACEHOLDER || "assets/projects/_shared/placeholder.svg"}'">`;
   }
 
   function getNeighbors(slug) {
@@ -170,8 +170,8 @@
         <div class="max-w-[1400px] mx-auto">
           <p class="font-label text-xs uppercase tracking-[0.25em] text-white/40 mb-4">Drag the handle to compare · Click expand for full screen</p>
           <div class="compare-slider" data-compare-slider>
-            <img class="compare-img compare-img--after" src="${compare.after}" alt="${project.title}, ${compare.afterLabel}">
-            <img class="compare-img compare-img--before" src="${compare.before}" alt="${project.title}, ${compare.beforeLabel}">
+            <img class="compare-img compare-img--after" src="${compare.after}" alt="${project.title}, ${compare.afterLabel}" fetchpriority="high" decoding="async">
+            <img class="compare-img compare-img--before" src="${compare.before}" alt="${project.title}, ${compare.beforeLabel}" decoding="async">
             <input type="range" class="compare-range" min="0" max="100" value="50" aria-label="Drag to compare before and after renders">
             <div class="compare-handle" aria-hidden="true"></div>
             <span class="compare-label compare-label--before">${compare.beforeLabel}</span>

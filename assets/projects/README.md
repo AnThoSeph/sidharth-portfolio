@@ -11,7 +11,7 @@ The site will use them automatically once files exist (placeholders show until t
 | Hero / gallery / process steps | **2560 × 1440 px** | **16∶9** (same camera & crop when comparing) |
 | Grid thumbnail (`thumb`) | **1280 × 720 px** | 16∶9 (or reuse a cropped `beauty`) |
 
-**Format:** use **`.png`** for all still images. **`.glb`** only for optional 3D viewer (not `.obj` on the site).
+**Format:** use **`.webp`** on the live site (run `npm run optimize-images` after adding PNG/JPEG exports). **`.glb`** only for optional 3D viewer (not `.obj` on the site).
 
 Compare pair must be **identical resolution and framing**. For HIBIKI: **`process-02.png`** (blockout) vs **`beauty.png`** (final).
 
@@ -59,8 +59,8 @@ Automatically uses the process step named **Blockout** or **Greybox** (left) vs 
 HIBIKI override (explicit):
 
 ```js
-compareBefore: "assets/projects/hibiki/process-02.png",
-compareAfter: "assets/projects/hibiki/beauty.png",
+compareBefore: "assets/projects/hibiki/process-02.webp",
+compareAfter: "assets/projects/hibiki/beauty.webp",
 ```
 
 ## Lightbox

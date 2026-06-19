@@ -15,33 +15,33 @@
   "problem": "Create a hero bottle and pour shot that feels authentic to Japanese blended whisky: rich amber, label fidelity, and glass caustics, without a physical bottle on set.",
   "approach": "Matched label typography and bottle proportions from reference, built layered glass and liquid shaders, and lit with soft key plus rim to emphasize the 24 facet cut and golden whisky tone.",
   "outcome": "Final stills delivered for portfolio and pitch deck; client approved lookdev after blockout and greyshade reviews.",
-  "thumb": "assets/projects/hibiki/beauty.png",
-  "hero": "assets/projects/hibiki/beauty.png",
-  "beauty": "assets/projects/hibiki/beauty.png",
+  "thumb": "assets/projects/hibiki/beauty.webp",
+  "hero": "assets/projects/hibiki/beauty.webp",
+  "beauty": "assets/projects/hibiki/beauty.webp",
   "wireframe": null,
   "gallery": [],
   "process": [
     {
       "step": "01 / Concept",
       "caption": "Reference gathering, label layout, and mood for Japanese blended whisky.",
-      "image": "assets/projects/hibiki/process-01.png"
+      "image": "assets/projects/hibiki/process-01.webp"
     },
     {
       "step": "02 / Blockout",
       "caption": "Bottle silhouette, label placement, and liquid volume in Blender.",
-      "image": "assets/projects/hibiki/process-02.png"
+      "image": "assets/projects/hibiki/process-02.webp"
     },
     {
       "step": "03 / Final",
       "caption": "Beauty render and comp for campaign delivery.",
-      "image": "assets/projects/hibiki/process-03.png"
+      "image": "assets/projects/hibiki/process-03.webp"
     }
   ],
   "modelGlb": "assets/projects/hibiki/model.glb",
   "gridClass": "md:col-span-8",
   "aspect": "aspect-video",
-  "compareBefore": "assets/projects/hibiki/process-02.png",
-  "compareAfter": "assets/projects/hibiki/beauty.png",
+  "compareBefore": "assets/projects/hibiki/process-02.webp",
+  "compareAfter": "assets/projects/hibiki/beauty.webp",
   "compareBeforeLabel": "Blockout",
   "compareAfterLabel": "Final"
 }

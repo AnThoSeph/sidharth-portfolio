@@ -15,38 +15,38 @@
   "problem": "Deliver an anatomically convincing skull asset with readable bone wear and tooth detail under controlled studio lighting.",
   "approach": "Modeled from reference in Blender, sculpted micro surface variation, then textured bone, enamel, and cavity grime in Substance before final comp.",
   "outcome": "Hero stills and supporting angles packaged for asset design portfolio and client pitch use.",
-  "thumb": "assets/projects/Cheetah-skull/beauty.png",
-  "hero": "assets/projects/Cheetah-skull/beauty.png",
-  "beauty": "assets/projects/Cheetah-skull/beauty.png",
+  "thumb": "assets/projects/Cheetah-skull/beauty.webp",
+  "hero": "assets/projects/Cheetah-skull/beauty.webp",
+  "beauty": "assets/projects/Cheetah-skull/beauty.webp",
   "gallery": [
-    "assets/projects/Cheetah-skull/3.png",
-    "assets/projects/Cheetah-skull/4.png",
-    "assets/projects/Cheetah-skull/5.png",
-    "assets/projects/Cheetah-skull/6.png",
-    "assets/projects/Cheetah-skull/7.png"
+    "assets/projects/Cheetah-skull/3.webp",
+    "assets/projects/Cheetah-skull/4.webp",
+    "assets/projects/Cheetah-skull/5.webp",
+    "assets/projects/Cheetah-skull/6.webp",
+    "assets/projects/Cheetah-skull/7.webp"
   ],
   "process": [
     {
       "step": "01 / Blockout",
       "caption": "Anatomy blockout and proportion checks against reference.",
-      "image": "assets/projects/Cheetah-skull/process-01.jpeg"
+      "image": "assets/projects/Cheetah-skull/process-01.webp"
     },
     {
       "step": "02 / Lookdev",
       "caption": "Surface detail, bone shaders, and lighting tests.",
-      "image": "assets/projects/Cheetah-skull/process-02.png"
+      "image": "assets/projects/Cheetah-skull/process-02.webp"
     },
     {
       "step": "03 / Final",
       "caption": "Beauty render for portfolio delivery.",
-      "image": "assets/projects/Cheetah-skull/beauty.png"
+      "image": "assets/projects/Cheetah-skull/beauty.webp"
     }
   ],
   "modelGlb": null,
   "gridClass": "md:col-span-4",
   "aspect": "aspect-square",
-  "compareBefore": "assets/projects/Cheetah-skull/process-02.png",
-  "compareAfter": "assets/projects/Cheetah-skull/beauty.png",
+  "compareBefore": "assets/projects/Cheetah-skull/process-02.webp",
+  "compareAfter": "assets/projects/Cheetah-skull/beauty.webp",
   "compareBeforeLabel": "Lookdev",
   "compareAfterLabel": "Final"
 }

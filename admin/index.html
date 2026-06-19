@@ -6,6 +6,50 @@
   <meta name="robots" content="noindex" />
   <title>Portfolio Admin | Sidharth KV</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var ALLOWED_EMAILS = [
+        "sidhu500sidhu@gmail.com",
+        "anshual005@gmail.com",
+      ];
+
+      function isAllowed(email) {
+        if (!email) return false;
+        return ALLOWED_EMAILS.indexOf(String(email).trim().toLowerCase()) !== -1;
+      }
+
+      function denyAccess(message) {
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.logout();
+        }
+        document.body.innerHTML =
+          '<div style="font-family:system-ui,sans-serif;max-width:440px;margin:4rem auto;padding:2rem;text-align:center;line-height:1.5">' +
+          "<h1 style=\"font-size:1.5rem;margin-bottom:0.75rem\">Access denied</h1>" +
+          "<p style=\"color:#555;margin-bottom:1.5rem\">" + message + "</p>" +
+          '<a href="/" style="color:#111">← Back to site</a></div>';
+      }
+
+      function guardUser(user) {
+        if (!user) return;
+        if (!isAllowed(user.email)) {
+          denyAccess(
+            "This admin panel is only available to authorized Google accounts."
+          );
+        }
+      }
+
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function (user) {
+          guardUser(user);
+        });
+        window.netlifyIdentity.on("login", function (user) {
+          guardUser(user);
+        });
+      }
+    })();
+  </script>
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>

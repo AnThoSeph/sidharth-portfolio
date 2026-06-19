@@ -15,39 +15,39 @@
   "problem": "Merge human readability with oak tree language so the figure feels alive, ancient, and believable as a forest guardian.",
   "approach": "Sculpted primary forms in ZBrush, refined bark planes and root structure in Blender, then layered moss, wood grain, and subsurface breakup in Substance.",
   "outcome": "Final beauty renders and process frames ready for portfolio and character design reels.",
-  "thumb": "assets/projects/gargantor/beauty.png",
-  "hero": "assets/projects/gargantor/beauty.png",
-  "beauty": "assets/projects/gargantor/beauty.png",
+  "thumb": "assets/projects/gargantor/beauty.webp",
+  "hero": "assets/projects/gargantor/beauty.webp",
+  "beauty": "assets/projects/gargantor/beauty.webp",
   "gallery": [
-    "assets/projects/gargantor/1.png",
-    "assets/projects/gargantor/2.png",
-    "assets/projects/gargantor/3.png",
-    "assets/projects/gargantor/4.png",
-    "assets/projects/gargantor/5.png",
-    "assets/projects/gargantor/6.png"
+    "assets/projects/gargantor/1.webp",
+    "assets/projects/gargantor/2.webp",
+    "assets/projects/gargantor/3.webp",
+    "assets/projects/gargantor/4.webp",
+    "assets/projects/gargantor/5.webp",
+    "assets/projects/gargantor/6.webp"
   ],
   "process": [
     {
       "step": "01 / Concept",
       "caption": "Silhouette exploration and oak anatomy references for the human tree hybrid.",
-      "image": "assets/projects/gargantor/process-01.jpeg"
+      "image": "assets/projects/gargantor/process-01.webp"
     },
     {
       "step": "02 / Sculpt",
       "caption": "Primary sculpt pass, bark planes, and root mass before lookdev.",
-      "image": "assets/projects/gargantor/process-02.png"
+      "image": "assets/projects/gargantor/process-02.webp"
     },
     {
       "step": "03 / Final",
       "caption": "Beauty lighting and material polish for portfolio delivery.",
-      "image": "assets/projects/gargantor/beauty.png"
+      "image": "assets/projects/gargantor/beauty.webp"
     }
   ],
   "modelGlb": null,
   "gridClass": "md:col-span-4",
   "aspect": "aspect-[3/4]",
-  "compareBefore": "assets/projects/gargantor/process-02.png",
-  "compareAfter": "assets/projects/gargantor/beauty.png",
+  "compareBefore": "assets/projects/gargantor/process-02.webp",
+  "compareAfter": "assets/projects/gargantor/beauty.webp",
   "compareBeforeLabel": "Sculpt",
   "compareAfterLabel": "Final"
 }
