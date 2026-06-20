@@ -91,16 +91,6 @@
     const galleryOffset = 2;
     const processOffset = galleryOffset + (project.gallery || []).length;
 
-    const catLabel = (window.CATEGORY_LABELS && window.CATEGORY_LABELS[project.category]) || project.category;
-    const chips = [
-      catLabel,
-      project.year,
-      project.role,
-      project.duration,
-      project.polycount,
-      ...project.tools.slice(0, 2),
-    ];
-
     const processHtml = (project.process || [])
       .map(
         (step, i) => `
@@ -159,10 +149,7 @@
           <a href="projects.html" class="font-label text-xs uppercase tracking-[0.3em] text-white/40 hover:text-white transition-colors mb-8 inline-block">← All Projects</a>
           <span class="font-label text-white/50 text-sm uppercase tracking-[0.3em] mb-4 block">Case Study</span>
           <h1 class="page-title font-headline text-5xl md:text-7xl font-black uppercase leading-none mb-6" id="page-title">${project.title}</h1>
-          <p class="font-body text-xl text-white/60 max-w-3xl mb-8">${project.summary}</p>
-          <div class="flex flex-wrap gap-2 mb-10">
-            ${chips.map((c) => `<span class="meta-chip">${c}</span>`).join("")}
-          </div>
+          <p class="font-body text-xl text-white/60 max-w-3xl">${project.summary}</p>
         </div>
       </section>
 

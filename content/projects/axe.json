@@ -1,0 +1,56 @@
+{
+  "slug": "axe",
+  "title": "AXE",
+  "category": "asset",
+  "year": "2026",
+  "role": "3D Artist",
+  "duration": "2 weeks",
+  "polycount": "8k tris",
+  "tools": [
+    "Blender",
+    "Substance Painter",
+    "Photoshop"
+  ],
+  "summary": "Hero axe asset study — worn metal, wood grip, and studio lighting for a portfolio-ready weapon render.",
+  "problem": "Deliver a believable hand axe with readable material contrast between blade steel, edge wear, and handle wood under controlled lighting.",
+  "approach": "Blocked proportions from reference, sculpted edge chips and surface variation, then textured metal patina and wood grain in Substance before final beauty lighting.",
+  "outcome": "Final stills and supporting angles packaged for asset design portfolio and client pitch use.",
+  "thumb": "assets/projects/axe/beauty.webp",
+  "hero": "assets/projects/axe/beauty.webp",
+  "beauty": "assets/projects/axe/beauty.webp",
+  "gallery": [
+    "assets/projects/axe/1.webp",
+    "assets/projects/axe/2.webp",
+    "assets/projects/axe/3.webp",
+    "assets/projects/axe/4.webp",
+    "assets/projects/axe/5.webp",
+    "assets/projects/axe/6.webp",
+    "assets/projects/axe/7.webp",
+    "assets/projects/axe/8.webp",
+    "assets/projects/axe/9.webp"
+  ],
+  "process": [
+    {
+      "step": "01 / Blockout",
+      "caption": "Silhouette, head-to-handle proportions, and edge placement from reference.",
+      "image": "assets/projects/axe/process-01.webp"
+    },
+    {
+      "step": "02 / Lookdev",
+      "caption": "Metal wear, wood shaders, and lighting tests before final comp.",
+      "image": "assets/projects/axe/process-02.webp"
+    },
+    {
+      "step": "03 / Final",
+      "caption": "Beauty render for portfolio delivery.",
+      "image": "assets/projects/axe/beauty.webp"
+    }
+  ],
+  "modelGlb": null,
+  "gridClass": "md:col-span-4",
+  "aspect": "aspect-square",
+  "compareBefore": "assets/projects/axe/process-02.webp",
+  "compareAfter": "assets/projects/axe/beauty.webp",
+  "compareBeforeLabel": "Lookdev",
+  "compareAfterLabel": "Final"
+}
