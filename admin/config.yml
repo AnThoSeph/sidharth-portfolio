@@ -8,7 +8,7 @@ public_folder: /assets/projects/{{slug}}
 
 site_url: https://sidharth-kv.netlify.app
 display_url: https://sidharth-kv.netlify.app
-logo_url: https://sidharth-kv.netlify.app/assets/projects/_shared/placeholder.svg
+logo_url: https://sidharth-kv.netlify.app/assets/favicon.svg
 
 collections:
   - name: projects
