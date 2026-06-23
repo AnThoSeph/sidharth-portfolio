@@ -2,7 +2,8 @@
   "name": "sidharth-portfolio",
   "private": true,
   "scripts": {
-    "optimize-images": "node scripts/optimize-project-images.mjs"
+    "optimize-images": "node scripts/optimize-project-images.mjs",
+    "reencode-images": "node scripts/reencode-from-originals.mjs"
   },
   "devDependencies": {
     "sharp": "^0.33.5"

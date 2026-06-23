@@ -46,7 +46,7 @@
   ],
   "modelGlb": null,
   "gridClass": "md:col-span-8",
-  "aspect": "aspect-[3/4]",
+  "aspect": "aspect-video",
   "compareBefore": "assets/projects/bragus/process-02.webp",
   "compareAfter": "assets/projects/bragus/beauty.webp",
   "compareBeforeLabel": "Sculpt",

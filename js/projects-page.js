@@ -1,6 +1,10 @@
 (function () {
   "use strict";
 
+  function cardImage(project) {
+    return project.cardImage || project.hero || project.thumb;
+  }
+
   function imgWithFallback(src, alt, className) {
     return `<img class="${className}" src="${src}" alt="${alt}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${window.PROJECT_PLACEHOLDER || "assets/projects/_shared/placeholder.svg"}'">`;
   }
@@ -44,7 +48,7 @@
       return `
         <a href="${href}" data-slug="${p.slug}" class="project-card-link group ${p.gridClass || "md:col-span-4"} project-card" data-category="${p.category}">
           <div class="${p.aspect || "aspect-video"} rounded-xl overflow-hidden bg-[#111] mb-4 border border-white/5">
-            ${imgWithFallback(p.thumb, p.title, "w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110")}
+            ${imgWithFallback(cardImage(p), p.title, "w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110")}
           </div>
           <h3 class="font-headline text-2xl font-bold">${p.title.toUpperCase()}</h3>
           <p class="font-label text-sm text-white/40 uppercase tracking-widest">${label} / ${p.year}</p>

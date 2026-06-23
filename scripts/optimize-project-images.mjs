@@ -16,16 +16,20 @@ const ASSET_DIRS = [
 const SKIP_DIRS = new Set(["_shared", "_originals"]);
 const SKIP_EXT = new Set([".glb", ".svg", ".webp", ".mp4", ".md"]);
 
-function maxWidthForFile(filePath) {
+function encodeSettingsForFile(filePath) {
   const base = path.basename(filePath, path.extname(filePath)).toLowerCase();
   const inPhotography = filePath.includes(`${path.sep}photography${path.sep}`);
 
-  if (inPhotography) return 1920;
-  if (base === "thumb") return 1280;
-  if (base === "beauty" || base === "hero" || base === "wireframe") return 1920;
-  if (/^gallery-\d+$/i.test(base) || /^\d+$/.test(base)) return 1920;
-  if (/^process-\d+$/i.test(base)) return 1600;
-  return 1920;
+  if (inPhotography) return { maxWidth: 1920, quality: 82 };
+  if (base === "thumb") return { maxWidth: 2560, quality: 90 };
+  if (base === "beauty" || base === "hero" || base === "wireframe") {
+    return { maxWidth: 3840, quality: 92 };
+  }
+  if (/^gallery-\d+$/i.test(base) || /^\d+$/.test(base)) {
+    return { maxWidth: 3840, quality: 92 };
+  }
+  if (/^process-\d+$/i.test(base)) return { maxWidth: 2560, quality: 88 };
+  return { maxWidth: 2560, quality: 88 };
 }
 
 async function optimizeFile(filePath) {
@@ -39,12 +43,12 @@ async function optimizeFile(filePath) {
   const archivedPath = path.join(originalsDir, path.basename(filePath));
 
   const before = fs.statSync(filePath).size;
-  const maxWidth = maxWidthForFile(filePath);
+  const { maxWidth, quality } = encodeSettingsForFile(filePath);
 
   await sharp(filePath)
     .rotate()
     .resize({ width: maxWidth, withoutEnlargement: true })
-    .webp({ quality: 82, effort: 4 })
+    .webp({ quality, effort: 4 })
     .toFile(outPath);
 
   const after = fs.statSync(outPath).size;
