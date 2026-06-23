@@ -8,6 +8,10 @@
       .replace(/"/g, "&quot;");
   }
 
+  function isDesktopMenuPreview() {
+    return window.matchMedia("(min-width: 768px) and (hover: hover) and (pointer: fine)").matches;
+  }
+
   function menuShellHtml() {
     return `
     <div class="menu-panel relative flex h-full w-full flex-col menu-dot-grid">
@@ -31,28 +35,28 @@
           <span class="material-symbols-outlined">close</span>
         </button>
       </header>
-      <main class="relative flex-1 grid grid-cols-1 md:grid-cols-4 px-8 pb-12 gap-0 border-t border-outline-variant/10 z-10 overflow-y-auto">
-        <section class="border-r border-outline-variant/10 pt-12 flex flex-col justify-between pr-6 min-h-[320px] menu-stagger relative z-20" style="--menu-delay: 100ms;">
+      <main class="relative flex-1 flex flex-col md:grid md:grid-cols-4 px-8 pb-12 gap-0 border-t border-outline-variant/10 z-10 overflow-y-auto">
+        <section class="menu-nav-section border-b md:border-b-0 md:border-r border-outline-variant/10 pt-12 flex flex-col md:justify-between pr-6 md:min-h-[320px] menu-stagger relative z-auto md:z-20 pb-10 md:pb-0 shrink-0" style="--menu-delay: 100ms;">
           <div>
             <span class="text-xs font-label text-primary tracking-[0.3em] uppercase mb-12 block opacity-70">01 / Navigation</span>
             <nav id="menu-nav" class="flex flex-col gap-6 max-w-[min(100%,14rem)] md:max-w-none">
-              <a class="group flex items-center gap-4 menu-nav-link" href="index.html" data-page="index"><span class="text-xs font-label text-outline group-hover:text-primary transition-colors italic">01</span><span class="text-4xl md:text-6xl font-headline font-bold text-on-surface group-hover:text-white transition-all uppercase leading-none">Index</span></a>
-              <a class="group flex items-center gap-4 menu-nav-link" href="about.html" data-page="about"><span class="text-xs font-label text-outline group-hover:text-primary transition-colors italic">02</span><span class="text-4xl md:text-6xl font-headline font-bold text-on-surface group-hover:text-white transition-all uppercase leading-none">About</span></a>
-              <a class="group flex items-center gap-4 menu-nav-link" href="projects.html" data-page="projects"><span class="text-xs font-label text-outline group-hover:text-primary transition-colors italic">03</span><span class="text-4xl md:text-6xl font-headline font-bold text-on-surface group-hover:text-white transition-all uppercase leading-none">Projects</span></a>
-              <a class="group flex items-center gap-4 menu-nav-link" href="photography.html" data-page="photography"><span class="text-xs font-label text-outline group-hover:text-primary transition-colors italic">04</span><span class="text-4xl md:text-6xl font-headline font-bold text-on-surface group-hover:text-white transition-all uppercase leading-none">Photos</span></a>
-              <a class="group flex items-center gap-4 menu-nav-link" href="lab.html" data-page="lab"><span class="text-xs font-label text-outline group-hover:text-primary transition-colors italic">05</span><span class="text-4xl md:text-6xl font-headline font-bold text-on-surface group-hover:text-white transition-all uppercase leading-none">Lab</span></a>
-              <a class="group flex items-center gap-4 menu-nav-link" href="contact.html" data-page="contact"><span class="text-xs font-label text-outline group-hover:text-primary transition-colors italic">06</span><span class="text-4xl md:text-6xl font-headline font-bold text-on-surface group-hover:text-white transition-all uppercase leading-none">Contact</span></a>
+              <a class="group flex items-center gap-4 menu-nav-link" href="index.html" data-page="index"><span class="text-xs font-label text-outline md:group-hover:text-primary transition-colors italic">01</span><span class="text-4xl md:text-6xl font-headline font-bold text-on-surface md:group-hover:text-white transition-all uppercase leading-none">Index</span></a>
+              <a class="group flex items-center gap-4 menu-nav-link" href="about.html" data-page="about"><span class="text-xs font-label text-outline md:group-hover:text-primary transition-colors italic">02</span><span class="text-4xl md:text-6xl font-headline font-bold text-on-surface md:group-hover:text-white transition-all uppercase leading-none">About</span></a>
+              <a class="group flex items-center gap-4 menu-nav-link" href="projects.html" data-page="projects"><span class="text-xs font-label text-outline md:group-hover:text-primary transition-colors italic">03</span><span class="text-4xl md:text-6xl font-headline font-bold text-on-surface md:group-hover:text-white transition-all uppercase leading-none">Projects</span></a>
+              <a class="group flex items-center gap-4 menu-nav-link" href="photography.html" data-page="photography"><span class="text-xs font-label text-outline md:group-hover:text-primary transition-colors italic">04</span><span class="text-4xl md:text-6xl font-headline font-bold text-on-surface md:group-hover:text-white transition-all uppercase leading-none">Photos</span></a>
+              <a class="group flex items-center gap-4 menu-nav-link" href="lab.html" data-page="lab"><span class="text-xs font-label text-outline md:group-hover:text-primary transition-colors italic">05</span><span class="text-4xl md:text-6xl font-headline font-bold text-on-surface md:group-hover:text-white transition-all uppercase leading-none">Lab</span></a>
+              <a class="group flex items-center gap-4 menu-nav-link" href="contact.html" data-page="contact"><span class="text-xs font-label text-outline md:group-hover:text-primary transition-colors italic">06</span><span class="text-4xl md:text-6xl font-headline font-bold text-on-surface md:group-hover:text-white transition-all uppercase leading-none">Contact</span></a>
             </nav>
           </div>
-          <div class="mt-auto pt-12">
+          <div class="mt-10 md:mt-auto pt-8 md:pt-12">
             <p class="text-sm font-body text-outline max-w-[200px]">3D artist in Kannur, Kerala. Character, product, and asset designing.</p>
           </div>
         </section>
-        <section class="border-r border-outline-variant/10 pt-12 px-4 md:px-8 flex flex-col min-h-[320px] menu-stagger" style="--menu-delay: 160ms;">
+        <section class="menu-preview-column hidden md:flex border-r border-outline-variant/10 pt-12 px-4 md:px-8 flex-col md:min-h-[320px] menu-stagger" style="--menu-delay: 160ms;">
           <span id="menu-preview-label" class="text-xs font-label text-primary tracking-[0.3em] uppercase mb-12 block opacity-70">02 / Preview</span>
           <div id="menu-preview" class="flex-1 flex flex-col gap-6 menu-preview-body"></div>
         </section>
-        <section class="border-r border-outline-variant/10 pt-12 px-4 md:px-8 flex flex-col min-h-[320px] menu-stagger" style="--menu-delay: 220ms;">
+        <section class="menu-connect-section border-b md:border-b-0 md:border-r border-outline-variant/10 pt-10 md:pt-12 px-0 md:px-8 flex flex-col md:min-h-[320px] menu-stagger shrink-0" style="--menu-delay: 220ms;">
           <span class="text-xs font-label text-primary tracking-[0.3em] uppercase mb-12 block opacity-70">03 / Connect</span>
           <div class="flex flex-col gap-8">
             <div class="flex flex-col gap-2">
@@ -62,10 +66,11 @@
             <div class="flex flex-col gap-4 mt-8">
               <a class="group flex items-center justify-between py-3 border-b border-outline-variant/10 menu-social-link" href="https://www.instagram.com/_sid_oo_/" target="_blank" rel="noopener noreferrer"><span class="font-headline text-lg uppercase tracking-tight group-hover:translate-x-2 transition-transform">Instagram</span><span class="material-symbols-outlined text-outline">call_made</span></a>
               <a class="group flex items-center justify-between py-3 border-b border-outline-variant/10 menu-social-link" href="https://www.linkedin.com/in/sidharth-kv-954696318/" target="_blank" rel="noopener noreferrer"><span class="font-headline text-lg uppercase tracking-tight group-hover:translate-x-2 transition-transform">LinkedIn</span><span class="material-symbols-outlined text-outline">call_made</span></a>
+              <a class="group flex items-center justify-between py-3 border-b border-outline-variant/10 menu-social-link" href="https://github.com/sidhu-500" target="_blank" rel="noopener noreferrer"><span class="font-headline text-lg uppercase tracking-tight group-hover:translate-x-2 transition-transform">GitHub</span><span class="material-symbols-outlined text-outline">call_made</span></a>
             </div>
           </div>
         </section>
-        <section class="pt-12 px-4 md:px-8 flex flex-col justify-between min-h-[320px] menu-stagger" style="--menu-delay: 280ms;">
+        <section class="menu-meta-section pt-10 md:pt-12 px-0 md:px-8 flex flex-col md:justify-between md:min-h-[320px] menu-stagger pb-6 md:pb-0 shrink-0" style="--menu-delay: 280ms;">
           <div>
             <span class="text-xs font-label text-primary tracking-[0.3em] uppercase mb-12 block opacity-70">04 / Meta</span>
             <div class="space-y-12">
@@ -173,11 +178,26 @@
 
   function setPreviewNavHighlight(pageKey) {
     document.querySelectorAll(".menu-nav-link").forEach((link) => {
-      link.classList.toggle("is-preview-active", link.dataset.page === pageKey);
+      link.classList.toggle("is-preview-active", isDesktopMenuPreview() && link.dataset.page === pageKey);
     });
   }
 
+  function clearMobilePreviewState() {
+    document.querySelectorAll(".menu-nav-link").forEach((link) => {
+      link.classList.remove("is-preview-active");
+    });
+    const body = document.getElementById("menu-preview");
+    const label = document.getElementById("menu-preview-label");
+    if (body) {
+      body.innerHTML = "";
+      body.classList.remove("is-fading");
+    }
+    if (label) label.textContent = "";
+  }
+
   function showPreview(pageKey, instant) {
+    if (!isDesktopMenuPreview()) return;
+
     const p = MENU_PREVIEWS[pageKey];
     const label = document.getElementById("menu-preview-label");
     const body = document.getElementById("menu-preview");
@@ -214,33 +234,54 @@
     activePage = document.body.dataset.page || "index";
     if (!MENU_PREVIEWS[activePage]) activePage = "index";
 
-    showPreview(activePage, true);
-
     const nav = document.getElementById("menu-nav");
     if (!nav) return;
 
+    if (isDesktopMenuPreview()) {
+      showPreview(activePage, true);
+    } else {
+      clearMobilePreviewState();
+    }
+
     nav.querySelectorAll(".menu-nav-link").forEach((link) => {
       link.addEventListener("mouseenter", () => {
+        if (!isDesktopMenuPreview()) return;
         hoverPage = link.dataset.page;
         if (hoverPage) showPreview(hoverPage);
       });
       link.addEventListener("focus", () => {
+        if (!isDesktopMenuPreview()) return;
         hoverPage = link.dataset.page;
         if (hoverPage) showPreview(hoverPage);
       });
     });
 
     nav.addEventListener("mouseleave", () => {
+      if (!isDesktopMenuPreview()) return;
       hoverPage = null;
       showPreview(activePage);
     });
 
     nav.addEventListener("focusout", (event) => {
+      if (!isDesktopMenuPreview()) return;
       if (!nav.contains(event.relatedTarget)) {
         hoverPage = null;
         showPreview(activePage);
       }
     });
+
+    if (!window.__menuPreviewMqBound) {
+      window.__menuPreviewMqBound = true;
+      window
+        .matchMedia("(min-width: 768px) and (hover: hover) and (pointer: fine)")
+        .addEventListener("change", () => {
+          if (isDesktopMenuPreview()) {
+            showPreview(activePage, true);
+          } else {
+            clearMobilePreviewState();
+          }
+        });
+    }
   }
 
   function init() {

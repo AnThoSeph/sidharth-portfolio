@@ -4,7 +4,7 @@
   const PLACEHOLDER = "assets/projects/_shared/placeholder.svg";
 
   function cardImage(project) {
-    return project.cardImage || project.hero || project.thumb;
+    return project.cardImage || project.hero || project.thumb || PLACEHOLDER;
   }
 
   function subtitle(project) {

@@ -2,7 +2,8 @@
   "use strict";
 
   function cardImage(project) {
-    return project.cardImage || project.hero || project.thumb;
+    const placeholder = window.PROJECT_PLACEHOLDER || "assets/projects/_shared/placeholder.svg";
+    return project.cardImage || project.hero || project.thumb || placeholder;
   }
 
   function imgWithFallback(src, alt, className) {

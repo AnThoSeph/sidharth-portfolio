@@ -19,7 +19,6 @@
   "hero": "assets/projects/axe/beauty.webp",
   "beauty": "assets/projects/axe/beauty.webp",
   "gallery": [
-    "assets/projects/axe/1.webp",
     "assets/projects/axe/2.webp",
     "assets/projects/axe/3.webp",
     "assets/projects/axe/4.webp",
@@ -31,13 +30,13 @@
   ],
   "process": [
     {
-      "step": "01 / Blockout",
-      "caption": "Silhouette, head-to-handle proportions, and edge placement from reference.",
+      "step": "01 / Reference",
+      "caption": "Reference board for silhouette, material wear, and hero axe styling.",
       "image": "assets/projects/axe/process-01.webp"
     },
     {
-      "step": "02 / Lookdev",
-      "caption": "Metal wear, wood shaders, and lighting tests before final comp.",
+      "step": "02 / Blockout",
+      "caption": "Silhouette, head-to-handle proportions, and edge placement blocked in 3D.",
       "image": "assets/projects/axe/process-02.webp"
     },
     {
@@ -51,6 +50,6 @@
   "aspect": "aspect-square",
   "compareBefore": "assets/projects/axe/process-02.webp",
   "compareAfter": "assets/projects/axe/beauty.webp",
-  "compareBeforeLabel": "Lookdev",
+  "compareBeforeLabel": "Blockout",
   "compareAfterLabel": "Final"
 }

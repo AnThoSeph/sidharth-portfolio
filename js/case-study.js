@@ -63,11 +63,18 @@
     };
   }
 
+  function hasCompareSlider(compare) {
+    return Boolean(compare.after);
+  }
+
   function buildLightboxImages(project, compare) {
-    const items = [
-      { src: compare.after, alt: `${project.title}, ${compare.afterLabel}`, caption: compare.afterLabel },
-      { src: compare.before, alt: `${project.title}, ${compare.beforeLabel}`, caption: compare.beforeLabel },
-    ];
+    const items = [];
+    if (hasCompareSlider(compare)) {
+      items.push(
+        { src: compare.after, alt: `${project.title}, ${compare.afterLabel}`, caption: compare.afterLabel },
+        { src: compare.before, alt: `${project.title}, ${compare.beforeLabel}`, caption: compare.beforeLabel }
+      );
+    }
     (project.gallery || []).forEach((src, i) => {
       items.push({ src, alt: `${project.title} gallery ${i + 1}`, caption: `Gallery frame ${i + 1}` });
     });
@@ -81,6 +88,26 @@
     return items;
   }
 
+  function galleryGridClass(project) {
+    const base = "gallery-grid gallery-grid--natural";
+    if (project.galleryLayout === "featured-left") {
+      return `${base} gallery-grid--featured-left`;
+    }
+    return base;
+  }
+
+  function galleryItemClass(project, index) {
+    const classes = ["gallery-item", "gallery-item--natural", "motion-section"];
+    if (project.galleryLayout === "featured-left") {
+      if (index === 0) {
+        classes.push("gallery-item--featured-lead");
+      } else {
+        classes.push("gallery-item--featured-slot", `gallery-item--featured-slot-${index}`);
+      }
+    }
+    return classes.join(" ");
+  }
+
   function render(project) {
     const root = document.getElementById("case-study-root");
     if (!root) return;
@@ -88,10 +115,12 @@
     const { prev, next } = getNeighbors(project.slug);
     const compare = getCompareImages(project);
     const lightboxImages = buildLightboxImages(project, compare);
-    const galleryOffset = 2;
+    const showCompare = hasCompareSlider(compare);
+    const galleryOffset = showCompare ? 2 : 0;
+    const processSteps = project.process || [];
     const processOffset = galleryOffset + (project.gallery || []).length;
 
-    const processHtml = (project.process || [])
+    const processHtml = processSteps
       .map(
         (step, i) => `
         <article class="process-step motion-section">
@@ -108,12 +137,41 @@
       )
       .join("");
 
+    const compareSection = showCompare
+      ? `
+      <section class="px-12 pb-16 motion-section">
+        <div class="max-w-[1400px] mx-auto">
+          <p class="font-label text-xs uppercase tracking-[0.25em] text-white/40 mb-4">Drag the handle to compare · Click expand for full screen</p>
+          <div class="compare-slider" data-compare-slider>
+            <img class="compare-img compare-img--after" src="${compare.after}" alt="${project.title}, ${compare.afterLabel}" fetchpriority="high" decoding="async">
+            <img class="compare-img compare-img--before" src="${compare.before}" alt="${project.title}, ${compare.beforeLabel}" decoding="async">
+            <input type="range" class="compare-range" min="0" max="100" value="50" aria-label="Drag to compare before and after renders">
+            <div class="compare-handle" aria-hidden="true"></div>
+            <span class="compare-label compare-label--before">${compare.beforeLabel}</span>
+            <span class="compare-label compare-label--after">${compare.afterLabel}</span>
+            <button type="button" class="compare-expand-btn" data-lightbox-index="0" aria-label="View final render full size">Expand</button>
+          </div>
+        </div>
+      </section>`
+      : "";
+
+    const processSection = processSteps.length
+      ? `
+      <section class="py-20 px-12 motion-section">
+        <div class="max-w-[1400px] mx-auto">
+          <span class="font-label text-white/50 text-sm uppercase tracking-[0.3em] mb-4 block">Pipeline</span>
+          <h2 class="font-headline text-4xl font-bold mb-12">Process breakdown</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">${processHtml}</div>
+        </div>
+      </section>`
+      : "";
+
     const galleryHtml = (project.gallery || [])
       .map(
         (src, i) => `
-        <figure class="gallery-item aspect-[4/3] motion-section">
+        <figure class="${galleryItemClass(project, i)}">
           <button type="button" class="lightbox-trigger" data-lightbox-index="${galleryOffset + i}" aria-label="Open gallery image ${i + 1}">
-            ${img(src, `${project.title} gallery ${i + 1}`, "w-full h-full object-cover")}
+            ${img(src, `${project.title} gallery ${i + 1}`, "block w-full h-auto")}
             <span class="gallery-zoom-hint">View</span>
           </button>
         </figure>
@@ -153,20 +211,7 @@
         </div>
       </section>
 
-      <section class="px-12 pb-16 motion-section">
-        <div class="max-w-[1400px] mx-auto">
-          <p class="font-label text-xs uppercase tracking-[0.25em] text-white/40 mb-4">Drag the handle to compare · Click expand for full screen</p>
-          <div class="compare-slider" data-compare-slider>
-            <img class="compare-img compare-img--after" src="${compare.after}" alt="${project.title}, ${compare.afterLabel}" fetchpriority="high" decoding="async">
-            <img class="compare-img compare-img--before" src="${compare.before}" alt="${project.title}, ${compare.beforeLabel}" decoding="async">
-            <input type="range" class="compare-range" min="0" max="100" value="50" aria-label="Drag to compare before and after renders">
-            <div class="compare-handle" aria-hidden="true"></div>
-            <span class="compare-label compare-label--before">${compare.beforeLabel}</span>
-            <span class="compare-label compare-label--after">${compare.afterLabel}</span>
-            <button type="button" class="compare-expand-btn" data-lightbox-index="0" aria-label="View final render full size">Expand</button>
-          </div>
-        </div>
-      </section>
+      ${compareSection}
 
       <section class="py-20 px-12 bg-[#050505] border-y border-white/5 motion-section">
         <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -185,20 +230,14 @@
         </div>
       </section>
 
-      <section class="py-20 px-12 motion-section">
-        <div class="max-w-[1400px] mx-auto">
-          <span class="font-label text-white/50 text-sm uppercase tracking-[0.3em] mb-4 block">Pipeline</span>
-          <h2 class="font-headline text-4xl font-bold mb-12">Process breakdown</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">${processHtml}</div>
-        </div>
-      </section>
+      ${processSection}
 
       <section class="py-20 px-12 border-t border-white/5 motion-section">
         <div class="max-w-[1400px] mx-auto">
           <span class="font-label text-white/50 text-sm uppercase tracking-[0.3em] mb-4 block">Gallery</span>
           <h2 class="font-headline text-4xl font-bold mb-4">Additional frames</h2>
           <p class="font-label text-xs uppercase tracking-[0.2em] text-white/40 mb-12">Click any image to open the lightbox</p>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">${galleryHtml}</div>
+          <div class="${galleryGridClass(project)}">${galleryHtml}</div>
         </div>
       </section>
 

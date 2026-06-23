@@ -1,0 +1,54 @@
+{
+  "slug": "mechanical-spider",
+  "title": "VEX-8",
+  "category": "asset",
+  "year": "2026",
+  "role": "3D Artist",
+  "duration": "3 weeks",
+  "polycount": "45k tris",
+  "tools": [
+    "Blender",
+    "Substance Painter",
+    "Photoshop"
+  ],
+  "summary": "Hard-surface mechanical spider asset — articulated leg rigging, industrial panel breakup, and weathered metal detailing built for a sci-fi creature portfolio piece.",
+  "problem": "Design a believable eight-legged mech with readable joint hierarchy, balanced silhouette, and material contrast across worn steel, cables, and mechanical internals.",
+  "approach": "Blocked leg proportions and body massing in Blender, refined hard-surface panels and joint mechanics, then textured metal wear, edge grime, and accent lights in Substance before final beauty lighting.",
+  "outcome": "Hero beauty render, process frames, and supporting angles packaged for asset design portfolio and client pitch use.",
+  "thumb": "assets/projects/mechanical-spider/beauty.webp",
+  "hero": "assets/projects/mechanical-spider/beauty.webp",
+  "beauty": "assets/projects/mechanical-spider/beauty.webp",
+  "gallery": [
+    "assets/projects/mechanical-spider/1.webp",
+    "assets/projects/mechanical-spider/2.webp",
+    "assets/projects/mechanical-spider/3.webp",
+    "assets/projects/mechanical-spider/4.webp",
+    "assets/projects/mechanical-spider/5.webp",
+    "assets/projects/mechanical-spider/6.webp",
+    "assets/projects/mechanical-spider/7.webp"
+  ],
+  "process": [
+    {
+      "step": "01 / Reference",
+      "caption": "Reference board for mech spider silhouette, joint hierarchy, and hard-surface panel language.",
+      "image": "assets/projects/mechanical-spider/process-01.webp"
+    },
+    {
+      "step": "02 / Blockout",
+      "caption": "Leg proportions, body massing, and panel breakup blocked in 3D.",
+      "image": "assets/projects/mechanical-spider/process-02.webp"
+    },
+    {
+      "step": "03 / Final",
+      "caption": "Beauty render for portfolio delivery.",
+      "image": "assets/projects/mechanical-spider/beauty.webp"
+    }
+  ],
+  "modelGlb": null,
+  "gridClass": "md:col-span-4",
+  "aspect": "aspect-square",
+  "compareBefore": "assets/projects/mechanical-spider/process-02.webp",
+  "compareAfter": "assets/projects/mechanical-spider/beauty.webp",
+  "compareBeforeLabel": "Blockout",
+  "compareAfterLabel": "Final"
+}

@@ -37,7 +37,7 @@
       "image": "assets/projects/hibiki/process-03.webp"
     }
   ],
-  "modelGlb": "assets/projects/hibiki/model.glb",
+  "modelGlb": null,
   "gridClass": "md:col-span-8",
   "aspect": "aspect-video",
   "compareBefore": "assets/projects/hibiki/process-02.webp",

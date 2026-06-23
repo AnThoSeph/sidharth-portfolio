@@ -20,7 +20,9 @@
   "hero": "assets/projects/bragus/beauty.webp",
   "beauty": "assets/projects/bragus/beauty.webp",
   "cardImage": "assets/projects/bragus/card.webp",
+  "galleryLayout": "featured-left",
   "gallery": [
+    "assets/projects/bragus/2.webp",
     "assets/projects/bragus/3.webp",
     "assets/projects/bragus/4.webp",
     "assets/projects/bragus/5.webp",

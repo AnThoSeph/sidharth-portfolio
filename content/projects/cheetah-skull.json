@@ -7,18 +7,19 @@
   "duration": "2 weeks",
   "polycount": "12k tris",
   "tools": [
-    "Blender",
+    "ZBrush",
     "Substance Painter",
-    "Photoshop"
+    "Maya"
   ],
   "summary": "Photoreal cheetah skull asset study, bone surface detail, warm studio lighting, and material breakup for portfolio lookdev.",
   "problem": "Deliver an anatomically convincing skull asset with readable bone wear and tooth detail under controlled studio lighting.",
-  "approach": "Modeled from reference in Blender, sculpted micro surface variation, then textured bone, enamel, and cavity grime in Substance before final comp.",
+  "approach": "Sculpted anatomy and micro surface variation in ZBrush, textured bone, enamel, and cavity grime in Substance Painter, then lit and rendered in Blender for final comp.",
   "outcome": "Hero stills and supporting angles packaged for asset design portfolio and client pitch use.",
   "thumb": "assets/projects/Cheetah-skull/beauty.webp",
   "hero": "assets/projects/Cheetah-skull/beauty.webp",
   "beauty": "assets/projects/Cheetah-skull/beauty.webp",
   "gallery": [
+    "assets/projects/Cheetah-skull/2.webp",
     "assets/projects/Cheetah-skull/3.webp",
     "assets/projects/Cheetah-skull/4.webp",
     "assets/projects/Cheetah-skull/5.webp",
@@ -27,13 +28,13 @@
   ],
   "process": [
     {
-      "step": "01 / Blockout",
-      "caption": "Anatomy blockout and proportion checks against reference.",
+      "step": "01 / Reference",
+      "caption": "Reference board for anatomy, bone surface detail, and skull proportions.",
       "image": "assets/projects/Cheetah-skull/process-01.webp"
     },
     {
-      "step": "02 / Lookdev",
-      "caption": "Surface detail, bone shaders, and lighting tests.",
+      "step": "02 / Blockout",
+      "caption": "Anatomy sculpted in ZBrush with proportion checks against reference.",
       "image": "assets/projects/Cheetah-skull/process-02.webp"
     },
     {
@@ -47,6 +48,6 @@
   "aspect": "aspect-square",
   "compareBefore": "assets/projects/Cheetah-skull/process-02.webp",
   "compareAfter": "assets/projects/Cheetah-skull/beauty.webp",
-  "compareBeforeLabel": "Lookdev",
+  "compareBeforeLabel": "Blockout",
   "compareAfterLabel": "Final"
 }
