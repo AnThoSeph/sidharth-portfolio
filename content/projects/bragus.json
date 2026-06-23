@@ -19,6 +19,7 @@
   "thumb": "assets/projects/bragus/beauty.webp",
   "hero": "assets/projects/bragus/beauty.webp",
   "beauty": "assets/projects/bragus/beauty.webp",
+  "cardImage": "assets/projects/bragus/card.webp",
   "gallery": [
     "assets/projects/bragus/3.webp",
     "assets/projects/bragus/4.webp",
@@ -46,7 +47,7 @@
   ],
   "modelGlb": null,
   "gridClass": "md:col-span-8",
-  "aspect": "aspect-video",
+  "aspect": "aspect-[3/4]",
   "compareBefore": "assets/projects/bragus/process-02.webp",
   "compareAfter": "assets/projects/bragus/beauty.webp",
   "compareBeforeLabel": "Sculpt",

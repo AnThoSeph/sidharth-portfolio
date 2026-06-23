@@ -16,6 +16,7 @@ const filterSlug = process.argv[2] || null;
 function encodeSettingsForFile(filePath) {
   const base = path.basename(filePath, path.extname(filePath)).toLowerCase();
 
+  if (base === "card") return { maxWidth: 3840, quality: 92 };
   if (base === "thumb") return { maxWidth: 2560, quality: 90 };
   if (base === "beauty" || base === "hero" || base === "wireframe") {
     return { maxWidth: 3840, quality: 92 };

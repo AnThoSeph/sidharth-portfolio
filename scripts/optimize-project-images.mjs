@@ -21,6 +21,7 @@ function encodeSettingsForFile(filePath) {
   const inPhotography = filePath.includes(`${path.sep}photography${path.sep}`);
 
   if (inPhotography) return { maxWidth: 1920, quality: 82 };
+  if (base === "card") return { maxWidth: 3840, quality: 92 };
   if (base === "thumb") return { maxWidth: 2560, quality: 90 };
   if (base === "beauty" || base === "hero" || base === "wireframe") {
     return { maxWidth: 3840, quality: 92 };
