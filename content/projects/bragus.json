@@ -1,0 +1,54 @@
+{
+  "slug": "bragus",
+  "title": "BRAGUS",
+  "category": "character",
+  "year": "2026",
+  "role": "Character Artist",
+  "duration": "4 weeks",
+  "polycount": "24k tris",
+  "tools": [
+    "Blender",
+    "ZBrush",
+    "Substance Painter",
+    "Photoshop"
+  ],
+  "summary": "Once a revered guardian of the Celestial Realm, Bragus defied corrupt divine masters and was cast into the Demon World. He rose through endless battle to become King of Hell, then returned to exact justice before ruling the underworld forever.",
+  "problem": "Capture a full character arc in one figure: honored celestial guardian, branded exile, and eternal infernal king. The design had to read betrayal, the cursed seal on his back, and authority earned in hell rather than heaven.",
+  "approach": "Built from guardian proportions and regal silhouette, then pushed demonic horns, hell-forged plate, and the cursed seal as narrative anchors. Sculpted in ZBrush, refined armor and cloth in Blender, and finished with weathered metals and emissive hell-light in Substance Painter.",
+  "outcome": "Final beauty renders and process frames that sell Bragus as both fallen angel and undisputed ruler of the underworld, ready for portfolio and character reels.",
+  "thumb": "assets/projects/bragus/beauty.webp",
+  "hero": "assets/projects/bragus/beauty.webp",
+  "beauty": "assets/projects/bragus/beauty.webp",
+  "gallery": [
+    "assets/projects/bragus/3.webp",
+    "assets/projects/bragus/4.webp",
+    "assets/projects/bragus/5.webp",
+    "assets/projects/bragus/6.webp",
+    "assets/projects/bragus/7.webp",
+    "assets/projects/bragus/8.webp"
+  ],
+  "process": [
+    {
+      "step": "01 / Concept",
+      "caption": "Guardian silhouette, horn crown, and cursed seal placement for the fallen king narrative.",
+      "image": "assets/projects/bragus/process-01.webp"
+    },
+    {
+      "step": "02 / Sculpt",
+      "caption": "Primary sculpt pass, armor planes, and demonic anatomy before lookdev.",
+      "image": "assets/projects/bragus/process-02.webp"
+    },
+    {
+      "step": "03 / Final",
+      "caption": "Beauty lighting and material polish for portfolio delivery.",
+      "image": "assets/projects/bragus/beauty.webp"
+    }
+  ],
+  "modelGlb": null,
+  "gridClass": "md:col-span-8",
+  "aspect": "aspect-[3/4]",
+  "compareBefore": "assets/projects/bragus/process-02.webp",
+  "compareAfter": "assets/projects/bragus/beauty.webp",
+  "compareBeforeLabel": "Sculpt",
+  "compareAfterLabel": "Final"
+}
