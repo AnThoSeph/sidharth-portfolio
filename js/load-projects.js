@@ -36,6 +36,10 @@
     return { ...raw };
   }
 
+  function isVisibleProject(project) {
+    return project && !project.hidden;
+  }
+
   async function loadProjects() {
     const orderRes = await fetch("/content/project-order.json");
     if (!orderRes.ok) throw new Error("Could not load project-order.json");
@@ -50,28 +54,12 @@
       })
     );
 
-    window.PROJECTS_DATA = loaded.filter(Boolean);
+    window.PROJECTS_DATA = loaded.filter(isVisibleProject);
     return window.PROJECTS_DATA;
   }
 
   async function loadPhotography() {
-    const orderRes = await fetch("/content/photo-order.json");
-    if (!orderRes.ok) {
-      window.PHOTOGRAPHY_DATA = [];
-      return window.PHOTOGRAPHY_DATA;
-    }
-    const order = await orderRes.json();
-    const slugs = order.slugs || [];
-
-    const loaded = await Promise.all(
-      slugs.map(async (slug) => {
-        const res = await fetch(`/content/photography/${slug}.json`);
-        if (!res.ok) return null;
-        return normalizePhoto(await res.json());
-      })
-    );
-
-    window.PHOTOGRAPHY_DATA = loaded.filter(Boolean);
+    window.PHOTOGRAPHY_DATA = [];
     return window.PHOTOGRAPHY_DATA;
   }
 
@@ -83,7 +71,9 @@
 
     const res = await fetch(`/content/projects/${slug}.json`);
     if (!res.ok) return null;
-    return normalizeProject(await res.json());
+    const project = normalizeProject(await res.json());
+    if (!isVisibleProject(project)) return null;
+    return project;
   };
 
   async function loadSiteSettings() {

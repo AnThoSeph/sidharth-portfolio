@@ -21,6 +21,26 @@
   status = 200
 
 [[redirects]]
+  from = "/photography"
+  to = "/projects.html"
+  status = 301
+
+[[redirects]]
+  from = "/photography.html"
+  to = "/projects.html"
+  status = 301
+
+[[redirects]]
+  from = "/lab"
+  to = "/projects.html"
+  status = 301
+
+[[redirects]]
+  from = "/lab.html"
+  to = "/projects.html"
+  status = 301
+
+[[redirects]]
   from = "/studio"
   to = "/about.html"
   status = 301

@@ -93,6 +93,13 @@
     if (project.galleryLayout === "featured-left") {
       return `${base} gallery-grid--featured-left`;
     }
+    if (project.galleryLayout === "grid-2") {
+      const wide = (project.gallery || []).length >= 4;
+      return `${base} gallery-grid--grid-2${wide ? " gallery-grid--grid-2-wide" : ""}`;
+    }
+    if (project.galleryLayout === "grid-3") {
+      return `${base} gallery-grid--grid-3`;
+    }
     return base;
   }
 

@@ -1,0 +1,51 @@
+{
+  "slug": "serum",
+  "title": "PHYSALIS",
+  "category": "product",
+  "year": "2026",
+  "role": "3D Artist",
+  "duration": "3 weeks",
+  "polycount": "10k tris",
+  "tools": [
+    "Blender",
+    "Substance Painter",
+    "Photoshop"
+  ],
+  "summary": "Physalis cosmetic serum product visualization — dropper bottle, clean label read, and soft studio lighting for an all-skin-types skincare launch.",
+  "problem": "Deliver a hero packshot that feels clinical yet premium: readable serum liquid, crisp typography, and trustworthy skincare branding without a physical bottle on set.",
+  "approach": "Matched bottle and dropper proportions from reference, built glass and liquid shaders in Blender, textured label and cap details in Substance Painter, then lit with soft key and gentle rim for a clean beauty pass.",
+  "outcome": "Final beauty render and supporting angles packaged for product visualization portfolio and client pitch use.",
+  "thumb": "assets/projects/serum/beauty.webp",
+  "hero": "assets/projects/serum/beauty.webp",
+  "beauty": "assets/projects/serum/beauty.webp",
+  "galleryLayout": "grid-3",
+  "gallery": [
+    "assets/projects/serum/2.webp",
+    "assets/projects/serum/1.webp",
+    "assets/projects/serum/3.webp"
+  ],
+  "process": [
+    {
+      "step": "01 / Reference",
+      "caption": "Reference board for dropper bottle silhouette, label layout, and skincare campaign mood.",
+      "image": "assets/projects/serum/process-01.webp"
+    },
+    {
+      "step": "02 / Blockout",
+      "caption": "Bottle proportions, dropper assembly, and label placement blocked in 3D.",
+      "image": "assets/projects/serum/process-02.webp"
+    },
+    {
+      "step": "03 / Final",
+      "caption": "Beauty render for portfolio delivery.",
+      "image": "assets/projects/serum/beauty.webp"
+    }
+  ],
+  "modelGlb": null,
+  "gridClass": "md:col-span-8",
+  "aspect": "aspect-video",
+  "compareBefore": "assets/projects/serum/process-02.webp",
+  "compareAfter": "assets/projects/serum/beauty.webp",
+  "compareBeforeLabel": "Blockout",
+  "compareAfterLabel": "Final"
+}

@@ -1,0 +1,50 @@
+{
+  "slug": "guyu",
+  "title": "GUYU",
+  "category": "product",
+  "year": "2026",
+  "role": "3D Artist",
+  "duration": "3 weeks",
+  "polycount": "12k tris",
+  "tools": [
+    "Blender",
+    "Substance Painter",
+    "Photoshop"
+  ],
+  "summary": "Luxury perfume product visualization — glass bottle, label fidelity, and soft studio lighting built for a premium fragrance campaign.",
+  "problem": "Deliver a hero bottle render that reads high-end fragrance: believable glass, crisp label graphics, and elegant silhouette without a physical product on set.",
+  "approach": "Matched bottle proportions and label layout from reference, built layered glass and cap materials in Blender, textured label and metal accents in Substance Painter, then lit with soft key and rim for a clean beauty pass.",
+  "outcome": "Final beauty render and supporting angles packaged for product visualization portfolio and client pitch use.",
+  "thumb": "assets/projects/Guyu/beauty.webp",
+  "hero": "assets/projects/Guyu/beauty.webp",
+  "beauty": "assets/projects/Guyu/beauty.webp",
+  "galleryLayout": "grid-2",
+  "gallery": [
+    "assets/projects/Guyu/1.webp",
+    "assets/projects/Guyu/2.webp"
+  ],
+  "process": [
+    {
+      "step": "01 / Reference",
+      "caption": "Reference board for bottle silhouette, label design, and fragrance campaign mood.",
+      "image": "assets/projects/Guyu/process-01.webp"
+    },
+    {
+      "step": "02 / Blockout",
+      "caption": "Bottle proportions, cap placement, and label layout blocked in 3D.",
+      "image": "assets/projects/Guyu/process-02.webp"
+    },
+    {
+      "step": "03 / Final",
+      "caption": "Beauty render for portfolio delivery.",
+      "image": "assets/projects/Guyu/beauty.webp"
+    }
+  ],
+  "modelGlb": null,
+  "gridClass": "md:col-span-8",
+  "aspect": "aspect-video",
+  "compareBefore": "assets/projects/Guyu/process-02.webp",
+  "compareAfter": "assets/projects/Guyu/beauty.webp",
+  "compareBeforeLabel": "Blockout",
+  "compareAfterLabel": "Final"
+}

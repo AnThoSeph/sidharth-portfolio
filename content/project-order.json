@@ -4,7 +4,11 @@
     "axe",
     "gargantor",
     "cheetah-skull",
-    "hibiki",
+    "nolani",
+    "zara",
+    "serum",
+    "guyu",
     "mechanical-spider"
-  ]
+  ],
+  "hiddenSlugs": ["hibiki"]
 }

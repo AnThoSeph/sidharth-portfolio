@@ -18,14 +18,12 @@
   "thumb": "assets/projects/mechanical-spider/beauty.webp",
   "hero": "assets/projects/mechanical-spider/beauty.webp",
   "beauty": "assets/projects/mechanical-spider/beauty.webp",
+  "galleryLayout": "grid-2",
   "gallery": [
     "assets/projects/mechanical-spider/1.webp",
     "assets/projects/mechanical-spider/2.webp",
     "assets/projects/mechanical-spider/3.webp",
-    "assets/projects/mechanical-spider/4.webp",
-    "assets/projects/mechanical-spider/5.webp",
-    "assets/projects/mechanical-spider/6.webp",
-    "assets/projects/mechanical-spider/7.webp"
+    "assets/projects/mechanical-spider/4.webp"
   ],
   "process": [
     {

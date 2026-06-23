@@ -1,0 +1,50 @@
+{
+  "slug": "zara",
+  "title": "ZARA",
+  "category": "product",
+  "year": "2026",
+  "role": "3D Artist",
+  "duration": "3 weeks",
+  "polycount": "8k tris",
+  "tools": [
+    "Blender",
+    "Substance Painter",
+    "Photoshop"
+  ],
+  "summary": "Zara liquid lipstick product visualization — frosted tube, vertical logo lockup, and botanical aloe styling for a clean beauty campaign.",
+  "problem": "Deliver a hero packshot that reads fashion-beauty retail: believable frosted glass, crisp Zara wordmark, and lush aloe set dressing without a physical product on set.",
+  "approach": "Matched tube proportions and logo placement from reference, built frosted glass and cap materials in Blender, styled aloe leaves for the botanical backdrop, then lit with soft key and gentle rim for portrait and landscape beauty passes.",
+  "outcome": "Final beauty render and supporting angles packaged for product visualization portfolio and client pitch use.",
+  "thumb": "assets/projects/zara/beauty.webp",
+  "hero": "assets/projects/zara/beauty.webp",
+  "beauty": "assets/projects/zara/beauty.webp",
+  "galleryLayout": "grid-2",
+  "gallery": [
+    "assets/projects/zara/1.webp",
+    "assets/projects/zara/2.webp"
+  ],
+  "process": [
+    {
+      "step": "01 / Reference",
+      "caption": "Reference board for liquid lipstick packaging, logo treatment, and botanical beauty mood.",
+      "image": "assets/projects/zara/process-01.webp"
+    },
+    {
+      "step": "02 / Blockout",
+      "caption": "Tube proportions, cap assembly, and aloe backdrop layout blocked in 3D.",
+      "image": "assets/projects/zara/process-02.webp"
+    },
+    {
+      "step": "03 / Final",
+      "caption": "Beauty render for portfolio delivery.",
+      "image": "assets/projects/zara/beauty.webp"
+    }
+  ],
+  "modelGlb": null,
+  "gridClass": "md:col-span-8",
+  "aspect": "aspect-video",
+  "compareBefore": "assets/projects/zara/process-02.webp",
+  "compareAfter": "assets/projects/zara/beauty.webp",
+  "compareBeforeLabel": "Blockout",
+  "compareAfterLabel": "Final"
+}

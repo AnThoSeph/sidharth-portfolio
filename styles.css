@@ -988,6 +988,49 @@ body.lightbox-open {
   }
 }
 
+/* Two frames side by side (e.g. GUYU product pair) */
+.gallery-grid--grid-2 {
+  column-count: unset;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.gallery-grid--grid-2 .gallery-item--natural {
+  break-inside: auto;
+  margin-bottom: 0;
+  display: block;
+  width: 100%;
+}
+
+@media (min-width: 1200px) {
+  .gallery-grid--grid-2.gallery-grid--grid-2-wide {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.gallery-grid--grid-3 {
+  column-count: unset;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.gallery-grid--grid-3 .gallery-item--natural {
+  break-inside: auto;
+  margin-bottom: 0;
+  display: block;
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .gallery-grid--grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 .process-step .aspect-video {
   position: relative;
 }
