@@ -171,7 +171,14 @@
     if (pageKey === "projects" && window.PROJECTS_DATA?.length) {
       const placeholder =
         window.PROJECT_PLACEHOLDER || "assets/projects/_shared/placeholder.svg";
-      const items = window.PROJECTS_DATA.slice(0, 3).map((project) => ({
+      const featuredSlugs = (window.SITE_SETTINGS && window.SITE_SETTINGS.featuredSlugs) || [];
+      const previewProjects = featuredSlugs.length
+        ? featuredSlugs
+            .map((slug) => window.PROJECTS_DATA.find((p) => p.slug === slug))
+            .filter(Boolean)
+            .slice(0, 3)
+        : window.PROJECTS_DATA.slice(0, 3);
+      const items = previewProjects.map((project) => ({
         title: project.title.toUpperCase(),
         image: project.cardImage || project.thumb || project.hero || placeholder,
         href: `project.html?slug=${encodeURIComponent(project.slug)}`,

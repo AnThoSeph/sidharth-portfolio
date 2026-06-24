@@ -46,9 +46,9 @@ const MENU_PREVIEWS = {
         href: "project.html?slug=axe",
       },
       {
-        title: "GARGANTOR",
-        image: "assets/projects/gargantor/beauty.webp",
-        href: "project.html?slug=gargantor",
+        title: "NOLANI",
+        image: "assets/projects/nolani/beauty.webp",
+        href: "project.html?slug=nolani",
       },
     ],
   },
