@@ -15,7 +15,8 @@
   --theme-border-mid: rgba(255, 255, 255, 0.1);
   --theme-border-strong: rgba(255, 255, 255, 0.2);
   --theme-dot: #222222;
-  --theme-dot-highlight: #ffffff;
+  --theme-dot-highlight: rgba(255, 255, 255, 0.42);
+  --cursor-glow-radius: 95px;
   --theme-cursor: #ffffff;
   --theme-selection-bg: #ffffff;
   --theme-selection-text: #000000;
@@ -49,7 +50,8 @@
   --theme-border-mid: rgba(0, 0, 0, 0.12);
   --theme-border-strong: rgba(0, 0, 0, 0.22);
   --theme-dot: #c9c5be;
-  --theme-dot-highlight: #1a1a1a;
+  --theme-dot-highlight: rgba(26, 26, 26, 0.38);
+  --cursor-glow-radius: 95px;
   --theme-cursor: #0c0c0c;
   --theme-selection-bg: #0c0c0c;
   --theme-selection-text: #f2f0eb;
@@ -138,9 +140,10 @@ a, button, [role="button"] { cursor: none; }
   mix-blend-mode: difference;
   pointer-events: none;
   z-index: 9999;
-  transform: translate(-50%, -50%);
+  transform: translate3d(-100px, -100px, 0) translate(-50%, -50%);
   opacity: 0;
-  transition: transform 120ms ease, opacity 160ms ease, width 180ms ease, height 180ms ease;
+  transition: opacity 160ms ease, width 180ms ease, height 180ms ease;
+  will-change: transform;
 }
 
 #custom-cursor.is-active { width: 18px; height: 18px; }
@@ -154,11 +157,11 @@ a, button, [role="button"] { cursor: none; }
 .interactive-mask {
   background-image: radial-gradient(circle, var(--theme-dot-highlight) 1.5px, transparent 1.5px);
   background-size: 16px 16px;
-  mask-image: radial-gradient(circle 150px at var(--mouse-x, 0%) var(--mouse-y, 0%), black 0%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle 150px at var(--mouse-x, 0%) var(--mouse-y, 0%), black 0%, transparent 100%);
+  opacity: 0.85;
+  mask-image: radial-gradient(circle var(--cursor-glow-radius, 95px) at var(--mouse-x, 0%) var(--mouse-y, 0%), black 0%, rgba(0, 0, 0, 0.35) 55%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle var(--cursor-glow-radius, 95px) at var(--mouse-x, 0%) var(--mouse-y, 0%), black 0%, rgba(0, 0, 0, 0.35) 55%, transparent 100%);
   pointer-events: none;
   z-index: 1;
-  transition: mask-image 0.1s ease-out, -webkit-mask-image 0.1s ease-out;
 }
 .glossy-patterns {
   background-image:

@@ -164,6 +164,24 @@
       </a>`;
   }
 
+  function resolveMenuPreview(pageKey) {
+    const base = MENU_PREVIEWS[pageKey];
+    if (!base) return null;
+
+    if (pageKey === "projects" && window.PROJECTS_DATA?.length) {
+      const placeholder =
+        window.PROJECT_PLACEHOLDER || "assets/projects/_shared/placeholder.svg";
+      const items = window.PROJECTS_DATA.slice(0, 3).map((project) => ({
+        title: project.title.toUpperCase(),
+        image: project.cardImage || project.thumb || project.hero || placeholder,
+        href: `project.html?slug=${encodeURIComponent(project.slug)}`,
+      }));
+      return { ...base, items };
+    }
+
+    return base;
+  }
+
   function renderPreviewContent(p) {
     if (p.type === "grid") return renderGrid(p);
     if (p.type === "contact") return renderContact(p);
@@ -196,7 +214,7 @@
   function showPreview(pageKey, instant) {
     if (!isDesktopMenuPreview()) return;
 
-    const p = MENU_PREVIEWS[pageKey];
+    const p = resolveMenuPreview(pageKey);
     const label = document.getElementById("menu-preview-label");
     const body = document.getElementById("menu-preview");
     if (!p || !label || !body) return;
@@ -234,6 +252,16 @@
 
     const nav = document.getElementById("menu-nav");
     if (!nav) return;
+
+    const refreshProjectsPreview = () => {
+      if (!isDesktopMenuPreview()) return;
+      const key = hoverPage || activePage;
+      if (key === "projects") showPreview(key, true);
+    };
+
+    if (window.loadPortfolioData) {
+      window.loadPortfolioData().then(refreshProjectsPreview).catch(() => {});
+    }
 
     if (isDesktopMenuPreview()) {
       showPreview(activePage, true);

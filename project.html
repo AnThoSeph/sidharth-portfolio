@@ -2,17 +2,8 @@
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
-  <meta name="color-scheme" content="dark light">
-  <script>
-    (function () {
-      try {
-        var t = localStorage.getItem("sid-theme");
-        document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
-      } catch (e) {
-        document.documentElement.setAttribute("data-theme", "dark");
-      }
-    })();
-  </script>
+  <meta name="color-scheme" content="dark">
+  <script>document.documentElement.setAttribute("data-theme", "dark");</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
@@ -40,9 +31,6 @@
       <div class="hidden lg:block"><div class="opacity-40 mb-1">Location</div><div>Kannur, Kerala, India <span id="live-clock">--:-- --</span></div></div>
       <div class="hidden lg:block"><div class="opacity-40 mb-1">Inquiry</div><a class="hover:opacity-60 transition-opacity" href="mailto:sidhu500sidhu@gmail.com">sidhu500sidhu@gmail.com</a></div>
       <div class="flex items-center gap-3">
-        <button type="button" id="theme-toggle" class="theme-toggle magnetic-button" aria-label="Switch to light mode" aria-pressed="true">
-          <span class="material-symbols-outlined theme-toggle-icon" aria-hidden="true">dark_mode</span>
-        </button>
         <button type="button" id="menu-open-btn" class="group flex items-center gap-2 hover:opacity-60 transition-opacity magnetic-button" aria-expanded="false" aria-controls="menu-overlay"><span>MENU</span><span class="material-symbols-outlined text-sm">menu</span></button>
       </div>
     </div>
@@ -79,7 +67,6 @@
   <script src="js/case-study.js" defer></script>
   <script src="js/menu-data.js" defer></script>
   <script src="js/menu.js" defer></script>
-  <script src="js/theme.js" defer></script>
   <script src="site.js" defer></script>
 </body>
 </html>

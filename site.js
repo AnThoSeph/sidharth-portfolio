@@ -38,7 +38,7 @@
     const cursor = document.getElementById("custom-cursor");
     if (!cursor) return;
 
-    const selector = "a, button, .menu-nav-link, .menu-feature-card, .menu-preview-grid-item, .project-card, .photo-card, .info-card, .theme-toggle";
+    const selector = "a, button, .menu-nav-link, .menu-feature-card, .menu-preview-grid-item, .project-card, .photo-card, .info-card";
     document.querySelectorAll(selector).forEach((node) => {
       if (node.dataset.cursorBound) return;
       node.dataset.cursorBound = "1";
@@ -48,18 +48,29 @@
 
     if (!document.body.dataset.cursorLeaveBound) {
       document.body.dataset.cursorLeaveBound = "1";
-      document.addEventListener("mouseleave", () => {
-        cursor.style.opacity = "0";
-      });
-      document.addEventListener("mousemove", (e) => {
-        cursor.style.opacity = "1";
-        cursor.style.left = `${e.clientX}px`;
-        cursor.style.top = `${e.clientY}px`;
-        const x = (e.clientX / window.innerWidth) * 100;
-        const y = (e.clientY / window.innerHeight) * 100;
-        document.documentElement.style.setProperty("--mouse-x", x + "%");
-        document.documentElement.style.setProperty("--mouse-y", y + "%");
-      });
+      document.addEventListener(
+        "mouseleave",
+        () => {
+          cursor.style.opacity = "0";
+        },
+        { passive: true }
+      );
+      document.addEventListener(
+        "mousemove",
+        (e) => {
+          cursor.style.opacity = "1";
+          cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
+          document.documentElement.style.setProperty(
+            "--mouse-x",
+            `${(e.clientX / window.innerWidth) * 100}%`
+          );
+          document.documentElement.style.setProperty(
+            "--mouse-y",
+            `${(e.clientY / window.innerHeight) * 100}%`
+          );
+        },
+        { passive: true }
+      );
     }
   }
 
